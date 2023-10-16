@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import React from "react"
+//import logo from './logo.svg';
 import './App.css';
+
+//!Importing components
+import Header from "./components/header/Header";
+import NavTabs from "./components/tabs/Tabs";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          Utkarsh Khandelwal
-        </h1>
-        <p>Coming Soon... </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Header/>
+        <NavTabs/>
+        <Footer/>
+      </div>
     </div>
   );
 }
