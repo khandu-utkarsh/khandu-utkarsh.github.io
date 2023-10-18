@@ -1,13 +1,16 @@
 import React from "react"
-
+import { AppBar, Toolbar, Typography } from '@mui/material';
 function Header() {
-        return (
+      return (
         <div>
-            <p>
-                This_is_header
-            </p>
+          <AppBar position="relative">
+            <Toolbar>
+              <Typography variant="h6"> Utkarsh Khandelwal </Typography>
+            </Toolbar>
+          </AppBar>
         </div>
-        );
+      );
+  
 }
 
 export default Header

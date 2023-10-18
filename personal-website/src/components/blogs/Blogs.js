@@ -1,12 +1,13 @@
+import { Typography, Container} from "@mui/material";
 import React from "react"
 
 function Blogs() {
         return (
-        <div>
-            <p>
-                BLOGS_TODO
-            </p>
-        </div>
+            <Container maxWidth="lg">
+            <Typography>
+            Developing a full-stack blogging framework and engine from scratch, with plans to make it open source and share it with others.
+            </Typography>
+        </Container>
         );
 }
 

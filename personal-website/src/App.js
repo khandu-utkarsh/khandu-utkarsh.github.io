@@ -1,6 +1,6 @@
 import React from "react"
-//import logo from './logo.svg';
-import './App.css';
+import CssBaseline from '@mui/material/CssBaseline';
+import {Container, Box } from '@mui/material';
 
 //!Importing components
 import Header from "./components/header/Header";
@@ -9,13 +9,12 @@ import Footer from "./components/footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <Header/>
-        <NavTabs/>
-        <Footer/>
-      </div>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Header/>
+      <NavTabs/>
+      <Footer/>
+    </React.Fragment>
   );
 }
 
