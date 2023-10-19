@@ -1,16 +1,6 @@
 import React from 'react';
-import { Container, Grid, Typography, Link, Box } from '@mui/material';
-import { Email, LinkedIn, Twitter, GitHub } from '@mui/icons-material';
-
-// const footerStyle = {
-//   position: 'fixed',
-//   bottom: 0,
-//   width: '100%',
-//   backgroundColor: 'primary',
-//   color: 'primary.contrastText',
-//   padding: '1rem',
-//   textAlign: 'center',
-// };
+import { Typography, Link, Container, Grid } from '@mui/material';
+import { LinkedIn, Twitter, GitHub } from '@mui/icons-material';
 
 const footerStyle = {
   position: 'fixed',
@@ -27,16 +17,15 @@ const footerStyle = {
 function Footer() {
   return (
 
-<Container component="footer" maxWidth="lg" style={footerStyle}>
+    <Container component="footer" maxWidth="lg" style={footerStyle}>
 
 
 <Grid container spacing={1} alignItems="center">
 
 {/* Contact Info (First Line) */}
 <Grid item container xs={12} justifyContent="center" alignItems="center" spacing={2}>
-  <Grid item> <Email fontSize="small" /> </Grid>
   <Grid item> <Link href="mailto:uk2051@nyu.edu" color="inherit"> uk2051@nyu.edu </Link> </Grid>
-  <Grid item> <Link href="www.linkedin.com/in/utkarshkhandelwal52" color="inherit" underline="none"> <LinkedIn fontSize="small" /> </Link> </Grid>
+  <Grid item> <Link href="https://www.linkedin.com/in/utkarshkhandelwal52" color="inherit" underline="none"> <LinkedIn fontSize="small" /> </Link> </Grid>
   <Grid item> <Link href="https://twitter.com/utkarsh52" color="inherit" underline="none"> <Twitter fontSize="small" /> </Link> </Grid>
   <Grid item> <Link href="https://github.com/khandu-utkarsh" color="inherit" underline="none"> <GitHub fontSize="small" /> </Link> </Grid>
 </Grid>
@@ -53,3 +42,6 @@ function Footer() {
 }
 
 export default Footer;
+
+
+

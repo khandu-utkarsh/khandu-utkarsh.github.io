@@ -1,6 +1,5 @@
 import React from "react"
 import CssBaseline from '@mui/material/CssBaseline';
-import {Container, Box } from '@mui/material';
 
 //!Importing components
 import Header from "./components/header/Header";
