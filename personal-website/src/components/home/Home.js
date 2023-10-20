@@ -6,15 +6,21 @@ function Home() {
         <Container maxWidth="lg">
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                    <Typography>
-                    Hello, I'm Utkarsh Khandelwal. The purpose of this website is to write blogs, engage in tinkering, and showcase my work.
-                    </Typography>
+                <Typography align="left" component="h1">
+                    Hi I am Utkarsh Khandelwal.
+                </Typography>
+                <Typography align="left" paragraph={true}>
+                    I have a natural curiosity and a passion for hands-on experience in technological development. 
+                    My educational background is in Mechanical Engineering and Applied Mathematics. 
+                    Currently, I work at Dassault Systèmes, USA, contributing to the field of Computational Geometry.
+                </Typography>
+
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Typography>
+                <Typography align="left" paragraph={true}>
+                    This webpage serves as a platform to showcase, experiment with, and refine my ideas and developments in the world of technology.
+                </Typography>
 
-                    This is side two of the thing.
-                    </Typography>
                 </Grid>
       </Grid>
     </Container>
