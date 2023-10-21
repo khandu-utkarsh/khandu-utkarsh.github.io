@@ -6,28 +6,24 @@ import imageUrl from "./sample_image_code.jpg";
 
 const projects = [
   {
-    title: "CardTitle_1",
     image: imageUrl,
-    heading: "Head_lets_see",
-    content: "This is the contentIAmPassing3. losdfsdfv sdvfsdagv dsrfvsadfvsdea sdfvsadfvsaeddfg asdfvadsfv sadfasdvc sadfasdfcvas asdfcawsdfcasdf wsaedefasdfcasdf  awsedfcasdfc sadfcasdfc ",
+    heading: "Project 1",
+    content: "Have to write the content for this project. For now, assume that it was the project that I did in Computer Graphics class. We used a custom rasterizer to create an interactive desktop application, which takes keyboard and mouse strokes and do lots of different operations.",
   },
   {
-    title: "CardTitle_2",
     image: imageUrl,
-    heading: "Head_lets_see1",
-    content: "This is the contentIAmPassing3. losdfsdfv sdvfsdagv dsrfvsadfvsdea sdfvsadfvsaeddfg asdfvadsfv sadfasdvc sadfasdfcvas asdfcawsdfcasdf wsaedefasdfcasdf  awsedfcasdfc sadfcasdfc ",
+    heading: "Project 2",
+    content: "Have to write the content for this project. For now, assume that it was the project that I did in Computer Graphics class. We used a custom rasterizer to create an interactive desktop application, which takes keyboard and mouse strokes and do lots of different operations.",
   },
   {
-    title: "CardTitle_3",
     image: imageUrl,
-    heading: "Head_lets_see2",
-    content: "This is the contentIAmPassing3. losdfsdfv sdvfsdagv dsrfvsadfvsdea sdfvsadfvsaeddfg asdfvadsfv sadfasdvc sadfasdfcvas asdfcawsdfcasdf wsaedefasdfcasdf  awsedfcasdfc sadfcasdfc ",
+    heading: "Project 3",
+    content: "Have to write the content for this project. For now, assume that it was the project that I did in Computer Graphics class. We used a custom rasterizer to create an interactive desktop application, which takes keyboard and mouse strokes and do lots of different operations.",
   },
   {
-    title: "CardTitle_4",
     image: imageUrl,
-    heading: "Head_lets_see3",
-    content: "This is the contentIAmPassing3. losdfsdfv sdvfsdagv dsrfvsadfvsdea sdfvsadfvsaeddfg asdfvadsfv sadfasdvc sadfasdfcvas asdfcawsdfcasdf wsaedefasdfcasdf  awsedfcasdfc sadfcasdfc ",
+    heading: "Project 4",
+    content: "Have to write the content for this project. For now, assume that it was the project that I did in Computer Graphics class. We used a custom rasterizer to create an interactive desktop application, which takes keyboard and mouse strokes and do lots of different operations.",
   },
 ];
 
@@ -37,10 +33,9 @@ export default function ProjectGrid() {
       <Grid container spacing={2} component={"span"}>
         {projects.map((project, index) => (
 
-            <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} component={"span"}>
+            <Grid item xs={12} key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} component={"span"}>
                 <ProjectCard
-                title={project.title}
-                image={project.image}
+                image_path={project.image}
                 heading={project.heading}
                 content={project.content}
                 />
