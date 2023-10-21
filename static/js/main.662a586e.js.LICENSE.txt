@@ -56,7 +56,3 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-//!Hardcoding the image path to make it work. It is not working right now if image is passed as a property.
-
-//!Importing components
