@@ -9,18 +9,18 @@ export default function ProjectCard(props) {
     const {card_title, image_path, heading, content}  = props;      
     // Use the props in your component
     return (
-        <Card sx={{ maxWidth: 345, border: '2px solid #e0e0e0' }}>
+        <Card sx={{ maxWidth: 345, border: '2px solid #e0e0e0' }} component={"span"}>
         <CardMedia
             component="img"
             sx={{ height: "250px", paddingTop: "2%" }}
             title={card_title}
             image={imageUrl}
         />  
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+      <CardContent component={"span"}>
+        <Typography gutterBottom variant="h5" component={"span"}>
           {heading}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" component={"span"}>
           {content}
         </Typography>
       </CardContent>

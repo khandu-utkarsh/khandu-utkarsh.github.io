@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
 import Home from "../home/Home";
 import Blogs from "../blogs/Blogs";
@@ -6,12 +7,44 @@ import Projects from "../projects/Projects";
 import Resume from "../resume/Resume";
 
 
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import { Box, Tabs, Tab, Typography } from "@mui/material";
+
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <span
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+</span>
+  );
+}
+
+CustomTabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
 
 export default function NavTabs() {
-  const [tabIndex, setTabIndex] = React.useState(0);
+  const [value, setTabIndex] = React.useState(0);
 
   //Can't remove this event prop, otherwise navigation not possible
   const handleChange = (event, newTabIndex) => {
@@ -21,19 +54,31 @@ export default function NavTabs() {
   return (
     <div>
     <Box sx={{ width: '100%' }}>
-      <Tabs value={tabIndex} onChange={handleChange} aria-label="nav tabs example" centered={true}>
-        <Tab label="Home" />
-        <Tab label="Projects" />
-        <Tab label="Blogs" />
-        <Tab label="Resume" />
-      </Tabs>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered={true}>
+          <Tab label="Home" {...a11yProps(0)} />
+          <Tab label="Projects" {...a11yProps(1)} />
+          <Tab label="Blogs" {...a11yProps(2)} />
+          <Tab label="Resume" {...a11yProps(3)} />
+        </Tabs>
+      </Box>
+      <CustomTabPanel value={value} index={0}>
+        <Home />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        <Projects />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        <Blogs />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <Resume />
+      </CustomTabPanel>
     </Box>
-
-    {tabIndex === 1 ? <Projects /> : 
-     tabIndex === 2 ? <Blogs /> : 
-     tabIndex === 3 ? <Resume /> : <Home />}
 </div>
 
 
   );
 }
+
+

@@ -33,11 +33,11 @@ const projects = [
 
 export default function ProjectGrid() {
   return (
-    <Container maxWidth="lg">
-      <Grid container spacing={2}>
+    <Container maxWidth="lg" component={"span"}>
+      <Grid container spacing={2} component={"span"}>
         {projects.map((project, index) => (
 
-            <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} component={"span"}>
                 <ProjectCard
                 title={project.title}
                 image={project.image}
