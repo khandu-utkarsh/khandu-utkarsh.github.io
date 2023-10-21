@@ -5,14 +5,24 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Header from "./components/header/Header";
 import NavTabs from "./components/tabs/Tabs";
 import Footer from "./components/footer/Footer";
+import { Container } from "@mui/material";
+
+const footerContainer = {
+  position: 'relative',
+  minHeight: '100vh',
+  paddingBottom: '64px', // Adjust this value to match your footer height
+}
+
 
 function App() {
   return (
     <React.Fragment>
       <CssBaseline />
+      <Container style={footerContainer}>
       <Header/>
       <NavTabs/>
       <Footer/>
+      </Container>
     </React.Fragment>
   );
 }

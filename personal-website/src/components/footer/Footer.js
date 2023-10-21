@@ -2,8 +2,9 @@ import React from 'react';
 import { Typography, Link, Container, Grid } from '@mui/material';
 import { LinkedIn, Twitter, GitHub } from '@mui/icons-material';
 
+
 const footerStyle = {
-  position: 'fixed',
+  position: 'absolute',
   bottom: 0,
   left: 0,
   right: 0, // Center the footer horizontally
@@ -16,7 +17,7 @@ const footerStyle = {
 
 function Footer() {
   return (
-
+    // <Container style={footerContainer}>
     <Container component="footer" maxWidth="lg" style={footerStyle}>
 
 
@@ -35,13 +36,9 @@ function Footer() {
 
 </Grid>
 </Container>
-
-
+//</Container>
 
 );
 }
 
 export default Footer;
-
-
-
