@@ -10,19 +10,21 @@ import { Container } from "@mui/material";
 const footerContainer = {
   position: 'relative',
   minHeight: '100vh',
-  paddingBottom: '64px', // Adjust this value to match your footer height
+  paddingBottom: '5%', // Adjust this value to match your footer height
 }
-
 
 function App() {
   return (
     <React.Fragment>
-      <CssBaseline />
-      <Container style={footerContainer}>
-      <Header/>
-      <NavTabs/>
-      <Footer/>
-      </Container>
+
+       <CssBaseline />
+
+        <Container style={footerContainer}>
+        <Header/>
+        <NavTabs/>
+        <Footer/>
+        </Container>
+
     </React.Fragment>
   );
 }

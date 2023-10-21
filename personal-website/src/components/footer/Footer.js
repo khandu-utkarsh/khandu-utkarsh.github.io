@@ -17,7 +17,6 @@ const footerStyle = {
 
 function Footer() {
   return (
-    // <Container style={footerContainer}>
     <Container component="footer" maxWidth="lg" style={footerStyle}>
 
 
@@ -25,10 +24,13 @@ function Footer() {
 
 {/* Contact Info (First Line) */}
 <Grid item container xs={12} justifyContent="center" alignItems="center" spacing={2}>
-  <Grid item> <Link href="mailto:uk2051@nyu.edu" color="inherit"> uk2051@nyu.edu </Link> </Grid>
-  <Grid item> <Link href="https://www.linkedin.com/in/utkarshkhandelwal52" color="inherit" underline="none"> <LinkedIn fontSize="small" /> </Link> </Grid>
-  <Grid item> <Link href="https://twitter.com/utkarsh52" color="inherit" underline="none"> <Twitter fontSize="small" /> </Link> </Grid>
-  <Grid item> <Link href="https://github.com/khandu-utkarsh" color="inherit" underline="none"> <GitHub fontSize="small" /> </Link> </Grid>
+  <Grid item> <Link href="mailto:utkarshkhandelwal2011@gmail.com" color="inherit"> utkarshkhandelwal2011@gmail.com </Link> </Grid>
+
+  <Grid item> <Link href="https://www.linkedin.com/in/utkarshkhandelwal52" color="inherit" underline="none"><LinkedIn fontSize="small" /></Link> </Grid>
+  <Grid item> <Link href="https://twitter.com/utkarsh52" color="inherit" underline="none"><Twitter fontSize="small" /></Link></Grid>
+  <Grid item> <Link href="https://github.com/khandu-utkarsh" color="inherit" underline="none"><GitHub fontSize="small" /></Link></Grid>
+                            
+                            
 </Grid>
 
 {/* Made with Love (Second Line) */}
@@ -36,8 +38,6 @@ function Footer() {
 
 </Grid>
 </Container>
-//</Container>
-
 );
 }
 
