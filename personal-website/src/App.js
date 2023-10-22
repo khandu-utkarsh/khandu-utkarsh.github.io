@@ -19,7 +19,7 @@ function App() {
 
        <CssBaseline />
 
-        <Container style={footerContainer}>
+        <Container component={'span'} style={footerContainer}>
         <Header/>
         <NavTabs/>
         <Footer/>

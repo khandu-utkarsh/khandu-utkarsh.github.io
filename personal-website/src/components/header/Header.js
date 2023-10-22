@@ -8,7 +8,7 @@ function Header() {
                     <Box sx={{ flexGrow: 1 }}>
                       <AppBar position="static">
                         <Toolbar>
-                          <Typography variant="h6" style={{ flex: 1 }}>
+                          <Typography variant="h6" component={'span'} style={{ flex: 1 }}>
                             Utkarsh Khandelwal
                           </Typography>
 

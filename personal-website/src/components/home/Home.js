@@ -6,13 +6,22 @@ function Home() {
         <Container maxWidth="lg" component={"span"}>
             <Grid container spacing={2} component={"span"}>
                 <Grid item xs={12} sm={6} component={"span"}>
-                <Typography component={'span'} align="left">
-                    Hi I am Utkarsh Khandelwal.
+                <Typography variant="h5" component={'span'} align="left">
+                Utkarsh Khandelwal
                 </Typography>
+
                 <Typography component={'span'} align="left">
-                    I have a natural curiosity and a passion for hands-on experience in technological development. 
-                    My educational background is in Mechanical Engineering and Applied Mathematics. 
-                    Currently, I work at Dassault Systèmes, USA, contributing to the field of Computational Geometry.
+                <br /> is an {" "}
+                </Typography>
+                <Typography variant="h6" component={'span'} align="left">
+                engineer and  applied mathematician. <br/><br/>
+                </Typography>
+
+                <Typography component={'span'} align="left">
+                    I look forward to building comprehensive end-to-end software applications. <br/> <br/>
+                    I am currently working on Computational Geometry as a Software Engineer at Dassault Systèmes.
+                    I graduated with an MS in Scientific Computing from the Courant Institute of Mathematical Sciences at NYU and hold a bachelor's degree in Mechanical Engineering from IIT (BHU) Varanasi.<br/><br/>
+                    I am passionate about creating products and this website is my way of beginning to create software applications, showcase them to the world, and refine my skills.
                 </Typography>
                 </Grid>
 
