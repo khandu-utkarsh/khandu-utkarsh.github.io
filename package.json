@@ -1,0 +1,14 @@
+{
+  "name": "personal-webapp",
+  "version": "1.0.0",
+  "description": "The repository contains code for my personal webpage",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Utkarsh Khandelwal",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}
