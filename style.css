@@ -5,3 +5,39 @@
 :root {
   --bs-body-bg: var(--bs-gray-100);
 }
+
+/* .page-container {
+  position: relative;
+  min-height: 100vh; 
+} */
+
+/* .non-footer-content {
+  padding-bottom: 12rem; This should be same a height of the footer 
+} */
+
+/* .header {
+  width: 100%;
+  height: 12rem;
+  background-color: red;
+} */
+
+/* .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 12rem;
+
+  background-color: orangered;
+} */
+
+/* .summary-content {
+  background-color: yellow;
+}
+
+.header {
+  background-color: orangered;
+}
+
+.footer {
+  background-color: red;
+} */
