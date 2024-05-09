@@ -6,6 +6,15 @@
   --bs-body-bg: var(--bs-gray-100);
 }
 
+body {
+  font-family: 'Roboto Serif', serif; /* Set Roboto Serif as primary font */
+}
+
+/* Optional: Override headings font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Serif', serif;
+}
+
 /* .card {
   margin-top: 40px;
   margin-bottom: 40px;
