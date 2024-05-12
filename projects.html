@@ -39,74 +39,104 @@
         </nav>
     </header>
 
+      <div class="container pb-5 pt-4">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="assets/images/chordProtocol.png" class="card-img-top" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h4 class="card-title">Implementation of Distributed Key-Value Store for a P2P Network</h4>
+                        <ul>                        
+                        <li class="card-text">Implemented a scalable key-value store using the Chord Protocol for decentralized networks. The Chord Protocol simplifies key lookup, node joining, and leaving processes, ensuring consistent behavior.</l>
+                        <li class="card-text">Developed and deployed a distributed key-value store application in Go language, leveraging gRPC for seamless inter-node communication.</u>
+                        <li class="card-text">Conducted performance evaluations, demonstrating O(log N) scalability in fetch time as the key count increased from 100k to 1.6M on a network comprising 100 nodes.</>
+                      </ul>
+                          <!-- <a href="#" class="btn btn-outline-dark">Read more</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="container-sm pb-5  ps-5 pe-5">
+    <div class="container pb-5 pt-4">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="assets/images/raftAlgo.png" class="card-img-top" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                      <h4 class="card-title">Raft Consensus Algorithm Implementation</h4>
+                      <ul>                      
+                      <li class="card-text">Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.</>
+                      <li class="card-text">Implemented log replication and leader election in Elixir to handle node failures, rigorously testing the implementation through simulated failures.</>                      
+                      </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
       <div class="container pb-5 pt-4">
         <div class="card">
-          <div class="row">
-            <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="assets/images/parallelGraphs.png" class="card-img-top" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h4 class="card-title">Parallelized Graph Algorithm Optimization for Shared Memory Architectures</h4>
+                        <ul class = "card-text">
+                          <li >Implemented a framework for parallelizing graph algorithms on shared memory machines using OpenMP and C++.</>
+                          <li >Optimized shared memory access and modification using reduction techniques and compare-and-swap operations instead of OpenMP critical directives.</>
+                          <li >Achieved significant speedups, including 8x for Bellman-Ford, 3x for BFS, and 7x for Connected Components algorithms on graphs with 1M nodes and 15M edges.</p>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9"> <!-- Content column, occupies remaining space -->
-              <div class="card-body">
-                <h4 class="card-title">Modelling and Analysis of Equity Market</h4>
-                <p class="card-text">Prepared and analyzed TAQ trades and quotes data (Jun07 - Sep07) for modeling a market impact model in Python.</p>
-                <p class="card-text">Estimated predictive parameters and conducted statistical hypothesis tests to validate model performance.</p>      
-                <a href="#" class="btn btn-outline-dark">Read more</a>
-              </div>
+        </div>
+    </div>
+
+    <div class="container pb-5 pt-4">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
+          <img src="assets/images/stockMarket.png" class="card-img-top" alt="...">
+          </div>
+          <div class="col-md-9"> <!-- Content column, occupies remaining space -->
+            <div class="card-body">
+              <h4 class="card-title">Equity Market Modeling and Analysis</h4>
+              <ul>
+              <li class="card-text">Utilized raw data from NYSE-listed stocks (June 20, 2007, to September 20, 2007) to prepare for modeling, adjusting for splits, and cleaning data using the Brownlees and Gallo (2006) procedure.</u>
+              <li class="card-text">Optimized cleaning parameters through experimentation, refining data quality.</li>
+              <li class="card-text">Performed statistical hypothesis testing to validate data integrity before modeling.</li>
+              <li class="card-text">Built and implemented an impact model inspired by Almgren et al.’s Direct Estimation of Equity Market Impact, utilizing non-linear regression to model parameters.</li>
+              <li class="card-text">Conducted extensive hypothesis testing to ensure the accuracy and validity of tuned parameters.</li>
+            </ul>
             </div>
           </div>
         </div>        
       </div>
+    </div>
+
 
       <div class="container pb-5 pt-4">
         <div class="card">
           <div class="row">
             <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
-            </div>
-            <div class="col-md-9"> <!-- Content column, occupies remaining space -->
-              <div class="card-body">
-                <h4 class="card-title">Implementation of Distributed Hash Table using Chord Protocol</h4>
-                <p class="card-text">Implemented the Chord Protocol, a peer-to-peer distributed hash table, in Go and tested on network of 100 nodes.</p>
-                <p class="card-text">Validated the performance, with O(log N) scaling of fetch time observed as key count increased from 100k to 1.6M.</p>
-                <a href="#" class="btn btn-outline-dark">Read more</a>
-              </div>
-            </div>
-          </div>
-        </div>        
-      </div>
-
-      <div class="container pb-5 pt-4">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
-            </div>
-            <div class="col-md-9"> <!-- Content column, occupies remaining space -->
-              <div class="card-body">
-                <h4 class="card-title">Implementation of Raft Consensus Algorithm </h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-outline-dark">Read more</a>
-              </div>
-            </div>
-          </div>
-        </div>        
-      </div>
-
-      <div class="container pb-5 pt-4">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
+            <img src="assets/images/imageSegmentation.png" class="card-img-top" alt="...">
             </div>
             <div class="col-md-9"> <!-- Content column, occupies remaining space -->
               <div class="card-body">
                 <h4 class="card-title">Semantic Image Segmentation of Satellite Images using U-Nets</h4>
-                <p class="card-text">Experimented various U-Net models with different encoders to segment satellite images in the Landcover.ai dataset.</p>
-                <p class="card-text">Evaluated performance with various metrics, selected best model with ResNet-18 encoder, which achieved 67% IoU.</p>                
-                <a href="#" class="btn btn-outline-dark">Read more</a>
+                <ul>
+                <li class="card-text">Developed multiple U-Net models employing various encoders for semantic segmentation of land cover from satellite images sourced from the Landcover.ai dataset.</>
+                <li class="card-text">Implemented effective data augmentation strategies to bolster model accuracy and alleviate overfitting.</>
+                <li class="card-text">Evaluated model performance using a variety of metrics such as the Jaccard Index, Precision, Recall, and F1 Score. Selected the best model with a ResNet-18 encoder, which achieved a 67% Jaccard Index.</>              
+              </ul>
               </div>
             </div>
           </div>
@@ -117,14 +147,19 @@
         <div class="card">
           <div class="row">
             <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
+            <img src="assets/images/mcmc.png" class="card-img-top" alt="...">
             </div>
             <div class="col-md-9"> <!-- Content column, occupies remaining space -->
               <div class="card-body">
                 <h4 class="card-title">Implementation of Monte Carlo Sampling Algorithms</h4>
-                <p class="card-text">Developed and implemented parallel algorithms in Python using Monte Carlo Sampling Techniques to estimate statistical quantities
-                  of random variables from different probability distributions, including importance sampling, and various MCMC schemes.</p>
-                <a href="#" class="btn btn-outline-dark">Read more</a>
+                <ul>
+                <li class="card-text">Implemented exact sampling schemes like change of variables, inversion, and rejection to sample from diverse distributions. Validated samples via scatter plots and 2D histograms.</u>
+                <li class="card-text">Implemented importance sampling algorithms with and without resampling methods (Bernoulli, Multinomial, symmetric) to generate samples from parameterized Gaussian distributions, with and without knowing the normalization constant. Conducted variance comparisons to determine the most effective resampling methods.</li>
+                <li class="card-text">Utilized sequential importance sampling to generate Self-Avoiding Walks in d dimensions.</>
+                <li class="card-text">Implemented Markov Chain Monte Carlo schemes using Gibbs sampler and Metropolis-Hastings sampling methods to generate samples from the 2D Ising Model.</>
+                <li class="card-text">Generated samples from the nearest neighbor XY model using various Langevin Dynamics-based sampling techniques. Compared integrated autocorrelation times for each method.</>
+                <li  class="card-text">Implemented stochastic Newton and Affine Invariant Ensemble schemes to generate samples from the Rosenbrock density in 2D.</>
+                </ul>
               </div>
             </div>
           </div>
@@ -135,15 +170,42 @@
         <div class="card">
           <div class="row">
             <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
+            <img src="assets/images/recommendationSystem.png" class="card-img-top" alt="...">
             </div>
             <div class="col-md-9"> <!-- Content column, occupies remaining space -->
               <div class="card-body">
                 <h4 class="card-title">Incorporating Causal Inference into Recommendation Systems</h4>
-                <p class="card-text">Built latent factor models for capturing causal relationship between user actions and recommended items.</p>
-                <p class="card-text">Experimented on various datasets including movies and songs, using latent factors as substitute for confounders.</p>              
-                <a href="#" class="btn btn-outline-dark">Read more</a>
+                <ul>
+                  <li class="card-text"> Employed Causal Inference to elucidate cause-effect dynamics between users and items, laying the foundation for a robust recommendation system.</li>
+                  <li class="card-text"> Developed an exposure model to unveil latent confounding factors, leveraging diverse factor models such as Probabilistic Principal Component Analysis (PPCA), Hierarchical Poisson Factorization (HPF), and Deep Exponential Family (DEF) for inferring substitute confounders.</li> 
+                  <li class="card-text"> Integrated computed confounders into the outcome model to enhance the sophistication of recommendation modeling.</li>
+                  <li class="card-text"> Conducted predictive checks to validate the accuracy of derived latent factor models and delved into the qualitative dimensions of recommendation via latent factors captured by the models.</li>
+                </ul>
               </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+
+
+      <div class="container pb-5 pt-4">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
+            <img src="assets/images/graphicsEditor.png" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-9"> <!-- Content column, occupies remaining space -->
+              
+              <div class="card-body">
+
+                <h4 class="card-title">Desktop Application for 2D Graphics Interactive Editor</h4>
+                <ul>
+                <li class="card-text">Developed a desktop application featuring a custom rasterization pipeline for real-time triangle manipulation using the SDL library, ensuring a responsive interface.</ul>
+                <li class="card-text">Added keyframing functionality using Bezier Curves for smooth transitions between frames in animations.</li>
+                </ul>
+            </div>
+            
             </div>
           </div>
         </div>        
@@ -153,37 +215,22 @@
         <div class="card">
           <div class="row">
             <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
+            <img src="assets/images/raytracing.png" class="card-img-top" alt="...">
             </div>
             <div class="col-md-9"> <!-- Content column, occupies remaining space -->
-              <div class="card-body">
-                <h4 class="card-title"> Parallelized implementation of Graph Algorithms for Shared Memory Architectures</h4>
-                <p class="card-text">Architected and implemented a framework for parallel graph algorithms on shared memory machines using OpenMP and C++.</p>
-                <p class="card-text">Achieved 8x, 3x, and 7x speedup for Bellman-Ford, BFS and Connected Components algos on graph (1M Nodes, 15M Edges).</p>
-                <a href="#" class="btn btn-outline-dark">Read more</a>
-              </div>
+              
+              <div class="card-body">                
+                <h4 class="card-title">Implementation of Custom Raytracer</h4>
+                <ul>
+                <li class="card-text">Implemented a custom raytracer featuring support for lighting, shadows, refraction, and reflection.</>
+                <li class="card-text">Optimized performance by implementing spatial data structures.</>                
+                </ul>
+            </div>
             </div>
           </div>
         </div>        
       </div>
 
-      <div class="container pb-5 pt-4">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-3"> <!-- Image column, occupies 30% of page width on medium screens and larger -->
-            <img src="assets/images/code-sample.jpg" class="card-img-top" alt="...">
-            </div>
-            <div class="col-md-9"> <!-- Content column, occupies remaining space -->
-              <div class="card-body">
-                <h4 class="card-title"> Desktop Application for 2D Graphics Interactive Editor</h4>
-                <p class="card-text">Developed a C++ application with a custom rasterizer for real-time triangle manipulation, offering an responsive interface.</p>
-                <p class="card-text">Added keyframing functionality using Bezier Curves, allowing for smooth transitions between frames in animations.</p>
-                <a href="#" class="btn btn-outline-dark">Read more</a>
-              </div>
-            </div>
-          </div>
-        </div>        
-      </div>
 
   <!-- Footer Section -->
   <footer class="container-sm pt-4 pb-5">
