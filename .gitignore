@@ -1,0 +1,35 @@
+# Node.js dependencies
+node_modules/
+
+# Next.js build outputs
+.next/
+
+# Environment files
+*.env
+*.env.local
+*.env.*.local
+
+# Logs
+npm-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE-specific files
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# Linting cache
+.eslintcache
+
+# Testing
+coverage/
+.nyc_output/
