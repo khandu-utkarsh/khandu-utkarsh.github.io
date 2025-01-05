@@ -33,7 +33,7 @@ function NameTab(props: NameTabProps) {
     )
 }
 
-export default function NavTabs() {
+export default function Footer() {
 
 return (
     <Paper>
