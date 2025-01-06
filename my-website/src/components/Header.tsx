@@ -3,17 +3,17 @@
 import * as React from 'react';
 import { PropsWithChildren } from "react";
 import Link from 'next/link'
-import { Paper, Tab, Tabs, Grid2 as Grid } from '@mui/material';
-
+import { Paper, Box, Drawer, Tab, Tabs, Grid2 as Grid } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
 import { IconButton } from '@mui/material';
 
-import { GridSize } from '@mui/material/Grid';
+import MenuIcon from '@mui/icons-material/Menu';
 
-const contentSize = 16;
+import { GridSize } from '@mui/material/Grid';
 
 interface LinkTabProps {
   label?: string;
@@ -50,12 +50,11 @@ function IconTab({href, children} : PropsWithChildren<{ href: string }>) {
     )
 }
 
-//!TODO: Have to make this TABS component dynamic, right now I have set the value to false. Use appropriate hooks to fix this.
-
 const firstSectionCols = {
     md: "auto" as GridSize,
     lg: 7,
-    sm: 12
+    sm: 12,
+    xs: "none" as GridSize
 };
 
 const firstSectionCSSProps = {
@@ -77,31 +76,70 @@ const secondSectionCSSProps = {
     //backgroundColor: "purple"
 };
 
-
-
-
 export default function NavTabs() {
 
+    const isMobile = useMediaQuery('(max-width:600px)');
+
+    const [drawerOpen, setDrawerOpen] = React.useState(false);
+
+    const toggleDrawer = () => {
+        setDrawerOpen(!drawerOpen);
+    }
+
+
 return (
-    <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
-        <Tabs value={false} role="navigation">
-            <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center"}}>
-                <Grid size={firstSectionCols} spacing={{lg: 1, md: 0}}container sx={firstSectionCSSProps}>
+    <>
+        {!isMobile ? (
+            <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
+                <Tabs value={false} role="navigation">
+                    <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center"}}>
+                        <Grid size={firstSectionCols} spacing={{lg: 1, md: 0}}container sx={firstSectionCSSProps}>
+                                <IconTab href="mailto:utkarshkhandelwal2011@gmail.com"><ForwardToInboxIcon fontSize='inherit'/></IconTab>
+                                <IconTab href="https://github.com/khandu-utkarsh"><GitHubIcon fontSize='inherit'/></IconTab>
+                                <IconTab href="https://www.linkedin.com/in/utkarshkhandelwal52"><LinkedInIcon fontSize='inherit'/></IconTab>
+                                <IconTab href="https://x.com/utkarsh52"><XIcon fontSize='inherit'/></IconTab>
+                                <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
+                        </Grid>
+                        <Grid size={secondSectionCols} container sx={secondSectionCSSProps}>
+                            <LinkTab label="Home" href="/" />
+                            <LinkTab label="Projects" href="/projects" />
+                            <LinkTab label="Resume" href="/resume" />
+                            <LinkTab label="Writings" href="/writings" />
+                            <LinkTab label="Photos" href="/photos" />                    
+                        </Grid>
+                    </Grid>            
+                </Tabs>
+            </Paper>
+        ): (
+            <>
+            <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
+                <Tabs value={false} role="navigation">
+                    <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center", justifyContent: "space-between"}}>
+                        <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
+                        <IconButton onClick={toggleDrawer} sx={{ color: 'inherit' }}> <MenuIcon /> </IconButton>
+                    </Grid>            
+                </Tabs>
+            </Paper>
+
+            <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
+                <Tabs value={false} role="navigation" orientation="vertical">
+                    <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
+                    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                         <IconTab href="mailto:utkarshkhandelwal2011@gmail.com"><ForwardToInboxIcon fontSize='inherit'/></IconTab>
                         <IconTab href="https://github.com/khandu-utkarsh"><GitHubIcon fontSize='inherit'/></IconTab>
                         <IconTab href="https://www.linkedin.com/in/utkarshkhandelwal52"><LinkedInIcon fontSize='inherit'/></IconTab>
                         <IconTab href="https://x.com/utkarsh52"><XIcon fontSize='inherit'/></IconTab>
-                        <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
-                </Grid>
-                <Grid size={secondSectionCols} container sx={secondSectionCSSProps}>
+                    </Box>
                     <LinkTab label="Home" href="/" />
                     <LinkTab label="Projects" href="/projects" />
                     <LinkTab label="Resume" href="/resume" />
                     <LinkTab label="Writings" href="/writings" />
                     <LinkTab label="Photos" href="/photos" />                    
-                </Grid>
-            </Grid>            
-        </Tabs>
-    </Paper>
- );
+                </Tabs>
+            </Drawer>
+        </>
+        )}
+    </>
+    );
 }
+
