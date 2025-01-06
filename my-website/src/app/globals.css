@@ -8,3 +8,24 @@
   padding: 0;
   margin: 0;
 }
+
+html, body {
+  height: 100%;
+}
+
+.globalContainer{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+  /* background-color: pink; */
+}
+
+.footer{
+  flex-shrink: 0;
+}
+
+

@@ -4,32 +4,30 @@ import { PropsWithChildren } from "react";
 import "./globals.css";
 import Header from "@/components/Header"
 import Footer from '@/components/Footer';
-import FillViewPort from '@/components/FillViewport';
 
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 
 export default function RootLayout({
   children,
-}: PropsWithChildren<{}>) {
+}: PropsWithChildren<{}>) {        
   return (
     <html lang="en">
-      <body
-      
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-        margin: 0,
-        backgroundColor: '#fff',
-        color: '#171717',
-      }}
-      >
-        <Container sx={{backgroundColor: "purple"}}>
+      <body>
+        <Container className="globalContainer" sx={{}}>
           <Header />
-          {children}
+            <Box className="content" sx={{paddingTop: 10, paddingBottom: 10}}>
+            {children}
+            </Box>
+          <Footer className="footer"/>
         </Container>
+
+
+
+
       </body>
     </html>
   );
+
+
 }

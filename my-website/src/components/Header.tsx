@@ -54,7 +54,7 @@ function IconTab({href, children} : PropsWithChildren<{ href: string }>) {
 export default function NavTabs() {
 
 return (
-    <Paper>
+    <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
         <Tabs value={false} role="navigation">
             <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center"}}>
                 <Grid size={7} spacing={1}container sx={{justifyContent: "flex-start", alignItems: "center"}}>
