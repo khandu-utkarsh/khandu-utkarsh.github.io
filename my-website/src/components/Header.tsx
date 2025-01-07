@@ -102,10 +102,10 @@ return (
                         </Grid>
                         <Grid size={secondSectionCols} container sx={secondSectionCSSProps}>
                             <LinkTab label="Home" href="/" />
-                            <LinkTab label="Projects" href="/projects" />
-                            <LinkTab label="Resume" href="/resume" />
+                            {/* <LinkTab label="Projects" href="/projects" /> */}
                             <LinkTab label="Writings" href="/writings" />
-                            <LinkTab label="Photos" href="/photos" />                    
+                            <LinkTab label="Resume" href="/resume" />
+                            {/* <LinkTab label="Photos" href="/photos" />                     */}
                         </Grid>
                     </Grid>            
                 </Tabs>
@@ -131,10 +131,11 @@ return (
                         <IconTab href="https://x.com/utkarsh52"><XIcon fontSize='inherit'/></IconTab>
                     </Box>
                     <LinkTab label="Home" href="/" />
-                    <LinkTab label="Projects" href="/projects" />
-                    <LinkTab label="Resume" href="/resume" />
+                    {/* <LinkTab label="Projects" href="/projects" /> */}
                     <LinkTab label="Writings" href="/writings" />
-                    <LinkTab label="Photos" href="/photos" />                    
+                    <LinkTab label="Resume" href="/resume" />
+
+                    {/* <LinkTab label="Photos" href="/photos" />                     */}
                 </Tabs>
             </Drawer>
         </>
