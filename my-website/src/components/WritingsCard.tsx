@@ -27,7 +27,7 @@ export default function BasicCard({cardHeading, introContent, linkToArticle, key
 
 
     const KeywordChips = (
-        <Stack direction="row" spacing={1} sx={{ paddingTop: 2, paddingBottom: 2 }}>
+        <Stack direction="row" useFlexGap flexWrap="wrap" spacing={1} sx={{ paddingTop: 2, paddingBottom: 2, paddingLeft: 2, paddingRight: 2}}>
           {keywords?.map((keyword, index) => (
             <Chip key={index} label={keyword} />
           ))}
@@ -37,17 +37,16 @@ export default function BasicCard({cardHeading, introContent, linkToArticle, key
 
     return (
         <Box sx={{paddingBottom: 5}}>
-    <Card sx={{ minWidth: 275}}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-            {cardHeading}
-        </Typography>
-        {KeywordChips}
-        <Typography variant="body2">
-         {introContent}
-        </Typography>
-
-      </CardContent>
+            <Card sx={{}}>
+            <CardContent>
+                <Typography variant="h5" component="div">
+                    {cardHeading}
+                </Typography>
+                {KeywordChips}
+                <Typography variant="body2">
+                    {introContent}
+                </Typography>
+            </CardContent>
         <Divider />
 
       <CardActions>
