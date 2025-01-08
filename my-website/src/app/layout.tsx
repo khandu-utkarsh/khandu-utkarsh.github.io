@@ -16,7 +16,7 @@ export default function RootLayout({
       <body>
         <Container className="globalContainer" sx={{}}>
           <Header />
-            <Box className="content" sx={{paddingTop: 10, paddingBottom: 10, backgroundColor:""}}>
+            <Box className="content" sx={{paddingTop: 10, paddingBottom: 10, paddingLeft: 10, paddingRight: 10 , backgroundColor:""}}>
             {children}
             </Box>
           <Footer className="footer"/>
