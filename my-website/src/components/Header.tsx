@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { PropsWithChildren } from "react";
 import Link from 'next/link'
-import { Paper, Box, Drawer, Tab, Tabs, Grid2 as Grid } from '@mui/material';
+import { Paper, Drawer, Tab, Tabs, Grid2 as Grid } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -20,13 +20,6 @@ interface LinkTabProps {
   href?: string;
   selected?: boolean;
 }
-
-interface NameTabProps {
-    label?: string;
-    selected?: boolean;
-    [key: string]: any;
-}
-
 function LinkTab(props: LinkTabProps) {
 
     const { label, href, selected, ...rest } = props;
@@ -35,6 +28,12 @@ function LinkTab(props: LinkTabProps) {
     );
 }
 
+
+interface NameTabProps {
+    label?: string;
+    selected?: boolean;
+    [key: string]: any;
+}
 function NameTab(props: NameTabProps) {
     const {label, selected, ...rest } = props;
     return (
@@ -50,36 +49,64 @@ function IconTab({href, children} : PropsWithChildren<{ href: string }>) {
     )
 }
 
-const firstSectionCols = {
-    md: "auto" as GridSize,
-    lg: 7,
-    sm: 12,
-    xs: "none" as GridSize
+function Socials() {
+    return (    
+    <Grid container direction="row" sx={{ alignItems: "center", justifyContent: "space-between",backgroundColor: ""}}>
+        <Grid>
+            <IconTab href="mailto:utkarshkhandelwal2011@gmail.com"><ForwardToInboxIcon fontSize='inherit'/></IconTab>
+        </Grid>
+
+        <Grid>
+            <IconTab href="https://github.com/khandu-utkarsh"><GitHubIcon fontSize='inherit'/></IconTab>
+        </Grid>
+
+        <Grid>
+            <IconTab href="https://www.linkedin.com/in/utkarshkhandelwal52"><LinkedInIcon fontSize='inherit'/></IconTab>
+        </Grid>
+
+        <Grid>
+            <IconTab href="https://x.com/utkarsh52"><XIcon fontSize='inherit'/></IconTab>
+        </Grid>
+    </Grid>
+
+    )
 };
 
-const firstSectionCSSProps = {
-    justifyContent: {lg: "flex-start", md: "flex-start", sm: "space-between"},
-    alignItems: {sm: "center"},
-    //backgroundColor: "pink"
-};
+function NameAndSocials() {
+    return (
 
-const secondSectionCols = {
-    md: "auto" as GridSize,
-    lg: 12 - firstSectionCols.lg,
-    sm:12
-};
+        <Grid container direction="row" sx={{alignItems: "center", justifyContent: "space-between",backgroundColor: ""}}>
+            <Grid sx={{backgroundColor: ""}}>
+                <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
+            </Grid>
+            <Grid sx={{backgroundColor: ""}}>
+                <Socials/>
+            </Grid>
+        </Grid>
+    )
+}
 
-const secondSectionCSSProps = {
-    justifyContent: {lg: "flex-end", md: "flex-end", sm: "space-between"},
-    alignItems: {sm: "center"},
-    flexGrow: {lg: 1, md: 1, sm: 1},
-    //backgroundColor: "purple"
-};
+function NavPages() {
+
+    return (
+        <>
+            <LinkTab label="Home" href="/" />
+            {/* <LinkTab label="Projects" href="/projects" /> */}
+            <LinkTab label="Writings" href="/writings" />
+            <LinkTab label="Resume" href="/resume" />
+            {/* <LinkTab label="Photos" href="/photos" />                     */}
+
+        </>
+    )
+
+
+}
+
 
 export default function NavTabs() {
 
-    const isMobile = useMediaQuery('(max-width:600px)');
-
+    //!I got this size from the chrome responsive design tool. It started looking too cramped up at that size.
+    const isMobile = useMediaQuery('(max-width:699px)');
     const [drawerOpen, setDrawerOpen] = React.useState(false);
 
     const toggleDrawer = () => {
@@ -91,24 +118,16 @@ return (
     <>
         {!isMobile ? (
             <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
-                <Tabs value={false} role="navigation">
-                    <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center"}}>
-                        <Grid size={firstSectionCols} spacing={{lg: 1, md: 0}}container sx={firstSectionCSSProps}>
-                                <IconTab href="mailto:utkarshkhandelwal2011@gmail.com"><ForwardToInboxIcon fontSize='inherit'/></IconTab>
-                                <IconTab href="https://github.com/khandu-utkarsh"><GitHubIcon fontSize='inherit'/></IconTab>
-                                <IconTab href="https://www.linkedin.com/in/utkarshkhandelwal52"><LinkedInIcon fontSize='inherit'/></IconTab>
-                                <IconTab href="https://x.com/utkarsh52"><XIcon fontSize='inherit'/></IconTab>
-                                <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
-                        </Grid>
-                        <Grid size={secondSectionCols} container sx={secondSectionCSSProps}>
-                            <LinkTab label="Home" href="/" />
-                            {/* <LinkTab label="Projects" href="/projects" /> */}
-                            <LinkTab label="Writings" href="/writings" />
-                            <LinkTab label="Resume" href="/resume" />
-                            {/* <LinkTab label="Photos" href="/photos" />                     */}
-                        </Grid>
-                    </Grid>            
-                </Tabs>
+                <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center", justifyContent: "space-between",backgroundColor: ""}}>
+                    <Grid sx={{backgroundColor: ""}}>
+                        <NameAndSocials />
+                    </Grid>
+                    <Grid sx={{backgroundColor: ""}}>
+                        <Tabs value={false} role="navigation">
+                            <NavPages />
+                        </Tabs>
+                    </Grid>
+                </Grid>
             </Paper>
         ): (
             <>
@@ -124,18 +143,8 @@ return (
             <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
                 <Tabs value={false} role="navigation" orientation="vertical">
                     <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
-                    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                        <IconTab href="mailto:utkarshkhandelwal2011@gmail.com"><ForwardToInboxIcon fontSize='inherit'/></IconTab>
-                        <IconTab href="https://github.com/khandu-utkarsh"><GitHubIcon fontSize='inherit'/></IconTab>
-                        <IconTab href="https://www.linkedin.com/in/utkarshkhandelwal52"><LinkedInIcon fontSize='inherit'/></IconTab>
-                        <IconTab href="https://x.com/utkarsh52"><XIcon fontSize='inherit'/></IconTab>
-                    </Box>
-                    <LinkTab label="Home" href="/" />
-                    {/* <LinkTab label="Projects" href="/projects" /> */}
-                    <LinkTab label="Writings" href="/writings" />
-                    <LinkTab label="Resume" href="/resume" />
-
-                    {/* <LinkTab label="Photos" href="/photos" />                     */}
+                    <Socials />
+                    <NavPages/>
                 </Tabs>
             </Drawer>
         </>
