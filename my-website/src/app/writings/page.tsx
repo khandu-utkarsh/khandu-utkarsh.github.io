@@ -69,13 +69,16 @@ export default function BasicCard() {
     // Render project cards after data is loaded
     return (
     <>
-        {Object.entries(projects).map(([key, project]) => (
+        {Object.entries(projects).map(([key, project], index) => (
         <WCard
             key={key}
             cardHeading={project.heading}
             introContent={project.introContent}
             linkToArticle={project.link}
             keywords={project.keywords}
+            sx={{
+                paddingBottom: index === Object.entries(projects).length - 1 ? 0 : 5,
+              }}
         />
         ))}
     </>

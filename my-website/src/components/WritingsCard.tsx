@@ -20,10 +20,12 @@ export interface WCardProps {
     introContent: string;
     linkToArticle?: string;
     keywords? :string[];
+    sx? : any;
+
 }
 
 
-export default function BasicCard({cardHeading, introContent, linkToArticle, keywords} : WCardProps) {
+export default function BasicCard({cardHeading, introContent, linkToArticle, keywords, sx} : WCardProps) {
 
 
     const KeywordChips = (
@@ -36,7 +38,7 @@ export default function BasicCard({cardHeading, introContent, linkToArticle, key
 
 
     return (
-        <Box sx={{paddingBottom: 5}}>
+        <Box sx={sx}>
             <Card sx={{}}>
             <CardContent>
                 <Typography variant="h5" component="div">
