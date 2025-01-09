@@ -14,9 +14,11 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 export interface WCardProps {
     cardHeading: string;
+    date: string;
     introContent: string;
     linkToArticle?: string;
     keywords? :string[];
@@ -25,11 +27,11 @@ export interface WCardProps {
 }
 
 
-export default function BasicCard({cardHeading, introContent, linkToArticle, keywords, sx} : WCardProps) {
+export default function BasicCard({cardHeading, date, introContent, linkToArticle, keywords, sx} : WCardProps) {
 
 
     const KeywordChips = (
-        <Stack direction="row" useFlexGap flexWrap="wrap" spacing={1} sx={{ paddingTop: 2, paddingBottom: 2, paddingLeft: 2, paddingRight: 2}}>
+        <Stack direction="row" useFlexGap flexWrap="wrap" spacing={1} sx={{mb: 1.5, backgroundColor: ""}}>
           {keywords?.map((keyword, index) => (
             <Chip key={index} label={keyword} />
           ))}
@@ -39,20 +41,23 @@ export default function BasicCard({cardHeading, introContent, linkToArticle, key
 
     return (
         <Box sx={sx}>
-            <Card sx={{}}>
-            <CardContent>
-                <Typography variant="h5" component="div">
+            <Card sx={{paddingLeft: {sm: 2}, paddingRight: {sm: 2}, backgroundColor: ""}}>
+            <CardContent sx={{backgroundColor: ""}}>
+                <Typography variant="h6" component="div" sx={{paddingBottom: 2, backgroundColor: ""}}>
                     {cardHeading}
                 </Typography>
+                <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> {date}</Typography>
+
                 {KeywordChips}
-                <Typography variant="body2">
+
+                <Typography variant="body2" sx={{backgroundColor: ""}}>
                     {introContent}
                 </Typography>
             </CardContent>
         <Divider />
 
       <CardActions>
-        <Button size="small" href={linkToArticle || "/"} target="_blank">Read More</Button>
+        <Button size="small" href={linkToArticle || "/"} target="_blank" color='inherit'>Read More <OpenInNewIcon fontSize='inherit'/></Button>
       </CardActions>
 
     </Card>

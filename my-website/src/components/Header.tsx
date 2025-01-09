@@ -106,7 +106,7 @@ function NavPages() {
 export default function NavTabs() {
 
     //!I got this size from the chrome responsive design tool. It started looking too cramped up at that size.
-    const isMobile = useMediaQuery('(max-width:699px)');
+    const isMobile = useMediaQuery('(max-width:899px)');
     const [drawerOpen, setDrawerOpen] = React.useState(false);
 
     const toggleDrawer = () => {

@@ -2,54 +2,63 @@
     "projects": {
       "project1": {
         "heading": "Implementation of Distributed Key-Value Store for a P2P Network",
+        "date": "Aug 2024",
         "introContent": "Implemented a scalable key-value store using the Chord Protocol for decentralized networks. The Chord Protocol simplifies key lookup, node joining, and leaving processes, ensuring consistent behavior.",
         "keywords": ["distributed-systems", "golang", "grpcs"],
         "link": "/"
       },
       "project2": {
         "heading": "Raft Consensus Algorithm Implementation",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project3": {
         "heading": "Parallelized Graph Algorithm Optimization for Shared Memory Architectures",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project4": {
         "heading": "Equity Market Modeling and Analysis",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project5": {
         "heading": "Semantic Image Segmentation of Satellite Images using U-Nets",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project6": {
         "heading": "Implementation of Monte Carlo Sampling Algorithms",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project7": {
         "heading": "Incorporating Causal Inference into Recommendation Systems",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project8": {
         "heading": "Desktop Application for 2D Graphics Interactive Editor",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       },
       "project9": {
         "heading": "Implementation of Custom Raytracer",
+        "date": "Aug 2024",
         "introContent": "Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.",
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"

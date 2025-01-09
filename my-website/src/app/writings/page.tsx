@@ -14,6 +14,7 @@ import WCard from "@/components/WritingsCard"
 
 interface ProjectInterface {
     heading: string;
+    date: string
     introContent: string;
     keywords: string[];
     link: string;
@@ -73,11 +74,12 @@ export default function BasicCard() {
         <WCard
             key={key}
             cardHeading={project.heading}
+            date={project.date}
             introContent={project.introContent}
             linkToArticle={project.link}
             keywords={project.keywords}
             sx={{
-                paddingBottom: index === Object.entries(projects).length - 1 ? 0 : 5,
+                paddingBottom: {xs: index === Object.entries(projects).length - 1 ? 0 : 1, sm: index === Object.entries(projects).length - 1 ? 0 : 5},
               }}
         />
         ))}
