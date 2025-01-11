@@ -20,13 +20,9 @@ interface ProjectInterface {
     link: string;
 }
 
-interface ProjectsInterface {
-    [key: string] : ProjectInterface
-}
-
 export default function BasicCard() {
 
-    const [projects, setProjects] = useState<ProjectsInterface | null>(null);
+    const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
 
     useEffect(() => {
         // Fetch the JSON file from the public directory
@@ -54,9 +50,10 @@ export default function BasicCard() {
     // Render project cards after data is loaded
     return (
     <>
-        {Object.entries(projects).map(([key, project], index) => (
+
+        {projects.map((project, index, projects) => (
         <WCard
-            key={key}
+            key={project.heading}
             cardHeading={project.heading}
             date={project.date}
             introContent={project.introContent}
