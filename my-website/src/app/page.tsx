@@ -8,7 +8,7 @@ import '@fontsource/roboto/700.css';
 
 export default function Home() {
   return (
-      <Box sx={{}}>
+      <Box sx={{backgroundColor: ""}}>
         <Typography variant="body1" align="justify">
           Hi, I'm <b>Utkarsh Khandelwal</b>, an engineer and wannabe mathematician.
         </Typography>

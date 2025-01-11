@@ -109,7 +109,6 @@ const routeToIndex: Record<string, number> = {
 export default function NavTabs() {
 
     const currPathname = usePathname()
-    console.log("Current Pathname: ", currPathname)
     //!I got this size from the chrome responsive design tool. It started looking too cramped up at that size.
     const isMobile = useMediaQuery('(max-width:899px)');
     const [drawerOpen, setDrawerOpen] = React.useState(false);

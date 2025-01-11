@@ -24,22 +24,6 @@ interface ProjectsInterface {
     [key: string] : ProjectInterface
 }
 
-// const projects = {
-
-//     project1:{
-//     heading: 'Implementation of Distributed Key-Value Store for a P2P Network',
-//     introContent: 'Implemented a scalable key-value store using the Chord Protocol for decentralized networks. The Chord Protocol simplifies key lookup, node joining, and leaving processes, ensuring consistent behavior.',
-//     keywords: ["distributed-systems", "golang", "grpcs"],
-//     link: "/"},
-
-//     project2:{
-//         heading: 'Raft Consensus Algorithm Implementation',
-//         introContent: 'Developed a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system.',
-//         keywords: ["distributed-systems", "golang", "raft", "erlang"],
-//         link: "/"
-//     }   
-// }
-
 export default function BasicCard() {
 
     const [projects, setProjects] = useState<ProjectsInterface | null>(null);

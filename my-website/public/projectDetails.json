@@ -63,6 +63,86 @@
         "keywords": ["distributed-systems", "golang", "raft", "erlang"],
         "link": "/"
       }
+    },
+    "resume": {
+        "workex" : {
+            "company1" : {
+                "name" : "Dassault Systemes",
+                "roles" : {
+                    "role1" : {
+                        "title" : "3DExperience SOLIDWORKS Drafting & MBD Software Engineering Manager",
+                        "startDate": "Aug 2024",
+                        "endDate": "curr",
+                        "desc": [
+                            "asdascas asdcasd asasdc hgto wefkl sgfl",
+                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        ]
+                    },
+                    "role2" : {
+                        "title" : "SIMULIA Software Engineering Manager",
+                        "startDate": "June 2023",
+                        "endDate": "July 2024",
+                        "desc": [
+                            "asfc sd lkth pifdg poasxc bndf sdw",
+                            "asdascas asdcasd sdasasdc hgto wefkl sgfl",
+                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        ]
+                    }
+                }
+            },
+            "company2" : {
+                "name" : "Altair",
+                "roles" : {
+                    "role1" : {
+                        "title" : "Software Engineer",
+                        "startDate": "Dec 2018",
+                        "endDate": "May 2021",
+                        "desc": [
+                            "asdascas asdcasd asasdc hgto wefkl sgfl",
+                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        ]
+                    },
+                    "role2" : {
+                        "title" : "Software Trainee",
+                        "startDate": "July 2018",
+                        "endDate": "Nov 2018",
+                        "desc": [
+                            "asfc sd lkth pifdg poasxc bndf sdw",
+                            "asdascas asdcasd sdasasdc hgto wefkl sgfl",
+                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        ]
+                    }
+                }
+            }
+        },
+        "education" : {
+            "college1" : {
+                "name" : "New York Univeristy",
+                "degree": "MS in Scientific Computing",
+                "startDate" : "Sept 2021",
+                "endDate" : "May 2023",
+                "coursesStudied": [
+                    "ml", "nme", "calc"
+                ],
+                "student jobs": [
+                    "TA for this in sdvsdv",
+                    "TA and Grader for dfbvd in adsfcasd"
+                ] 
+            },
+            "college2" : {
+                "name" : "IIT (BHU) Varanasi",
+                "degree": "MS in Scientific Computing",
+                "startDate" : "Sept 2021",
+                "endDate" : "May 2023",
+                "coursesStudied": [
+                    "ml", "nme", "calc"
+                ],
+                "student jobs": [
+                    "TA for this in sdvsdv",
+                    "TA and Grader for dfbvd in adsfcasd"
+                ] 
+            }
+        }
     }
   }
   
