@@ -47,7 +47,7 @@ export default function BasicCard() {
 
     // Show loading message while data is being fetched
     if (!projects) {
-    return <Typography variant="h5">Loading projects...</Typography>;
+        return <Typography variant="h5">Loading projects...</Typography>;
     }
 
 

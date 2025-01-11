@@ -65,82 +65,95 @@
       }
     },
     "resume": {
-        "workex" : {
-            "company1" : {
-                "name" : "Dassault Systemes",
-                "roles" : {
-                    "role1" : {
-                        "title" : "3DExperience SOLIDWORKS Drafting & MBD Software Engineering Manager",
-                        "startDate": "Aug 2024",
-                        "endDate": "curr",
-                        "desc": [
-                            "asdascas asdcasd asasdc hgto wefkl sgfl",
-                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+        "workex" : [
+            {
+                "name" : "Dassault Systemès",
+                "url" : "https://www.3ds.com/",
+                "roles" : [
+                    {
+                        "roleHeading" : "3DExperience SOLIDWORKS Drafting & MBD Software Engineering Manager",
+                        "location": "Waltham, MA",
+                        "startDate": "July 2024",
+                        "endDate": "Current",
+                        "roleDesc": [
+                            "Working on the MBD and Drawing Application xDrawing.",
+                            "Responsible for generating tools for annotating the CAD models in both 3D and 2D Views.",
+                            "Full stack application dealing with Three.js, Webgl etc."
                         ]
                     },
-                    "role2" : {
-                        "title" : "SIMULIA Software Engineering Manager",
+                    {
+                        "roleHeading" : "SIMULIA Software Engineering Manager",
+                        "location": "Waltham, MA",
                         "startDate": "June 2023",
                         "endDate": "July 2024",
-                        "desc": [
-                            "asfc sd lkth pifdg poasxc bndf sdw",
-                            "asdascas asdcasd sdasasdc hgto wefkl sgfl",
-                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        "roleDesc": [
+                            "I was involved in the research and development of SIMULIA suite of products, which provide simulation solutions for various engineering and multiphysics problems.",
+                            "My primary focus is on advancing computational geometry algorithms for 3D surface modeling and mesh processing in PowerFLOW and PowerDELTA.",
+                            "Conducted research on mesh datasets and experimented with different approaches to enhance mesh quality post-boolean operations. Developed and implemented enhancements to the offsetting algorithm, resulting in improved mesh quality.",
+                            "Contributed to maintaining the legacy code by templatizing C++ code and creating component libraries."
                         ]
                     }
-                }
+                ]
             },
-            "company2" : {
+            {
                 "name" : "Altair",
-                "roles" : {
-                    "role1" : {
-                        "title" : "Software Engineer",
+                "url" : "https://altair.com",
+                "roles" : [
+                    {
+                        "roleHeading" : "Software Engineer",
+                        "location": "Bangalore, India",
                         "startDate": "Dec 2018",
                         "endDate": "May 2021",
-                        "desc": [
-                            "asdascas asdcasd asasdc hgto wefkl sgfl",
-                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        "roleDesc": [
+                            "Developed computational geometry and mesh modification features for multiphysics simulation preprocessing software HyperMesh.",
+                            "My primary focus was on enhancing the Connectors toolbox in HyperMesh, which models connections like welds, rivets, etc., between two parts.",
+                            "Developed and implemented features to improve surface mesh quality, detect proximity components, join and disjoin components, and stitch surface meshes for the Connectors toolbox."
                         ]
                     },
-                    "role2" : {
-                        "title" : "Software Trainee",
+                    {
+                        "roleHeading" : "Software Trainee",
+                        "location": "Bangalore, India",
                         "startDate": "July 2018",
                         "endDate": "Nov 2018",
-                        "desc": [
-                            "asfc sd lkth pifdg poasxc bndf sdw",
-                            "asdascas asdcasd sdasasdc hgto wefkl sgfl",
-                            "sdf sd sd sdc sdfwefge erga rhy wwerg  sdv"
+                        "roleDesc": [
+                            "Designed and implemented a robust C++-based regression testing suite for BatchMesher."
                         ]
                     }
-                }
+                ]
             }
-        },
+        ],
         "education" : {
-            "college1" : {
+            "masters" : {
                 "name" : "New York Univeristy",
                 "degree": "MS in Scientific Computing",
-                "startDate" : "Sept 2021",
+                "startDate" : "September 2021",
                 "endDate" : "May 2023",
                 "coursesStudied": [
-                    "ml", "nme", "calc"
+                    "Fundamental Algorithms",
+                    "Computer Graphics",
+                    "Numerical Methods I",
+                    "Machine Learning",
+                    "High Performance Computing",
+                    "Numerical Methods II",
+                    "Stochastic Calculus",
+                    "Programming Languages",
+                    "Computer Vision",
+                    "Monte Carlo Sampling Methods",
+                    "Distributed Systems",
+                    "Quantitative Strategies and Algorithimc Trading"
                 ],
                 "student jobs": [
-                    "TA for this in sdvsdv",
-                    "TA and Grader for dfbvd in adsfcasd"
+                    "TA Calculus 1",
+                    "Grader and TA for HPC",
+                    "Grader for Modeling and Simulation in Science, Engineering and Economics",
+                    "Grader for Numerical Analysis"
                 ] 
             },
-            "college2" : {
-                "name" : "IIT (BHU) Varanasi",
-                "degree": "MS in Scientific Computing",
-                "startDate" : "Sept 2021",
-                "endDate" : "May 2023",
-                "coursesStudied": [
-                    "ml", "nme", "calc"
-                ],
-                "student jobs": [
-                    "TA for this in sdvsdv",
-                    "TA and Grader for dfbvd in adsfcasd"
-                ] 
+            "bachelors" : {
+                "name" : "Indian Institute of Technology (BHU) Varanasi",
+                "degree": "B.Tech in Mechancial Engineering",
+                "startDate" : "July 2014",
+                "endDate" : "May 2018"
             }
         }
     }
