@@ -12,17 +12,17 @@ import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
 import { IconButton } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import { usePathname } from 'next/navigation';
 
-import { GridSize } from '@mui/material/Grid';
 
 interface LinkTabProps {
   label?: string;
   href?: string;
-  selected?: boolean;
+  value: number;
 }
 function LinkTab(props: LinkTabProps) {
 
-    const { label, href, selected, ...rest } = props;
+    const { label, href, ...rest } = props;
     return (
         <Tab label={label} component={Link} href={ href|| "#"} {...rest} />
     );
@@ -87,32 +87,52 @@ function NameAndSocials() {
 }
 
 function NavPages() {
-
     return (
         <>
-            <LinkTab label="Home" href="/" />
-            {/* <LinkTab label="Projects" href="/projects" /> */}
-            <LinkTab label="Writings" href="/writings" />
-            <LinkTab label="Resume" href="/resume" />
-            {/* <LinkTab label="Photos" href="/photos" />                     */}
-
+            <LinkTab label="Home" href="/" value={1}/>
+            <LinkTab label="Writings" href="/writings" value={2}/>
+            <LinkTab label="Resume" href="/resume" value={3}/>
         </>
     )
 
 
 }
 
+// Map routes to tab indices
+const routeToIndex: Record<string, number> = {
+    "/": 1,
+    "/writings": 2,
+    "/resume": 3,
+  };
+
 
 export default function NavTabs() {
 
+    const currPathname = usePathname()
+    console.log("Current Pathname: ", currPathname)
     //!I got this size from the chrome responsive design tool. It started looking too cramped up at that size.
     const isMobile = useMediaQuery('(max-width:899px)');
     const [drawerOpen, setDrawerOpen] = React.useState(false);
+    const [tabIndex, setTabIndex] = React.useState(1);
+
+
 
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
     }
 
+    const handleChange = (event: React.SyntheticEvent, newIndex: number) => {
+        setTabIndex(newIndex);
+        if(isMobile && drawerOpen) {
+            toggleDrawer();
+        }
+
+    }
+
+    React.useEffect(() => {
+        const tabIndexAsPerRoute = routeToIndex[currPathname] ?? 1;
+        setTabIndex(tabIndexAsPerRoute);
+    }, [currPathname]);
 
 return (
     <>
@@ -123,8 +143,12 @@ return (
                         <NameAndSocials />
                     </Grid>
                     <Grid sx={{backgroundColor: ""}}>
-                        <Tabs value={false} role="navigation">
-                            <NavPages />
+                        <Tabs value={tabIndex} onChange={handleChange} role="navigation">
+                            {/* <NavPages /> */}
+                            <LinkTab label="Home" href="/" value={1}/>
+                            <LinkTab label="Writings" href="/writings" value={2}/>
+                            <LinkTab label="Resume" href="/resume" value={3}/>
+
                         </Tabs>
                     </Grid>
                 </Grid>
@@ -132,7 +156,7 @@ return (
         ): (
             <>
             <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
-                <Tabs value={false} role="navigation">
+                <Tabs value = {false} role="navigation">
                     <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center", justifyContent: "space-between"}}>
                         <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
                         <IconButton onClick={toggleDrawer} sx={{ color: 'inherit' }}> <MenuIcon /> </IconButton>
@@ -141,10 +165,13 @@ return (
             </Paper>
 
             <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
-                <Tabs value={false} role="navigation" orientation="vertical">
+                <Tabs value={tabIndex} onChange={handleChange} role="navigation" orientation="vertical">
                     <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
                     <Socials />
-                    <NavPages/>
+                    {/* <NavPages/> */}
+                    <LinkTab label="Home" href="/" value={1}/>
+                    <LinkTab label="Writings" href="/writings" value={2}/>
+                    <LinkTab label="Resume" href="/resume" value={3}/>
                 </Tabs>
             </Drawer>
         </>
