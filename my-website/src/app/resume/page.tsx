@@ -1,11 +1,14 @@
 "use client"
 
-import { Typography, Box, Divider} from '@mui/material';
+import { Typography, Box, Divider, List, ListItem, ListItemIcon, ListItemText} from '@mui/material';
+import CircleIcon from '@mui/icons-material/Circle';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Children, useEffect, useState } from 'react';
+
 
 //!Declaring the types:
 type RoleInfo = {
@@ -32,18 +35,44 @@ type jsonFileContent = {
   education: any;
 }
 
+// ,
+//                     {
+//                         "roleHeading" : "Software Trainee",
+//                         "location": "Bangalore, India",
+//                         "startDate": "July 2018",
+//                         "endDate": "Nov 2018",
+//                         "roleDesc": [
+//                             "Designed and implemented a robust C++-based regression testing suite for BatchMesher."
+//                         ]
+//                     }
+
+                            // "My primary focus is on advancing computational geometry algorithms for 3D surface modeling and mesh processing in PowerFLOW and PowerDELTA.",
+                            //"Conducted research on mesh datasets and experimented with different approaches to enhance mesh quality post-boolean operations. Developed and implemented enhancements to the offsetting algorithm, resulting in improved mesh quality.",
+                            //"Contributed to maintaining the legacy code by templatizing C++ code and creating component libraries."
+
+          // <Typography sx={{paddingBottom: 1, backgroundColor: ""}}>
+          //   {duty}
+          // </Typography>
+
 
 function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDesc} : RoleInfo) {
   //console.log("In the roleDetails comp: ", roleHeading, location, startDate, endDate, roleDesc);
   return (
     <Box sx={{paddingBottom: 2}}>
     <Typography variant="h6" color="text.secondary" sx={{backgroundColor: ""}}> {roleHeading}</Typography>
-    <Typography variant="subtitle1" color="text.secondary" sx={{ paddingBottom: 1, backgroundColor: ""}}> {location} | {startDate} -- {endDate}</Typography>
-    {roleDesc.map((duty, index) => (
-      <Typography key={index} sx={{paddingBottom: 1, backgroundColor: ""}}>
-        {duty}
-      </Typography>
-    ))}
+    <Typography variant="subtitle1" color="text.secondary" sx={{ paddingBottom: 1, backgroundColor: ""}}> {location} | {startDate} - {endDate}</Typography>
+
+    <List>
+      {roleDesc.map((duty, index) => (
+        <ListItem>
+          <ListItemIcon>
+            <ArrowRightAltIcon />
+          </ListItemIcon>
+          <ListItemText primary={duty} />
+        </ListItem>
+
+      ))}
+    </List>
     </Box>
   )
 }
@@ -152,34 +181,3 @@ export default function Resume() {
       </Box>
   );
 }
-
-
-
-          {/* <CompanyInfo companyName={resume.workex.company1.name} location="">
-            <RoleAndDescription roleHeading={resume.workex.company1.roles.role1.title} 
-                                location={resume.workex.company1.roles.role1.location}
-                                startDate={resume.workex.company1.roles.role1.startDate}
-                                endDate={resume.workex.company1.roles.role1.endDate}
-                                roleDesc={resume.workex.company1.roles.role1.desc} />
-            <RoleAndDescription roleHeading={resume.workex.company1.roles.role2.title} 
-                                          location={resume.workex.company1.roles.role2.location}
-                                          startDate={resume.workex.company1.roles.role2.startDate}
-                                          endDate={resume.workex.company1.roles.role2.endDate}
-           
-            roleDesc={resume.workex.company1.roles.role2.desc} />
-          </CompanyInfo>
-
-          <CompanyInfo companyName={resume.workex.company2.name} location="">
-            <RoleAndDescription roleHeading={resume.workex.company2.roles.role1.title} 
-                                            location={resume.workex.company2.roles.role1.location}
-                                            startDate={resume.workex.company2.roles.role1.startDate}
-                                            endDate={resume.workex.company2.roles.role1.endDate}
-            roleDesc={resume.workex.company2.roles.role1.desc} />
-            <RoleAndDescription roleHeading={resume.workex.company2.roles.role2.title} 
-                                                        location={resume.workex.company2.roles.role2.location}
-                                                        startDate={resume.workex.company2.roles.role2.startDate}
-                                                        endDate={resume.workex.company2.roles.role2.endDate}
-            roleDesc={resume.workex.company2.roles.role2.desc} />
-          </CompanyInfo>
-        </Box>
- */}
