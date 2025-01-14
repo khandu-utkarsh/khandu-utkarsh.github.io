@@ -1,4 +1,4 @@
-import { Typography, Box} from '@mui/material';
+import { Typography, Box, SxProps} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -22,7 +22,7 @@ export interface WCardProps {
     introContent: string;
     linkToArticle?: string;
     keywords? :string[];
-    sx? : any;
+    sx? : SxProps;
 
 }
 

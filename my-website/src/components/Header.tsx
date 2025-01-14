@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { PropsWithChildren } from "react";
 import Link from 'next/link'
-import { Paper, Drawer, Tab, Tabs, Grid2 as Grid } from '@mui/material';
+import { Paper, Drawer, Tab, Tabs, Grid2 as Grid, SxProps} from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -31,7 +31,7 @@ function LinkTab(props: LinkTabProps) {
 
 interface NameTabProps {
     label?: string;
-    [key: string]: any;
+    sx: SxProps;
 }
 function NameTab(props: NameTabProps) {
     const {label, ...rest } = props;

@@ -7,6 +7,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {useEffect, useState } from 'react';
+import Link from 'next/link'
 
 
 //!Declaring the types:
@@ -27,7 +28,7 @@ type CompanyInfo = {
 
 type jsonFileContent = {
   workex : CompanyInfo[];
-  education: any;
+  // education: any;
 }
 
 function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDesc} : RoleInfo) {
@@ -59,7 +60,7 @@ function CompanyDetailsComponent(props : CompanyInfo) {
   //!TODO ADD URL on the company name so that if someone clicks, it is redirected simply
   return (
     <Box sx={{backgroundColor: "", paddingBottom: 2}}>
-      <Typography variant="h6" sx={{paddingBottom: 2}}>{name}</Typography>
+      <Typography variant="h6" component={Link} href={url} target="_blank" color="inherit" sx={{paddingBottom: 2, textDecoration:"none"}}>{name}</Typography>
       {
         roles.map((role) => (
           <RoleDetailsComponent 
@@ -104,6 +105,7 @@ function WorkExDetailsComponent({companies}: {companies: CompanyInfo[]}) {
 export default function Resume() {
 
   const [content, setContent] = useState<jsonFileContent | null>(null);
+  console.log('Printing content: ', content)
 
   useEffect(() => {
     // Fetch the JSON file from the public directory
@@ -115,8 +117,7 @@ export default function Resume() {
         return response.json();
     })
     .then((data) => {
-
-      const resumeData = data.resume;
+      console.log(data.resume)
       setContent(data.resume); // Update state with fetched data
     })
     .catch((error) => {
@@ -130,9 +131,7 @@ export default function Resume() {
     return <Typography variant="h5">Loading resume...</Typography>;    
   }
 
-  let workexData = content?.workex;
-  //console.log("What's up in the workexData: ", workexData)
-
+  const workexData = content?.workex;
 
   return (
       <Box sx={{ backgroundColor: "", paddingLeft: 2, paddingRight: 2}}>

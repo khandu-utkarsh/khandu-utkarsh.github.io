@@ -1,6 +1,6 @@
 import '@fontsource/roboto'; // Default weights (400, 500, 700)
 
-import { PropsWithChildren } from "react";
+import { ReactNode } from "react";
 import "./globals.css";
 import Header from "@/components/Header"
 import Footer from '@/components/Footer';
@@ -10,7 +10,7 @@ import { Box, Container } from '@mui/material';
 
 export default function RootLayout({
   children,
-}: PropsWithChildren<{}>) {        
+}: {children : ReactNode}) {        
   return (
     <html lang="en">
       <body>
