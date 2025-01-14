@@ -31,7 +31,7 @@ export default function BasicCard({cardHeading, date, introContent, linkToArticl
 
 
     const KeywordChips = (
-        <Stack direction="row" useFlexGap flexWrap="wrap" spacing={1} sx={{mb: 1.5, backgroundColor: ""}}>
+        <Stack direction="row" useFlexGap flexWrap="wrap" spacing={1} sx={{mb: 2, backgroundColor: ""}}>
           {keywords?.map((keyword, index) => (
             <Chip key={index} label={keyword} />
           ))}
@@ -43,10 +43,10 @@ export default function BasicCard({cardHeading, date, introContent, linkToArticl
         <Box sx={sx}>
             <Card sx={{paddingLeft: {sm: 2}, paddingRight: {sm: 2}, backgroundColor: ""}}>
             <CardContent sx={{backgroundColor: ""}}>
-                <Typography variant="h6" component="div" sx={{paddingBottom: 2, backgroundColor: ""}}>
+                <Typography variant="h6" component="div" sx={{backgroundColor: ""}}>
                     {cardHeading}
                 </Typography>
-                <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> {date}</Typography>
+                <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mt: 0.5, mb: 0.5, backgroundColor: ""}}> {date}</Typography>
 
                 {KeywordChips}
 

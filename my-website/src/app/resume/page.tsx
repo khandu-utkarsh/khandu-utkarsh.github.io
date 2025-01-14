@@ -30,30 +30,13 @@ type CompanyInfo = {
 //   companies : CompanyInfo[]
 // }
 
+
+
+
 type jsonFileContent = {
   workex : CompanyInfo[];
   education: any;
 }
-
-// ,
-//                     {
-//                         "roleHeading" : "Software Trainee",
-//                         "location": "Bangalore, India",
-//                         "startDate": "July 2018",
-//                         "endDate": "Nov 2018",
-//                         "roleDesc": [
-//                             "Designed and implemented a robust C++-based regression testing suite for BatchMesher."
-//                         ]
-//                     }
-
-                            // "My primary focus is on advancing computational geometry algorithms for 3D surface modeling and mesh processing in PowerFLOW and PowerDELTA.",
-                            //"Conducted research on mesh datasets and experimented with different approaches to enhance mesh quality post-boolean operations. Developed and implemented enhancements to the offsetting algorithm, resulting in improved mesh quality.",
-                            //"Contributed to maintaining the legacy code by templatizing C++ code and creating component libraries."
-
-          // <Typography sx={{paddingBottom: 1, backgroundColor: ""}}>
-          //   {duty}
-          // </Typography>
-
 
 function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDesc} : RoleInfo) {
   //console.log("In the roleDetails comp: ", roleHeading, location, startDate, endDate, roleDesc);
@@ -62,17 +45,24 @@ function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDe
     <Typography variant="h6" color="text.secondary" sx={{backgroundColor: ""}}> {roleHeading}</Typography>
     <Typography variant="subtitle1" color="text.secondary" sx={{ paddingBottom: 1, backgroundColor: ""}}> {location} | {startDate} - {endDate}</Typography>
 
-    <List>
-      {roleDesc.map((duty, index) => (
-        <ListItem>
-          <ListItemIcon>
-            <ArrowRightAltIcon />
-          </ListItemIcon>
-          <ListItemText primary={duty} />
-        </ListItem>
+    <List sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: ""}}>
+{roleDesc.map((duty, index) => (
+  <ListItem sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: "", alignItems:"flex-start"}}>
+                  <ListItemIcon sx={{minWidth: 40}}>
+          <ArrowRightAltIcon />
+        </ListItemIcon>
+    <ListItemText sx={{margin: {xs:0, sm: 0}}}primary={
+      <>
+      {duty}
+      </>
 
-      ))}
-    </List>
+      
+      
+      } />
+  </ListItem>
+))}
+</List>
+
     </Box>
   )
 }
@@ -169,12 +159,12 @@ export default function Resume() {
           Education
         </Typography>
         <Typography variant="h6">New York Univeristy- Courant Institute of Mathematical Sciences</Typography>
-        <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> M.S. in Scientific Computing, 2021 -- 2023</Typography>
-        {/* <Typography variant="subtitle1">Coureses</Typography>  */}
+        <Typography sx={{ color: 'text.secondary', mb: 0, backgroundColor: ""}}> M.S. in Scientific Computing</Typography>
+        <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> 2021 -- 2023</Typography>
 
         <Typography variant="h6">Indian Institute of Technology (BHU) Varanasi</Typography>
-        <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> B.Tech. in Mechanical Engineering, 2014 -- 2018</Typography>
-          {/* <Typography variant="subtitle1">Coureses</Typography>  */}
+        <Typography sx={{ color: 'text.secondary', mb: 0, backgroundColor: ""}}> B.Tech. in Mechanical Engineering</Typography>
+        <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> 2014 -- 2018</Typography>
 
       </Box>
 
