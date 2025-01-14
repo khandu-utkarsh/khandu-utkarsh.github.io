@@ -105,7 +105,7 @@ function WorkExDetailsComponent({companies}: {companies: CompanyInfo[]}) {
 export default function Resume() {
 
   const [content, setContent] = useState<jsonFileContent | null>(null);
-  console.log('Printing content: ', content)
+  //console.log('Printing content: ', content)
 
   useEffect(() => {
     // Fetch the JSON file from the public directory
@@ -117,7 +117,7 @@ export default function Resume() {
         return response.json();
     })
     .then((data) => {
-      console.log(data.resume)
+      //console.log(data.resume)
       setContent(data.resume); // Update state with fetched data
     })
     .catch((error) => {
