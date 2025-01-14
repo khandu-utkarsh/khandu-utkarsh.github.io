@@ -41,7 +41,7 @@ jobs:
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out # Adjust this path if your static site is in a different directory
+          path: ./my-website/out # Adjust this path if your static site is in a different directory
 
       - name: Deploy to GitHub Pages
         id: deployment
