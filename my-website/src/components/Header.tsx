@@ -31,11 +31,10 @@ function LinkTab(props: LinkTabProps) {
 
 interface NameTabProps {
     label?: string;
-    selected?: boolean;
     [key: string]: any;
 }
 function NameTab(props: NameTabProps) {
-    const {label, selected, ...rest } = props;
+    const {label, ...rest } = props;
     return (
         <Tab label={label} component="div"  {...rest} sx={{pointerEvents: "none", cursor: "default"}}></Tab>
     )
@@ -84,18 +83,6 @@ function NameAndSocials() {
             </Grid>
         </Grid>
     )
-}
-
-function NavPages() {
-    return (
-        <>
-            <LinkTab label="Home" href="/" value={1}/>
-            <LinkTab label="Writings" href="/writings" value={2}/>
-            <LinkTab label="Resume" href="/resume" value={3}/>
-        </>
-    )
-
-
 }
 
 // Map routes to tab indices

@@ -1,13 +1,12 @@
 "use client"
 
 import { Typography, Box, Divider, List, ListItem, ListItemIcon, ListItemText} from '@mui/material';
-import CircleIcon from '@mui/icons-material/Circle';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Children, useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 
 
 //!Declaring the types:
@@ -26,13 +25,6 @@ type CompanyInfo = {
 
 }
 
-// type WorkEx = {
-//   companies : CompanyInfo[]
-// }
-
-
-
-
 type jsonFileContent = {
   workex : CompanyInfo[];
   education: any;
@@ -46,7 +38,7 @@ function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDe
     <Typography variant="subtitle1" color="text.secondary" sx={{ paddingBottom: 1, backgroundColor: ""}}> {location} | {startDate} - {endDate}</Typography>
 
     <List sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: ""}}>
-      {roleDesc.map((duty, index) => (
+      {roleDesc.map((duty) => (
         <ListItem key={duty} sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: "", alignItems:"flex-start"}}>
           <ListItemIcon sx={{minWidth: 40}}>
             <ArrowRightAltIcon />
@@ -69,7 +61,7 @@ function CompanyDetailsComponent(props : CompanyInfo) {
     <Box sx={{backgroundColor: "", paddingBottom: 2}}>
       <Typography variant="h6" sx={{paddingBottom: 2}}>{name}</Typography>
       {
-        roles.map((role, index) => (
+        roles.map((role) => (
           <RoleDetailsComponent 
             key={role.roleHeading}
             roleHeading={role.roleHeading}

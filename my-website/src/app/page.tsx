@@ -17,7 +17,7 @@ export default function Home() {
   return (
       <Box sx={{backgroundColor: ""}}>
         <Typography variant="body1" align="justify">
-          Hi, I'm <b>Utkarsh Khandelwal</b>, an engineer and wannabe mathematician.
+          Hi, I&apos;m <b>Utkarsh Khandelwal</b>, an engineer and wannabe mathematician.
         </Typography>
 
         <Typography variant="body1" align="justify" sx={{ paddingTop: 2}}>
@@ -29,10 +29,10 @@ export default function Home() {
         </Typography>
 
         <Typography variant="body1" align="justify" sx={{ paddingTop: 2}}>
-          I am an outdoor enthusiast with a particular love for biking, an activity I've enjoyed continuously since 
+          I am an outdoor enthusiast with a particular love for biking, an activity I&apos;ve enjoyed continuously since 
           childhood. One of my favorite memories is a 110 km ride from Bellandur in Bangalore to Bangalore Airport in 2019. 
           The airport staff were shocked to see us, as there was no bike parking. It was my first long ride, I had 
-          no muscle endurance, and the day was unusually hot for Bangalore's typical weather. However, the wonderful 
+          no muscle endurance, and the day was unusually hot for Bangalore&apos;s typical weather. However, the wonderful 
           eateries at the airport made the whole journey worthwhile.
         </Typography>
 
