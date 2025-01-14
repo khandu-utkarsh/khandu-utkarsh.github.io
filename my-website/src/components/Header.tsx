@@ -155,12 +155,10 @@ return (
         ): (
             <>
             <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
-                <Tabs value = {false} role="navigation">
                     <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center", justifyContent: "space-between"}}>
                         <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
                         <IconButton onClick={toggleDrawer} sx={{ color: 'inherit' }}> <MenuIcon /> </IconButton>
                     </Grid>            
-                </Tabs>
             </Paper>
 
             <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>

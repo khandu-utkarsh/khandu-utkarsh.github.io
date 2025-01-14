@@ -1,9 +1,16 @@
+"use client"
 import { Typography, Box} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+// export async function getStaticProps() {
+//   // Fetch any necessary data here, or just return an empty object
+//   return {
+//     props: {},
+//   };
+// }
 
 
 export default function Home() {

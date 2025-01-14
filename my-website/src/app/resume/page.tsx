@@ -46,19 +46,12 @@ function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDe
     <Typography variant="subtitle1" color="text.secondary" sx={{ paddingBottom: 1, backgroundColor: ""}}> {location} | {startDate} - {endDate}</Typography>
 
     <List sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: ""}}>
-{roleDesc.map((duty, index) => (
-  <ListItem sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: "", alignItems:"flex-start"}}>
-                  <ListItemIcon sx={{minWidth: 40}}>
-          <ArrowRightAltIcon />
-        </ListItemIcon>
-    <ListItemText sx={{margin: {xs:0, sm: 0}}}primary={
-      <>
-      {duty}
-      </>
-
-      
-      
-      } />
+      {roleDesc.map((duty, index) => (
+        <ListItem key={duty} sx={{paddingTop: 0, paddingBottom: 0, backgroundColor: "", alignItems:"flex-start"}}>
+          <ListItemIcon sx={{minWidth: 40}}>
+            <ArrowRightAltIcon />
+          </ListItemIcon>
+        <ListItemText sx={{margin: {xs:0, sm: 0}}}primary={duty} />
   </ListItem>
 ))}
 </List>
@@ -78,6 +71,7 @@ function CompanyDetailsComponent(props : CompanyInfo) {
       {
         roles.map((role, index) => (
           <RoleDetailsComponent 
+            key={role.roleHeading}
             roleHeading={role.roleHeading}
             location={role.location}
             startDate={role.startDate}
@@ -98,12 +92,20 @@ function WorkExDetailsComponent({companies}: {companies: CompanyInfo[]}) {
     <>
       {
         companies.map((company)=> (
-          <CompanyDetailsComponent name={company.name} url={company.url} roles={company.roles}/> 
+          <CompanyDetailsComponent key={company.name} name={company.name} url={company.url} roles={company.roles}/> 
         ))
       }
     </>    
   )
 }
+
+
+// export async function getStaticProps() {
+//   // Fetch any necessary data here, or just return an empty object
+//   return {
+//     props: {},
+//   };
+// }
 
 
 
@@ -130,14 +132,14 @@ export default function Resume() {
     });
 }, []);
 
-  console.log("What's up in the content: ", content)
+  //console.log("What's up in the content: ", content)
 
   if(!content) {
     return <Typography variant="h5">Loading resume...</Typography>;    
   }
 
   let workexData = content?.workex;
-  console.log("What's up in the workexData: ", workexData)
+  //console.log("What's up in the workexData: ", workexData)
 
 
   return (

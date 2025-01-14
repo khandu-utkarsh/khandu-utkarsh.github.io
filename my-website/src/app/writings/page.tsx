@@ -20,6 +20,15 @@ interface ProjectInterface {
     link: string;
 }
 
+// export async function getStaticProps() {
+//     // Fetch any necessary data here, or just return an empty object
+//     return {
+//       props: {},
+//     };
+//   }
+  
+
+
 export default function BasicCard() {
 
     const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
