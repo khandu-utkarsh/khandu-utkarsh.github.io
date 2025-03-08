@@ -63,7 +63,7 @@ export default function BasicCard() {
 
     // Render project cards after data is loaded
     return (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{}}>
             {/* Filter Section */}
             <Box sx={{}}>
                 {/* Search Bar */}
