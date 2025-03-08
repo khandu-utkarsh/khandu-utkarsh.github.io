@@ -1,11 +1,12 @@
 "use client"
-import { Typography, Box} from '@mui/material';
+import { Typography, Box, Skeleton } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const items = [
     {
@@ -27,6 +28,22 @@ const items = [
 // }
 
 export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // Simulate image loading
+        Promise.all(
+            items.map(item => 
+                new Promise<void>((resolve) => {
+                    const img = new window.Image();
+                    img.src = item.image;
+                    img.onload = () => resolve();
+                })
+            )
+        ).then(() => {
+            setIsLoading(false);
+        });
+    }, []);
 
     return (
         <Box>
@@ -53,48 +70,61 @@ export default function Home() {
                 height: '300px',    // Reduced from 400px
                 mx: 'auto'          // Center the carousel
             }}>
-                <Carousel
-                    animation="slide"
-                    autoPlay={true}
-                    indicators={true}
-                    interval={4000}
-                    navButtonsAlwaysVisible={true}
-                >
-                    {items.map((item, index) => (
-                        <Box
-                            key={index}
-                            sx={{
-                                height: '300px',  // Match the container height
-                                position: 'relative',
-                                '& img': {
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    borderRadius: '8px',
-                                    objectPosition: 'center center'
-                                }
-                            }}
-                        >
-                            <Image src={item.image} alt={item.caption} layout='fill' objectFit='contain'/>
+                {isLoading ? (
+                    // Skeleton while images are loading
+                    <Skeleton 
+                        variant="rectangular"
+                        width="100%"
+                        height="100%"
+                        sx={{
+                            borderRadius: '8px',
+                            bgcolor: 'grey.200'
+                        }}
+                    />
+                ) : (
+                    <Carousel
+                        animation="slide"
+                        autoPlay={true}
+                        indicators={true}
+                        interval={4000}
+                        navButtonsAlwaysVisible={true}
+                    >
+                        {items.map((item, index) => (
                             <Box
+                                key={index}
                                 sx={{
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-                                    color: 'white',
-                                    padding: '20px',
-                                    borderRadius: '0 0 8px 8px'
+                                    height: '300px',  // Match the container height
+                                    position: 'relative',
+                                    '& img': {
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'contain',
+                                        borderRadius: '8px',
+                                        objectPosition: 'center center'
+                                    }
                                 }}
                             >
-                                <Typography variant="h6">
-                                    {item.caption}
-                                </Typography>
+                                <Image src={item.image} alt={item.caption} layout='fill' objectFit='contain'/>
+                                <Box
+                                    sx={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                                        color: 'white',
+                                        padding: '20px',
+                                        borderRadius: '0 0 8px 8px'
+                                    }}
+                                >
+                                    <Typography variant="h6">
+                                        {item.caption}
+                                    </Typography>
+                                </Box>
                             </Box>
-                        </Box>
-                    ))}
-                </Carousel>
+                        ))}
+                    </Carousel>
+                )}
             </Box>
 
             <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
