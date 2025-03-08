@@ -63,22 +63,14 @@ export default function BasicCard() {
 
     // Render project cards after data is loaded
     return (
-        <Box sx={{}}>
-            {/* Filter Section */}
-            <Box sx={{}}>
-                {/* Search Bar */}
+        <Box>
+            <Box sx={{ mb: { xs: 1, sm: 5 }, width: '100%' }}>
                 <TextField
-                    fullWidth
                     variant="outlined"
                     placeholder="Search writings..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    sx={{
-                        paddingBottom: {
-                            xs: 1,
-                            sm: 5
-                        },
-                    }}
+                    fullWidth
                 />
             </Box>
 

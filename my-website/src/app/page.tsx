@@ -54,7 +54,7 @@ export default function Home() {
 
           <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
           I enjoy software development because it fuels my curiosity and satisfies my desire to solve complex problems. The ability to create something purely through code is unmatched, making the process both exciting and fulfilling.
-          I love exploring new concepts, particularly in <b>software engineering</b> and <b>machine learning applications</b>, which I’m currently diving deeper into.
+          I love exploring new concepts, particularly in <b>software engineering</b> and <b>machine learning applications</b>, which I'm currently diving deeper into.
 
           </Typography>                    
 
@@ -128,7 +128,7 @@ export default function Home() {
             </Box>
 
             <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
-              Beyond tech, I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I’ve carried since childhood.
+              Beyond tech, I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I've carried since childhood.
             </Typography>
 
             <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>

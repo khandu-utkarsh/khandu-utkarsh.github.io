@@ -10,10 +10,10 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
 import { IconButton } from '@mui/material';
-
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
 import { usePathname } from 'next/navigation';
-
 
 interface LinkTabProps {
   label?: string;
@@ -92,16 +92,30 @@ const routeToIndex: Record<string, number> = {
     "/resume": 3,
   };
 
+interface NavTabsProps {
+    toggleTheme: () => void;
+    isDarkMode: boolean;
+}
 
-export default function NavTabs() {
-
+export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
     const currPathname = usePathname()
-    //!I got this size from the chrome responsive design tool. It started looking too cramped up at that size.
     const isMobile = useMediaQuery('(max-width:899px)');
     const [drawerOpen, setDrawerOpen] = React.useState(false);
     const [tabIndex, setTabIndex] = React.useState(1);
 
-
+    const ThemeToggleButton = () => (
+        <IconButton 
+            onClick={toggleTheme} 
+            sx={{ 
+                color: 'inherit',
+                '&:hover': {
+                    opacity: 0.8,
+                }
+            }}
+        >
+            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+        </IconButton>
+    );
 
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
@@ -128,14 +142,13 @@ return (
                     <Grid sx={{backgroundColor: ""}}>
                         <NameAndSocials />
                     </Grid>
-                    <Grid sx={{backgroundColor: ""}}>
+                    <Grid sx={{ display: 'flex', alignItems: 'center', backgroundColor: ""}}>
                         <Tabs value={tabIndex} onChange={handleChange} role="navigation">
-                            {/* <NavPages /> */}
                             <LinkTab label="Home" href="/" value={1}/>
                             <LinkTab label="Writings" href="/writings" value={2}/>
                             <LinkTab label="Resume" href="/resume" value={3}/>
-
                         </Tabs>
+                        <ThemeToggleButton />
                     </Grid>
                 </Grid>
             </Paper>
@@ -144,7 +157,12 @@ return (
             <Paper sx={{paddingTop: 1, paddingBottom: 1}}>
                     <Grid container direction="row" sx={{ flexGrow: 1, alignItems: "center", justifyContent: "space-between"}}>
                         <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
-                        <IconButton onClick={toggleDrawer} sx={{ color: 'inherit' }}> <MenuIcon /> </IconButton>
+                        <Grid sx={{ display: 'flex', alignItems: 'center' }}>
+                            <ThemeToggleButton />
+                            <IconButton onClick={toggleDrawer} sx={{ color: 'inherit', ml: 1 }}> 
+                                <MenuIcon /> 
+                            </IconButton>
+                        </Grid>
                     </Grid>            
             </Paper>
 
@@ -152,7 +170,6 @@ return (
                 <Tabs value={tabIndex} onChange={handleChange} role="navigation" orientation="vertical">
                     <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}></NameTab>
                     <Socials />
-                    {/* <NavPages/> */}
                     <LinkTab label="Home" href="/" value={1}/>
                     <LinkTab label="Writings" href="/writings" value={2}/>
                     <LinkTab label="Resume" href="/resume" value={3}/>
