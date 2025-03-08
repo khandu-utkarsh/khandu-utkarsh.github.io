@@ -50,17 +50,16 @@ export default function Home() {
             {/* Rest of your content */}
             <Typography variant="body1" align="justify">
               Hi, I&apos;m <b>Utkarsh Khandelwal</b>—an engineer driven by a deep curiosity for technology and a passion for mathematics.
-          </Typography>
+            </Typography>
 
-          <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
-          I enjoy software development because it fuels my curiosity and satisfies my desire to solve complex problems. The ability to create something purely through code is unmatched, making the process both exciting and fulfilling.
-          I love exploring new concepts, particularly in <b>software engineering</b> and <b>machine learning applications</b>, which I'm currently diving deeper into.
+            <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
+              I enjoy software development because it fuels my curiosity and satisfies my desire to solve complex problems. The ability to create something purely through code is unmatched, making the process both exciting and fulfilling.
+              I&apos;m currently diving deeper into <b>software engineering</b> and <b>machine learning applications</b>.
+            </Typography>                    
 
-          </Typography>                    
-
-          <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
-              With <b>close to five years of hands-on experience</b>, I have developed software using <b>C++20, TypeScript/JavaScript, Python, Angular, React, Next.js, Qt, Golang, and Elixir</b>, while also working within the <b>AWS ecosystem</b>.
-          </Typography>
+            <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
+                With <b>close to five years of hands-on experience</b>, I have developed software using <b>C++20, TypeScript/JavaScript, Python, Angular, React, Next.js, Qt, Golang, and Elixir</b>, while also working within the <b>AWS ecosystem</b>.
+            </Typography>
 
             {/* Carousel with reduced size */}
             <Box sx={{ 
@@ -128,7 +127,7 @@ export default function Home() {
             </Box>
 
             <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
-              Beyond tech, I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I've carried since childhood.
+              Beyond tech, I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I&apos;ve carried since childhood.
             </Typography>
 
             <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
@@ -138,10 +137,10 @@ export default function Home() {
               But the rewarding experience (and the amazing food at the airport) made it all <b>worthwhile</b>.
             </Typography>
 
-          <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
-            These days, I call <b>Cambridge, Massachusetts</b>, home. I especially love the <b>summers</b> here—the <b>bright sunny days</b>,  
-            <b>short drives to the beaches</b>, and the <b>proximity to NYC</b> make it an ideal place to live.
-          </Typography>
+            <Typography variant="body1" align="justify" sx={{ paddingTop: 2 }}>
+              These days, I call <b>Cambridge, Massachusetts</b>, home. I especially love the <b>summers</b> here—the <b>bright sunny days</b>,  
+              <b>short drives to the beaches</b>, and the <b>proximity to NYC</b> make it an ideal place to live.
+            </Typography>
 
         </Box>
     );
