@@ -6,8 +6,17 @@ import Header from "@/components/Header"
 import Footer from '@/components/Footer';
 
 import { Box, Container } from '@mui/material';
+import { Metadata } from 'next'
 
-//!Utkarsh
+export const metadata: Metadata = {
+  title: 'Utkarsh Khandelwal',
+  description: 'Software Engineer',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+    ]
+  },
+}
 
 export default function RootLayout({
   children,
@@ -22,13 +31,7 @@ export default function RootLayout({
             </Box>
           <Footer className="footer"/>
         </Container>
-
-
-
-
       </body>
     </html>
   );
-
-
 }
