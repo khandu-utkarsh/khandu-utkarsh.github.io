@@ -1,10 +1,11 @@
 "use client"
-import { Typography, Box, useTheme, useMediaQuery } from '@mui/material';
+import { Typography, Box} from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import Image from 'next/image';
 
 const items = [
     {
@@ -26,8 +27,6 @@ const items = [
 // }
 
 export default function Home() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <Box>
@@ -76,7 +75,7 @@ export default function Home() {
                                 }
                             }}
                         >
-                            <img src={item.image} alt={item.caption} />
+                            <Image src={item.image} alt={item.caption} layout='fill' objectFit='contain'/>
                             <Box
                                 sx={{
                                     position: 'absolute',
