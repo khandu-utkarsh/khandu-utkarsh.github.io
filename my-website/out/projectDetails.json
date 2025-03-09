@@ -6,7 +6,8 @@
             "introContent": "My understanding of the frontend development process, particularly with React, and how it integrates with the Next.js framework.",
             "keywords": ["frontend", "TypeScript", "JavaScript", "React", "Next.js"],
             "type": "article",
-            "link": "https://utkarshkhandelwal.substack.com/p/my-understanding-of-nextjs?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/my-understanding-of-nextjs?r=rvgvb",
+            "toBeDisplayed": true
         },
         {
             "heading": "Understanding the Components of Software Systems",
@@ -14,7 +15,8 @@
             "introContent": "My compilation of the study of typical components of distributed software systems. I will keep it updated with all my insights.",
             "keywords": ["backend", "database"],
             "type": "article",
-            "link": "https://utkarshkhandelwal.substack.com/p/understanding-the-components-of-software?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/understanding-the-components-of-software?r=rvgvb",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Understanding Event Loop-Driven Architectures",
@@ -22,7 +24,8 @@
             "introContent": "Implemented event loops in both Go and Python to gain insights into how they work.",
             "keywords": ["event-loop", "single-thread", "Go", "Python"],
             "type": "article",
-            "link": "https://utkarshkhandelwal.substack.com/p/implementation-and-understanding?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/implementation-and-understanding?r=rvgvb",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Understanding Different Programming Languages",
@@ -30,7 +33,8 @@
             "introContent": "This article contains my understanding of programming languages and a comparison of different features found in each of them. This is an ongoing study, and I continue to update it with any new findings.",
             "keywords": ["C++", "Go", "TypeScript", "JavaScript", "Python", "Elixir"],
             "type": "article",
-            "link": "https://utkarshkhandelwal.substack.com/p/my-understanding-of-different-programming?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/my-understanding-of-different-programming?r=rvgvb",
+            "toBeDisplayed": true
         },
         {
             "heading": "Implementation of Git",
@@ -38,7 +42,8 @@
             "introContent": "Implemented Git interface and plumbing commands to clone a repository from the remote.",
             "keywords": ["Git", "TypeScript"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-git-in-go?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-git-in-go?r=rvgvb",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Implementation of an HTTP Web Server",
@@ -46,7 +51,8 @@
             "introContent": "Implemented a basic HTTP server that can accept HTTP requests and send appropriate responses.",
             "keywords": ["web servers", "TypeScript", "http"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/implementing-and-understanding-of?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/implementing-and-understanding-of?r=rvgvb",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Implementation of SQLite",
@@ -54,7 +60,8 @@
             "introContent": "Implemented a version that can read SQLite database files and execute basic SQL queries like SELECT, WHERE, etc., using indexes.",
             "keywords": ["SQL", "Go", "relational database"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/writing-an-sqlite-reader-in-go?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/writing-an-sqlite-reader-in-go?r=rvgvb",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Implementation of Redis",
@@ -62,7 +69,8 @@
             "introContent": "Implemented an event loop-based Redis server that can parse and read RDB files, read, write, and replicate in-memory storage, and support Redis streams and transactions.",
             "keywords": ["Redis", "Go", "distributed systems"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-redis?r=rvgvb"
+            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-redis?r=rvgvb",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Implementation of the Chord Protocol-Based Distributed Hash Table for Peer-to-Peer Networks",
@@ -70,7 +78,8 @@
             "introContent": "Implemented a scalable key-value store using the Chord Protocol for decentralized networks. The Chord Protocol simplifies key lookup, node joining, and leaving processes, ensuring consistent behavior. Conducted performance evaluations on fetch times by increasing the key count from 100K to 1.6M on a system with 100 nodes.",
             "keywords": ["distributed systems", "Go", "gRPCs"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-distributed-key"
+            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-distributed-key",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Implementation of the Raft Consensus Algorithm for Distributed Systems",
@@ -78,7 +87,8 @@
             "introContent": "Implemented a replicated state machine using Raft, a distributed consensus protocol, to ensure log consistency across replicas in the system. Implemented log replication and leader election to handle node failures and validated it using rigorous testing with simulated node failures.",
             "keywords": ["distributed systems", "Elixir", "Raft"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/raft-consensus-algorithm-implementation"
+            "link": "https://utkarshkhandelwal.substack.com/p/raft-consensus-algorithm-implementation",
+            "toBeDisplayed": true
         },        
         {
             "heading": "Optimization and Implementation of Parallelized Graph Algorithms for Shared Memory Architectures",
@@ -86,7 +96,8 @@
             "introContent": "Implemented a framework for parallel graph algorithms on shared memory machines using OpenMP. Optimized the data access pattern, avoiding race conditions, to achieve a speedup of 8x for Bellman-Ford, 7x for Connected Components, and 3x for Breadth-First Search algorithms on a graph with 1 million vertices and 15 million edges.",
             "keywords": ["parallelization", "C++", "OpenMP", "HPC"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/parallelized-graph-algorithm-optimization"
+            "link": "https://utkarshkhandelwal.substack.com/p/parallelized-graph-algorithm-optimization",
+            "toBeDisplayed": true
         },
         {
             "heading": "Analysis and Modeling of Quantitative Financial Data from Equity Markets",
@@ -94,7 +105,8 @@
             "introContent": "Analyzed trades and quotes data for S&P 500 companies from June 2007 to September 2007 for modeling market impact. Estimated the predictive parameters and conducted statistical hypothesis tests to validate the model's performance.",
             "keywords": ["quant", "statistics", "econometrics", "Python"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/equity-market-modeling-and-analysis"
+            "link": "https://utkarshkhandelwal.substack.com/p/equity-market-modeling-and-analysis",
+            "toBeDisplayed": false
         },        
         {
             "heading": "Semantic image segmentation of satellite images using U-Net CNN architectures",
@@ -102,7 +114,8 @@
             "introContent": "Experimented with various U-Net models using different encoders to segment satellite images in the Landcover.ai dataset.",
             "keywords": ["computer vision", "segmentation", "PyTorch", "CNN"],
             "type":"implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/semantic-image-segmentation-of-satellite"
+            "link": "https://utkarshkhandelwal.substack.com/p/semantic-image-segmentation-of-satellite",
+            "toBeDisplayed": false
         },
         {
             "heading": "Implementation and analysis of various Monte Carlo sampling algorithms",
@@ -110,7 +123,8 @@
             "introContent": "Developed parallel algorithms in Python to implement Monte Carlo sampling techniques for estimating statistical quantities. These algorithms included importance sampling, ensemble methods, MCMC schemes, Langevin dynamics, and more.",
             "keywords": ["statistics", "Python", "sampling techniques", "mcmc"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-monte-carlo-sampling"
+            "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-monte-carlo-sampling",
+            "toBeDisplayed": false
         },
         {
             "heading": "Experimentation with Incorporating Causal Inference in Recommendation Systems",
@@ -118,7 +132,8 @@
             "introContent": "Experimented with capturing causal relationships between user actions and recommended items using probabilistic latent factor models, and used that inference to build recommendation systems.",
             "keywords": ["machine learning", "recommendation systems", "PyTorch", "Python"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/incorporating-causal-inference-into"
+            "link": "https://utkarshkhandelwal.substack.com/p/incorporating-causal-inference-into",
+            "toBeDisplayed": false
         },
         {
             "heading": "2D graphics interactive editor",
@@ -126,7 +141,8 @@
             "introContent": "Developed a desktop application featuring a custom rasterization pipeline for real-time, responsive manipulation of 2D graphics (triangles).",
             "keywords": ["computer graphics", "rasterization", "C++"],
             "type": "implementation",
-            "link": "https://utkarshkhandelwal.substack.com/p/desktop-application-for-2d-graphics"
+            "link": "https://utkarshkhandelwal.substack.com/p/desktop-application-for-2d-graphics",
+            "toBeDisplayed": false
         }
     ],
     "resume": {
