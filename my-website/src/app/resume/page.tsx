@@ -1,7 +1,8 @@
 "use client"
 
-import { Typography, Box, Divider, List, ListItem, ListItemIcon, ListItemText} from '@mui/material';
+import { Typography, Box, Divider, List, ListItem, ListItemIcon, ListItemText, Button} from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import DownloadIcon from '@mui/icons-material/Download';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -133,33 +134,63 @@ export default function Resume() {
 
   const workexData = content?.workex;
 
+  const handleDownload = () => {
+    // Replace this URL with your actual resume PDF URL
+    const fileUrl = '/Utkarsh_Khandelwal_Resume_Feb_2025.pdf';
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = 'Utkarsh_Khandelwal_Resume.pdf'; // Name of the file when downloaded
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
       <Box sx={{ backgroundColor: "", paddingLeft: 2, paddingRight: 2}}>
+        {/* Add the download button container */}
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'flex-end', 
+          paddingBottom: 2,
+          paddingTop: 1
+        }}>
+          <Button
+            variant="contained"
+            startIcon={<DownloadIcon />}
+            onClick={handleDownload}
+            sx={{
+              backgroundColor: 'primary.main',
+              '&:hover': {
+                backgroundColor: 'primary.dark',
+              },
+            }}
+          >
+            Download Resume
+          </Button>
+        </Box>
 
-
-      <Box sx={{paddingBottom: 2}}>
+        <Box sx={{paddingBottom: 2}}>
           <Typography variant="h5" sx={{paddingBottom: 2}}>
             Work Experience
           </Typography>
           <WorkExDetailsComponent companies={workexData}/>
-      </Box>
+        </Box>
 
+        <Divider/>
 
-      <Divider/>
+        <Box sx={{paddingBottom: 2}}>
+          <Typography variant="h5" sx={{paddingBottom: 2}}>
+            Education
+          </Typography>
+          <Typography variant="h6">New York Univeristy- Courant Institute of Mathematical Sciences</Typography>
+          <Typography sx={{ color: 'text.secondary', mb: 0, backgroundColor: ""}}> M.S. in Scientific Computing</Typography>
+          <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> 2021 -- 2023</Typography>
 
-      <Box sx={{paddingBottom: 2}}>
-        <Typography variant="h5" sx={{paddingBottom: 2}}>
-          Education
-        </Typography>
-        <Typography variant="h6">New York Univeristy- Courant Institute of Mathematical Sciences</Typography>
-        <Typography sx={{ color: 'text.secondary', mb: 0, backgroundColor: ""}}> M.S. in Scientific Computing</Typography>
-        <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> 2021 -- 2023</Typography>
+          <Typography variant="h6">Indian Institute of Technology (BHU) Varanasi</Typography>
+          <Typography sx={{ color: 'text.secondary', mb: 0, backgroundColor: ""}}> B.Tech. in Mechanical Engineering</Typography>
+          <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> 2014 -- 2018</Typography>
 
-        <Typography variant="h6">Indian Institute of Technology (BHU) Varanasi</Typography>
-        <Typography sx={{ color: 'text.secondary', mb: 0, backgroundColor: ""}}> B.Tech. in Mechanical Engineering</Typography>
-        <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mb: 1.5, backgroundColor: ""}}> 2014 -- 2018</Typography>
-
-      </Box>
+        </Box>
 
       </Box>
   );

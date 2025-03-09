@@ -7,19 +7,8 @@ import Header from "@/components/Header"
 import Footer from '@/components/Footer';
 
 import { Box, Container, CssBaseline } from '@mui/material';
-//import { Metadata } from 'next'
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from '@/theme/theme';
-
-// export const metadata: Metadata = {
-//   title: 'Utkarsh Khandelwal',
-//   description: 'Software Engineer',
-//   icons: {
-//     icon: [
-//       { url: '/favicon.ico' },
-//     ]
-//   },
-// }
 
 export default function RootLayout({
   children,
@@ -40,6 +29,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Utkarsh Khandelwal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Software Engineer" />
+        <link rel="icon" href="/favicon.png?v=1" type="image/png" sizes="32x32" />
+      </head>
       <body>
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <CssBaseline />
