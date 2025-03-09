@@ -16,6 +16,7 @@ interface ProjectInterface {
     keywords: string[];
     type: string;
     link: string;
+    toBeDisplayed: boolean;
 }
 
 // export async function getStaticProps() {
@@ -46,6 +47,9 @@ export default function BasicCard() {
     }, []);
 
     const filteredProjects = projects?.filter(project => {
+        // Only show projects that are marked to be displayed
+        if (!project.toBeDisplayed) return false;
+
         // Text search
         const searchMatch = 
             searchQuery === '' ||
@@ -74,23 +78,30 @@ export default function BasicCard() {
                 />
             </Box>
 
-            {/* Projects List */}
-            {filteredProjects?.map((project, index) => (
-                <WCard
-                    key={project.heading}
-                    cardHeading={project.heading}
-                    date={project.date}
-                    introContent={project.introContent}
-                    linkToArticle={project.link}
-                    keywords={project.keywords}
-                    sx={{
-                        paddingBottom: {
-                            xs: index === filteredProjects.length - 1 ? 0 : 1,
-                            sm: index === filteredProjects.length - 1 ? 0 : 5
-                        },
-                    }}
-                />
-            ))}
+            {/* Show message if no projects match the filter */}
+            {filteredProjects?.length === 0 ? (
+                <Typography variant="body1" sx={{ textAlign: 'center', mt: 4 }}>
+                    No writings found matching your search.
+                </Typography>
+            ) : (
+                /* Projects List */
+                filteredProjects?.map((project, index) => (
+                    <WCard
+                        key={project.heading}
+                        cardHeading={project.heading}
+                        date={project.date}
+                        introContent={project.introContent}
+                        linkToArticle={project.link}
+                        keywords={project.keywords}
+                        sx={{
+                            paddingBottom: {
+                                xs: index === filteredProjects.length - 1 ? 0 : 1,
+                                sm: index === filteredProjects.length - 1 ? 0 : 5
+                            },
+                        }}
+                    />
+                ))
+            )}
         </Box>
     );
 }
