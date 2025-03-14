@@ -90,6 +90,7 @@ export const lightTheme = createTheme({
         },
     },
     components: {
+        ...baseTheme.components,
         MuiAppBar: {
             styleOverrides: {
                 root: {
@@ -152,6 +153,7 @@ export const darkTheme = createTheme({
         },
     },
     components: {
+        ...baseTheme.components,
         MuiAppBar: {
             styleOverrides: {
                 root: {
