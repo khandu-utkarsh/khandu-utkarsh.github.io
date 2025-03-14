@@ -13,6 +13,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MenuIcon from '@mui/icons-material/Menu';
 import { usePathname } from 'next/navigation';
+import { themeConstants } from '@/theme/constants';
 
 interface LinkTabProps {
   label?: string;
@@ -189,10 +190,10 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
                         sx={{
                             p: 2,
                             borderRadius: 2,
-                            background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.05) 30%, rgba(33, 203, 243, 0.05) 90%)',
-                            transition: 'all 0.3s ease',
+                            background: themeConstants.gradients.primary,
+                            transition: themeConstants.transitions.default,
                             '&:hover': {
-                                background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.08) 30%, rgba(33, 203, 243, 0.08) 90%)',
+                                background: themeConstants.gradients.primaryHover,
                             }
                         }}
                     >
@@ -231,10 +232,10 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
                             sx={{
                                 p: 2,
                                 borderRadius: 2,
-                                background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.05) 30%, rgba(33, 203, 243, 0.05) 90%)',
-                                transition: 'all 0.3s ease',
+                                background: themeConstants.gradients.primary,
+                                transition: themeConstants.transitions.default,
                                 '&:hover': {
-                                    background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.08) 30%, rgba(33, 203, 243, 0.08) 90%)',
+                                    background: themeConstants.gradients.primaryHover,
                                 }
                             }}
                         >
@@ -268,7 +269,7 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
                             onClose={toggleDrawer}
                             PaperProps={{
                                 sx: {
-                                    background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.05) 30%, rgba(33, 203, 243, 0.05) 90%)',
+                                    background: themeConstants.gradients.primary,
                                     width: 280,
                                 }
                             }}

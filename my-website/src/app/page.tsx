@@ -1,5 +1,5 @@
 "use client"
-import { Typography, Box, Skeleton, Fade, Paper, Container } from '@mui/material';
+import { Typography, Box, Fade, Paper, Container } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -7,6 +7,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import { themeConstants } from '@/theme/constants';
 
 // Create a component for the carousel
 function ImageCarousel() {
@@ -24,9 +25,8 @@ function ImageCarousel() {
     return (
         <Box sx={{ 
             width: '100%',
-            height: '400px',
+            height: '500px',
             position: 'relative',
-            overflow: 'hidden',
             borderRadius: 2,
         }}>
             <Carousel
@@ -40,9 +40,10 @@ function ImageCarousel() {
                     height: '100%',
                     '& .MuiIconButton-root': {
                         color: 'white',
-                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                        backgroundColor: themeConstants.colors.overlayLight,
+                        transition: themeConstants.transitions.quick,
                         '&:hover': {
-                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            backgroundColor: themeConstants.colors.overlay,
                         }
                     }
                 }}
@@ -76,7 +77,7 @@ function ImageCarousel() {
                                 bottom: 0,
                                 left: 0,
                                 right: 0,
-                                background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                                background: themeConstants.gradients.overlay,
                                 color: 'white',
                                 padding: '20px',
                                 zIndex: 1,
@@ -92,13 +93,6 @@ function ImageCarousel() {
         </Box>
     );
 }
-
-// export async function getStaticProps() {
-//   // Fetch any necessary data here, or just return an empty object
-//   return {
-//     props: {},
-//   };
-// }
 
 export default function Home() {
     return (

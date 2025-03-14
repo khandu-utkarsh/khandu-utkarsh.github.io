@@ -1,3 +1,3 @@
-export default function Writings() {
+export default function Projects() {
     return (<>Projects page</>)
 };  

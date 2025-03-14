@@ -1,4 +1,41 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, Theme } from '@mui/material/styles';
+import { themeConstants } from './constants';
+
+declare module '@mui/material/styles' {
+    interface Theme {
+        customGradients: {
+            primary: string;
+            primaryHover: string;
+            text: string;
+            overlay: string;
+        };
+    }
+    interface ThemeOptions {
+        customGradients?: {
+            primary: string;
+            primaryHover: string;
+            text: string;
+            overlay: string;
+        };
+    }
+}
+
+const baseTheme = {
+    customGradients: themeConstants.gradients,
+    components: {
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundImage: themeConstants.gradients.primary,
+                    transition: themeConstants.transitions.default,
+                    '&:hover': {
+                        backgroundImage: themeConstants.gradients.primaryHover,
+                    },
+                },
+            },
+        },
+    },
+};
 
 const themeColors = {
   // Dark theme colors
@@ -34,110 +71,114 @@ const themeColors = {
 };
 
 export const lightTheme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: themeColors.common.blue,
-      light: themeColors.common.lightBlue,
-      dark: themeColors.common.darkBlue,
-    },
-    background: {
-      default: themeColors.lightPalette.background,
-      paper: themeColors.lightPalette.surface,
-    },
-    text: {
-      primary: themeColors.lightPalette.text,
-      secondary: '#636e72',
-    },
-  },
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: themeColors.lightPalette.surface,
-          color: themeColors.lightPalette.text,
-          boxShadow: 'none',
-          borderBottom: `1px solid ${themeColors.common.gray[300]}`,
+    ...baseTheme,
+    palette: {
+        mode: 'light',
+        primary: {
+            main: themeConstants.colors.primary,
         },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          backgroundColor: themeColors.lightPalette.surface,
-          borderRadius: '12px',
-          border: `1px solid ${themeColors.common.gray[200]}`,
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+        secondary: {
+            main: themeConstants.colors.secondary,
         },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: '8px',
+        background: {
+            default: themeColors.lightPalette.background,
+            paper: themeColors.lightPalette.surface,
         },
-      },
-    },
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          '& .MuiTab-root': {
-            color: themeColors.lightPalette.text,
-          },
+        text: {
+            primary: themeColors.lightPalette.text,
+            secondary: '#636e72',
         },
-      },
     },
-  },
-  shape: {
-    borderRadius: 12,
-  },
+    components: {
+        MuiAppBar: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: themeColors.lightPalette.surface,
+                    color: themeColors.lightPalette.text,
+                    boxShadow: 'none',
+                    borderBottom: `1px solid ${themeColors.common.gray[300]}`,
+                },
+            },
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: themeColors.lightPalette.surface,
+                    borderRadius: '12px',
+                    border: `1px solid ${themeColors.common.gray[200]}`,
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '8px',
+                },
+            },
+        },
+        MuiTabs: {
+            styleOverrides: {
+                root: {
+                    '& .MuiTab-root': {
+                        color: themeColors.lightPalette.text,
+                    },
+                },
+            },
+        },
+    },
+    shape: {
+        borderRadius: 12,
+    },
 });
 
 export const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: themeColors.common.blue,
-      light: themeColors.common.lightBlue,
-      dark: themeColors.common.darkBlue,
-    },
-    background: {
-      default: themeColors.darkPalette.background,
-      paper: themeColors.darkPalette.surface,
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#b0b8c4',
-    },
-  },
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: themeColors.darkPalette.surface,
-          boxShadow: 'none',
-          borderBottom: `1px solid ${themeColors.darkPalette.accent}`,
+    ...baseTheme,
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: themeConstants.colors.primary,
         },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          backgroundColor: themeColors.darkPalette.surface,
-          borderRadius: '12px',
-          border: `1px solid ${themeColors.darkPalette.accent}`,
+        secondary: {
+            main: themeConstants.colors.secondary,
         },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: '8px',
+        background: {
+            default: themeColors.darkPalette.background,
+            paper: themeColors.darkPalette.surface,
         },
-      },
+        text: {
+            primary: '#ffffff',
+            secondary: '#b0b8c4',
+        },
     },
-  },
-  shape: {
-    borderRadius: 12,
-  },
+    components: {
+        MuiAppBar: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: themeColors.darkPalette.surface,
+                    boxShadow: 'none',
+                    borderBottom: `1px solid ${themeColors.darkPalette.accent}`,
+                },
+            },
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: themeColors.darkPalette.surface,
+                    borderRadius: '12px',
+                    border: `1px solid ${themeColors.darkPalette.accent}`,
+                },
+            },
+        },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '8px',
+                },
+            },
+        },
+    },
+    shape: {
+        borderRadius: 12,
+    },
 }); 

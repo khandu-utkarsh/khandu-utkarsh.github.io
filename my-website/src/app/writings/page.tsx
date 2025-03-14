@@ -20,15 +20,6 @@ interface ProjectInterface {
     toBeDisplayed: boolean;
 }
 
-// export async function getStaticProps() {
-//     // Fetch any necessary data here, or just return an empty object
-//     return {
-//       props: {},
-//     };
-//   }
-  
-
-
 export default function WritingsPage() {
     const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
     const [searchQuery, setSearchQuery] = useState('');
