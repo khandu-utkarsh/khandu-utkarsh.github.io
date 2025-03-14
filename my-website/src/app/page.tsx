@@ -6,7 +6,6 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Image from 'next/image';
-import { useState } from 'react';
 import { themeConstants } from '@/theme/constants';
 
 // Create a component for the carousel
@@ -124,7 +123,7 @@ export default function Home() {
                                 WebkitTextFillColor: 'transparent',
                             }}
                         >
-                            Hi, I'm Utkarsh Khandelwal
+                            Hi, I&apos;m Utkarsh Khandelwal
                         </Typography>
                         <Typography variant="h6" color="text.secondary" gutterBottom>
                             Software Engineer & Technology Enthusiast
@@ -154,7 +153,7 @@ export default function Home() {
                         <Typography variant="body1" align="justify" sx={{ mb: 2 }}>
                             I enjoy software development because it fuels my curiosity and satisfies my desire to solve complex problems. 
                             The ability to create something purely through code is unmatched, making the process both exciting and fulfilling.
-                            I'm currently diving deeper into <b>software engineering</b> and <b>machine learning applications</b>.
+                            I&apos;m currently diving deeper into <b>software engineering</b> and <b>machine learning applications</b>.
                         </Typography>
                         <Typography variant="body1" align="justify">
                             With <b>close to five years of hands-on experience</b>, I have developed software using <b>C++20, TypeScript/JavaScript, Python, Angular, React, Next.js, Qt, Golang, and Elixir</b>, 
@@ -193,7 +192,7 @@ export default function Home() {
                             Beyond Tech
                         </Typography>
                         <Typography variant="body1" align="justify" sx={{ mb: 2 }}>
-                            I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I've carried since childhood.
+                            I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I&apos;ve carried since childhood.
                         </Typography>
                         <Typography variant="body1" align="justify" sx={{ mb: 2 }}>
                             One of my most memorable rides was a <b>110 km journey</b> from <b>Bellandur in Bangalore to Bangalore Airport</b> and back in 2019.  

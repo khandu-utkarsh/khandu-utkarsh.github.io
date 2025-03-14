@@ -147,7 +147,7 @@ export default function WritingsPage() {
                     gap: { xs: 3, sm: 4 },
                     gridTemplateColumns: '1fr'
                 }}>
-                    {filteredProjects?.map((project, index) => (
+                    {filteredProjects?.map((project) => (
                         <Fade in timeout={500} key={project.heading}>
                             <Box>
                                 <WCard
