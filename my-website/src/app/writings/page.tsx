@@ -1,15 +1,57 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import { Typography, TextField, Box, Fade, CircularProgress, InputAdornment, Paper } from '@mui/material';
+import { Typography, InputAdornment, CircularProgress, Fade } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import { themeConstants } from '@/theme/constants';
+import { styled } from '@mui/material/styles';
+import WCard from "@/components/WritingsCard";
+import {
+    PageContainer,
+    ContentContainer,
+    GradientHeading,
+    StyledPaper,
+    LoadingContainer,
+    ErrorText,
+    Section,
+    ResponsiveGrid,
+    SubHeading
+} from '@/components/styles/Common.styles';
 
-import WCard from "@/components/WritingsCard"
+// Specific styled components for Writings page
+const SearchField = styled('input')(({ theme }) => ({
+    width: '100%',
+    padding: theme.spacing(2),
+    borderRadius: theme.shape.borderRadius,
+    border: 'none',
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
+    fontSize: '1rem',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    '&:focus': {
+        outline: 'none',
+        boxShadow: `0 0 0 2px ${theme.palette.primary.main}`,
+    },
+    '&::placeholder': {
+        color: theme.palette.text.secondary,
+        opacity: 0.8,
+    },
+}));
+
+const SearchContainer = styled(StyledPaper)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing(2),
+    padding: theme.spacing(2),
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.up('sm')]: {
+        marginBottom: theme.spacing(6),
+    },
+}));
+
+const NoResultsContainer = styled(StyledPaper)(({ theme }) => ({
+    textAlign: 'center',
+    padding: theme.spacing(8, 2),
+}));
 
 interface ProjectInterface {
     heading: string;
@@ -45,153 +87,85 @@ export default function WritingsPage() {
 
     const filteredProjects = projects?.filter(project => {
         if (!project.toBeDisplayed) return false;
+        const searchLower = searchQuery.toLowerCase();
         return searchQuery === '' ||
-            project.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            project.introContent.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            project.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase()));
+            project.heading.toLowerCase().includes(searchLower) ||
+            project.introContent.toLowerCase().includes(searchLower) ||
+            project.keywords.some(keyword => keyword.toLowerCase().includes(searchLower));
     });
 
+    if (isLoading) {
+        return (
+            <LoadingContainer>
+                <CircularProgress />
+            </LoadingContainer>
+        );
+    }
+
     return (
-        <Box sx={{ 
-            maxWidth: '1200px', 
-            margin: '0 auto', 
-            padding: { xs: 2, sm: 4 },
-            minHeight: '100vh'
-        }}>
-            {/* Header Section */}
-            <Box sx={{ 
-                mb: { xs: 4, sm: 6 },
-                textAlign: 'center'
-            }}>
-                <Typography 
-                    variant="h3" 
-                    component="h1" 
-                    sx={{ 
-                        mb: 2,
-                        fontWeight: 700,
-                        background: themeConstants.gradients.text,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                    }}
-                >
-                    Writings
-                </Typography>
-                <Typography 
-                    variant="subtitle1" 
-                    color="text.secondary"
-                    sx={{ mb: 3 }}
-                >
-                    Explore my technical articles and implementations
-                </Typography>
-            </Box>
+        <PageContainer>
+            <Fade in timeout={1000}>
+                <ContentContainer>
+                    {/* Header Section */}
+                    <Section>
+                        <GradientHeading variant="h3" component="h1">
+                            Writings
+                        </GradientHeading>
+                        <SubHeading variant="subtitle1">
+                            Explore my technical articles and implementations
+                        </SubHeading>
+                    </Section>
 
-            {/* Search Section */}
-            <Paper 
-                elevation={0}
-                sx={{ 
-                    mb: { xs: 4, sm: 6 },
-                    p: 2,
-                    borderRadius: 2,
-                    background: themeConstants.gradients.primary,
-                    transition: themeConstants.transitions.default,
-                    '&:hover': {
-                        background: themeConstants.gradients.primaryHover,
-                    }
-                }}
-            >
-                <TextField
-                    variant="outlined"
-                    placeholder="Search by title, content, or keywords..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    fullWidth
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon sx={{ color: 'primary.main' }} />
-                            </InputAdornment>
-                        ),
-                    }}
-                    sx={{
-                        '& .MuiOutlinedInput-root': {
-                            backgroundColor: 'background.paper',
-                            transition: themeConstants.transitions.quick,
-                            '& fieldset': {
-                                borderColor: 'transparent',
-                            },
-                            '&:hover fieldset': {
-                                borderColor: 'primary.main',
-                            },
-                            '&.Mui-focused fieldset': {
-                                borderColor: 'primary.main',
-                                borderWidth: '2px',
-                            },
-                        },
-                        '& .MuiInputBase-input': {
-                            '&::placeholder': {
-                                color: 'text.secondary',
-                                opacity: 0.8,
-                            },
-                        },
-                    }}
-                />
-            </Paper>
+                    {/* Search Section */}
+                    <Section>
+                        <SearchContainer elevation={0}>
+                            <SearchIcon sx={{ color: 'primary.main' }} />
+                            <SearchField
+                                placeholder="Search by title, content, or keywords..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                        </SearchContainer>
+                    </Section>
 
-            {/* Content Section */}
-            {isLoading ? (
-                <Box sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'center', 
-                    alignItems: 'center', 
-                    minHeight: '400px' 
-                }}>
-                    <CircularProgress />
-                </Box>
-            ) : filteredProjects?.length === 0 ? (
-                <Fade in timeout={500}>
-                    <Box sx={{ 
-                        textAlign: 'center', 
-                        py: 8,
-                        px: 2,
-                        background: 'rgba(0, 0, 0, 0.02)',
-                        borderRadius: 2
-                    }}>
-                        <Typography variant="h6" color="text.secondary" gutterBottom>
-                            No writings found
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Try adjusting your search terms or browse all writings
-                        </Typography>
-                    </Box>
-                </Fade>
-            ) : (
-                <Box sx={{ 
-                    display: 'grid', 
-                    gap: { xs: 3, sm: 4 },
-                    gridTemplateColumns: '1fr'
-                }}>
-                    {filteredProjects?.map((project) => (
-                        <Fade in timeout={500} key={project.heading}>
-                            <Box>
-                                <WCard
-                                    cardHeading={project.heading}
-                                    date={project.date}
-                                    introContent={project.introContent}
-                                    linkToArticle={project.link}
-                                    keywords={project.keywords}
-                                    sx={{
-                                        transition: themeConstants.transitions.default,
-                                        '&:hover': {
-                                            transform: 'translateY(-4px)',
-                                            boxShadow: themeConstants.elevations.high,
-                                        }
-                                    }}
-                                />
-                            </Box>
+                    {/* Content Section */}
+                    {!filteredProjects?.length ? (
+                        <Fade in timeout={500}>
+                            <NoResultsContainer elevation={0}>
+                                <Typography variant="h6" color="text.secondary" gutterBottom>
+                                    No writings found
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    Try adjusting your search terms or browse all writings
+                                </Typography>
+                            </NoResultsContainer>
                         </Fade>
-                    ))}
-                </Box>
-            )}
-        </Box>
+                    ) : (
+                        <ResponsiveGrid>
+                            {filteredProjects?.map((project) => (
+                                <Fade in timeout={500} key={project.heading}>
+                                    <div>
+                                        <WCard
+                                            cardHeading={project.heading}
+                                            date={project.date}
+                                            introContent={project.introContent}
+                                            linkToArticle={project.link}
+                                            keywords={project.keywords}
+                                            sx={{
+                                                transition: 'all 0.3s ease',
+                                                '&:hover': {
+                                                    transform: 'translateY(-4px)',
+                                                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                                                }
+                                            }}
+                                        />
+                                    </div>
+                                </Fade>
+                            ))}
+                        </ResponsiveGrid>
+                    )}
+                </ContentContainer>
+            </Fade>
+        </PageContainer>
     );
 }

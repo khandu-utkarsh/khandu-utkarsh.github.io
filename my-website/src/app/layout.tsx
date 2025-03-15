@@ -1,5 +1,9 @@
 "use client"
-import '@fontsource/roboto'; // Default weights (400, 500, 700)
+// Import all necessary Roboto font weights
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 import { ReactNode, useState, useEffect } from "react";
 import "./globals.css";
