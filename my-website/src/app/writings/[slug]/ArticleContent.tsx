@@ -1,7 +1,7 @@
 "use client"
 
 import React, { JSX } from 'react';
-import { Typography, Box, Chip, Container } from '@mui/material';
+import { Typography, Box, Chip } from '@mui/material';
 import { themeConstants } from '@/theme/constants';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

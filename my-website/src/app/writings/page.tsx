@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import { Typography, InputAdornment, CircularProgress, Fade } from '@mui/material';
+import { Typography, CircularProgress, Fade } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import WCard from "@/components/WritingsCard";
@@ -11,7 +11,6 @@ import {
     GradientHeading,
     StyledPaper,
     LoadingContainer,
-    ErrorText,
     Section,
     ResponsiveGrid,
     SubHeading

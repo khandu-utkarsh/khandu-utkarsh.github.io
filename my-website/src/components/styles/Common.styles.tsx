@@ -67,7 +67,7 @@ export const StyledPaper = styled(Paper)(({ theme }) => ({
     },
 }));
 
-export const HoverPaper = styled(Paper)(({ theme }) => ({
+export const HoverPaper = styled(Paper)(({  }) => ({
     transition: themeConstants.transitions.default,
     '&:hover': {
         transform: 'translateY(-4px)',

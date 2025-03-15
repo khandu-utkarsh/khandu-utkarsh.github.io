@@ -1,6 +1,6 @@
 "use client"
 
-import { Typography, Divider, ListItemIcon, Fade, CircularProgress, Box, List } from '@mui/material';
+import { Typography, Divider, ListItemIcon, Fade, CircularProgress, Box } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import DownloadIcon from '@mui/icons-material/Download';
 import { useEffect, useState } from 'react';

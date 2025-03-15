@@ -35,7 +35,7 @@ const CarouselBox = styled(Box)(({ theme }) => ({
     }
 }));
 
-const CaptionBox = styled(Box)(({ theme }) => ({
+const CaptionBox = styled(Box)(({  }) => ({
     textAlign: 'center',
     marginTop: 0,
     padding: 0,
@@ -63,7 +63,7 @@ function ImageCarousel() {
                     indicators={true}
                     interval={4000}
                     navButtonsAlwaysVisible={true}
-                    onChange={(now) => setActiveStep(now)}
+                    onChange={(now?: number) => setActiveStep(now ?? 0)}
                 >
                     {items.map((item, index) => (
                         <Box
