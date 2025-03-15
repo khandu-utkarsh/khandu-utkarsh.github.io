@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import WCard from "@/components/WritingsCard";
 import { ProjectInterface } from "@/services/projectLoader";
+import { formatDate } from "@/utils/dateString";
 import {
     PageContainer,
     ContentContainer,
@@ -136,7 +137,7 @@ export default function WritingsPage() {
                                     <div key={`div-${project.heading}`}>
                                         <WCard
                                             cardHeading={project.heading}
-                                            date={project.date}
+                                            date={formatDate(project.date)}
                                             introContent={project.introContent}
                                             linkToArticle={project.link}
                                             keywords={project.keywords}

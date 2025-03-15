@@ -13,10 +13,11 @@ import {
     GradientLink,
     FlexBetween
 } from '@/components/styles/Common.styles';
+import { formatDate } from '@/utils/dateString';
 
 interface ArticleData {
     heading: string;
-    date: string;
+    date: Date;
     introContent: string;
     content?: string;
     keywords: string[];
@@ -83,7 +84,7 @@ export default function ArticleContent({ article }: ArticleContentProps) {
                     }}>
                         <CalendarTodayIcon sx={{ fontSize: '1rem', mr: 1 }} />
                         <Typography variant="body2">
-                            {article.date}
+                            {formatDate(article.date)}
                         </Typography>
                     </FlexBetween>
 
