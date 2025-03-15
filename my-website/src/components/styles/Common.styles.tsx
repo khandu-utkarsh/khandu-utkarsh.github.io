@@ -100,11 +100,29 @@ export const StyledListItemText = styled(ListItemText)(({ theme }) => ({
 
 // ============= Button Components =============
 export const GradientButton = styled(Button)(({ theme }) => ({
-    background: themeConstants.gradients.primary,
-    color: theme.palette.common.white,
+    background: theme.palette.mode === 'light' 
+        ? theme.palette.background.paper 
+        : theme.palette.primary.main,
+    color: theme.palette.mode === 'light' 
+        ? theme.palette.primary.main 
+        : theme.palette.common.white,
     padding: `${theme.spacing(1)} ${theme.spacing(3)}`,
+    fontWeight: 600,
+    transition: themeConstants.transitions.quick,
+    border: `1px solid ${theme.palette.primary.main}`,
     '&:hover': {
-        background: themeConstants.gradients.primaryHover,
+        background: theme.palette.mode === 'light' 
+            ? theme.palette.primary.main 
+            : theme.palette.primary.dark,
+        color: theme.palette.mode === 'light' 
+            ? theme.palette.common.white 
+            : theme.palette.common.white,
+        transform: 'translateY(-2px)',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    },
+    '& .MuiSvgIcon-root': {
+        marginRight: theme.spacing(1),
+        color: 'inherit',
     },
 }));
 
