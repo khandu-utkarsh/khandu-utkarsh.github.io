@@ -1,6 +1,17 @@
 import fs from 'fs';
 import path from 'path';
-import { ProjectInterface } from './projectService';
+
+export interface ProjectInterface {
+    heading: string;
+    date: string;
+    introContent: string;
+    keywords: string[];
+    type: string;
+    link: string;
+    toBeDisplayed: boolean;
+    content: string;
+}
+
 
 // Mark this file as server-only
 export const dynamic = 'force-static';

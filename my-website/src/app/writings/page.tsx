@@ -5,7 +5,7 @@ import { Typography, CircularProgress, Fade } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import WCard from "@/components/WritingsCard";
-import { ProjectInterface } from "@/services/projectService";
+import { ProjectInterface } from "@/services/projectLoader";
 import {
     PageContainer,
     ContentContainer,
@@ -133,7 +133,7 @@ export default function WritingsPage() {
                         <ResponsiveGrid>
                             {filteredProjects?.map((project) => (
                                 <Fade in timeout={500} key={project.heading}>
-                                    <div>
+                                    <div key={`div-${project.heading}`}>
                                         <WCard
                                             cardHeading={project.heading}
                                             date={project.date}
