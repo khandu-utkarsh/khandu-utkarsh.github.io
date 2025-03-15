@@ -27,7 +27,6 @@ export default function WCard({
     introContent, 
     keywords, 
     linkToArticle,
-    content,
     sx 
 }: WCardProps) {
     const cardContent = (

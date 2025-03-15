@@ -15,8 +15,7 @@ import {
     ResponsiveGrid,
     SubHeading
 } from '@/components/styles/Common.styles';
-
-import { createSlug } from "@/utils/slugify";
+import { ProjectService, ProjectInterface } from '@/services/projectService';
 
 // Specific styled components for Writings page
 const SearchField = styled('input')(({ theme }) => ({
@@ -54,50 +53,6 @@ const NoResultsContainer = styled(StyledPaper)(({ theme }) => ({
     padding: theme.spacing(8, 2),
 }));
 
-interface ProjectInterface {
-    heading: string;
-    date: string;
-    introContent: string;
-    keywords: string[];
-    type: string;
-    link: string;
-    toBeDisplayed: boolean;
-    content: string;
-}
-
-const fetchProjectContent = async (): Promise<ProjectInterface[]> => {
-    // Fetch project details
-    const response = await fetch("/projectDetails.json");
-    if (!response.ok) throw new Error("Failed to fetch projects");
-
-    const data = await response.json();
-    let projects: ProjectInterface[] = data.projects;
-
-    // Use `Promise.all` to wait for all markdown fetches to complete
-    projects = await Promise.all(
-        projects.map(async (project: ProjectInterface) => {
-            const slug = createSlug(project.heading);
-            try {
-                const response = await fetch(`/projectMarkdown/${slug}.md`);
-                if (response.ok) {
-                    project.content = await response.text();
-                } else {
-                    project.content = "Content not available.";
-                }
-                //!TODO: Remove this, once things are ready.
-                //!For testing purposes, setting link to undefined
-                project.link = "";
-            } catch (error) {
-                console.error(`Error fetching content for ${slug}:`, error);
-                project.content = "Error loading content.";
-            }
-            return project; // Return updated project
-        })
-    );
-    return projects;
-};
-
-
 export default function WritingsPage() {
     const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
     const [searchQuery, setSearchQuery] = useState('');
@@ -105,25 +60,30 @@ export default function WritingsPage() {
 
     useEffect(() => {
         setIsLoading(true);
-        fetchProjectContent()
-            .then((projects) => {
-                setProjects(projects);
-                setIsLoading(false);
-            })
-            .catch((error) => {
+        const fetchProjects = async () => {
+            try {
+                const projectService = ProjectService.getInstance();
+                const allProjects = await projectService.getVisibleProjects();
+                setProjects(allProjects);
+            } catch (error) {
                 console.error("Error fetching projects:", error);
+            } finally {
                 setIsLoading(false);
-            });
+            }
+        };
+        fetchProjects();
     }, []);
 
-    const filteredProjects = projects?.filter(project => {
-        if (!project.toBeDisplayed) return false;
-        const searchLower = searchQuery.toLowerCase();
-        return searchQuery === '' ||
-            project.heading.toLowerCase().includes(searchLower) ||
-            project.introContent.toLowerCase().includes(searchLower) ||
-            project.keywords.some(keyword => keyword.toLowerCase().includes(searchLower));
-    });
+    useEffect(() => {
+        const performSearch = async () => {
+            if (searchQuery) {
+                const projectService = ProjectService.getInstance();
+                const searchResults = await projectService.searchProjects(searchQuery);
+                setProjects(searchResults);
+            }
+        };
+        performSearch();
+    }, [searchQuery]);
 
     if (isLoading) {
         return (
@@ -160,7 +120,7 @@ export default function WritingsPage() {
                     </Section>
 
                     {/* Content Section */}
-                    {!filteredProjects?.length ? (
+                    {!projects?.length ? (
                         <Fade in timeout={500}>
                             <NoResultsContainer elevation={0}>
                                 <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -173,7 +133,7 @@ export default function WritingsPage() {
                         </Fade>
                     ) : (
                         <ResponsiveGrid>
-                            {filteredProjects?.map((project) => (
+                            {projects?.map((project) => (
                                 <Fade in timeout={500} key={project.heading}>
                                     <div>
                                         <WCard
@@ -182,7 +142,6 @@ export default function WritingsPage() {
                                             introContent={project.introContent}
                                             linkToArticle={project.link}
                                             keywords={project.keywords}
-                                            content={project.content}
                                             sx={{
                                                 transition: 'all 0.3s ease',
                                                 '&:hover': {

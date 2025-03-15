@@ -1,6 +1,6 @@
 import { createSlug } from '@/utils/slugify';
 import ArticleContent from '@/app/writings/[slug]/ArticleContent';
-import projectDetails from '../../../../public/projectDetails.json';
+import { ProjectService } from '@/services/projectService';
 import { Metadata } from 'next';
 
 interface Props {
@@ -9,9 +9,8 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const resolvedParams = await params;
-    const article = projectDetails.projects.find(
-        (project) => createSlug(project.heading) === resolvedParams.slug && project.toBeDisplayed
-    );
+    const projectService = ProjectService.getInstance();
+    const article = await projectService.getProjectBySlug(resolvedParams.slug);
 
     return {
         title: article?.heading || 'Article Not Found',
@@ -20,20 +19,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-    return projectDetails.projects
-        .filter(project => project.toBeDisplayed)
-        .map((project) => ({
-            slug: createSlug(project.heading),
-        }));
+    const projectService = ProjectService.getInstance();
+    const projects = await projectService.getVisibleProjects();
+    return projects.map((project) => ({
+        slug: createSlug(project.heading),
+    }));
 }
 
 export default async function Page({ params }: Props) {
     const resolvedParams = await params;
-    const article = projectDetails.projects.find(
-        (project) => createSlug(project.heading) === resolvedParams.slug && project.toBeDisplayed
-    );
+    const projectService = ProjectService.getInstance();
+    const article = await projectService.getProjectBySlug(resolvedParams.slug);
 
-    return <ArticleContent article={article || null} />;
+    return <ArticleContent article={article} />;
 }
 
 // Configure dynamic parameters behavior
