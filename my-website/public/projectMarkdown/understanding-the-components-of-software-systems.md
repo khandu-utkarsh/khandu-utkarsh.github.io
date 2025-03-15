@@ -11,7 +11,7 @@ implementation
 ---
 
 ## Intro
-My compilation of the study of typical components of distributed software systems. I will keep it updated with all my insights.
+A compilation of studies on various components of computer systems.
 ---
 
 ## Keywords
