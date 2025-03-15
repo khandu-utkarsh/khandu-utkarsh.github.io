@@ -1,13 +1,19 @@
-# Concurrency and Parallelization: Implementations, Explorations, and Insights
+## Heading
+Concurrency and Parallelization: Implementations, Explorations, and Insights
+---
 
-**Date:** Nov 2024
+## Date
+Nov 2024
+---
 
+## Type
+implementation
+---
+
+## Intro
 Implemented event loops in both Go and Python to gain insights into how they work.
 Optimization and Implementation of Parallelized Graph Algorithms for Shared Memory Architectures
-
-<!-- **Date:** May 2022 -->
-
-Implemented a framework for parallel graph algorithms on shared memory machines using OpenMP. Optimized the data access pattern, avoiding race conditions, to achieve a speedup of 8x for Bellman-Ford, 7x for Connected Components, and 3x for Breadth-First Search algorithms on a graph with 1 million vertices and 15 million edges.
+---
 
 ## Keywords
 - parallelization
@@ -18,14 +24,14 @@ Implemented a framework for parallel graph algorithms on shared memory machines 
 - single-thread
 - Go
 - Python
+---
 
+## Link
+---
 
+## Content
+Implemented event loops in both Go and Python to gain insights into how they work.
+Optimization and Implementation of Parallelized Graph Algorithms for Shared Memory Architectures
 
-
-
-[Read more](https://utkarshkhandelwal.substack.com/p/parallelized-graph-algorithm-optimization)
-
-
-
-
-<!-- [Read more](https://utkarshkhandelwal.substack.com/p/implementation-and-understanding?r=rvgvb) -->
+Implemented a framework for parallel graph algorithms on shared memory machines using OpenMP. Optimized the data access pattern, avoiding race conditions, to achieve a speedup of 8x for Bellman-Ford, 7x for Connected Components, and 3x for Breadth-First Search algorithms on a graph with 1 million vertices and 15 million edges.
+---

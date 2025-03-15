@@ -1,19 +1,31 @@
-# Computer Vision: Image Segmentation Techniques – Exploration and Implementation
+## Heading
+Computer Vision: Image Segmentation Techniques – Exploration and Implementation
+---
 
+## Date
+December 2022
+---
 
+## Type
+implementation
+---
 
-**Date:** Dec 2022
-
-Semantic image segmentation of satellite images using U-Net CNN architectures
-Experimented with various U-Net models using different encoders to segment satellite images in the Landcover.ai dataset.
+## Intro
+Semantic image segmentation of satellite images using U-Net CNN architectures. Experimented with various U-Net models using different encoders to segment satellite images in the Landcover.ai dataset.
+---
 
 ## Keywords
 - computer vision
 - segmentation
 - PyTorch
 - CNN
+---
 
+## Link
+---
 
+## Content
+Semantic image segmentation of satellite images using U-Net CNN architectures. Experimented with various U-Net models using different encoders to segment satellite images in the Landcover.ai dataset.
 
-
-[Read more](https://utkarshkhandelwal.substack.com/p/semantic-image-segmentation-of-satellite)
+The project involved implementing and comparing different U-Net architectures for semantic segmentation of satellite imagery, focusing on the Landcover.ai dataset.
+---

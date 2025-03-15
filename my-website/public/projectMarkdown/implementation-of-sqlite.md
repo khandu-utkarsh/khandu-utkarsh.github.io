@@ -1,15 +1,28 @@
-# Implementation of SQLite
+## Heading
+Implementation of SQLite
+---
 
-**Date:** Oct 2024
+## Date
+October 2024
+---
 
+## Type
+implementation
+---
+
+## Intro
 Implemented a version that can read SQLite database files and execute basic SQL queries like SELECT, WHERE, etc., using indexes.
+---
 
 ## Keywords
 - SQL
 - Go
 - relational database
+---
 
+## Link
+---
 
-
-
-[Read more](https://utkarshkhandelwal.substack.com/p/writing-an-sqlite-reader-in-go?r=rvgvb)
+## Content
+Implemented a version that can read SQLite database files and execute basic SQL queries like SELECT, WHERE, etc., using indexes.
+---

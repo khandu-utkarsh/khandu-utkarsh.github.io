@@ -1,14 +1,27 @@
-# Implementation of Git
+## Heading
+Implementation of Git
+---
 
-**Date:** Oct 2024
+## Date
+October 2024
+---
 
+## Type
+implementation
+---
+
+## Intro
 Implemented Git interface and plumbing commands to clone a repository from the remote.
+---
 
 ## Keywords
 - Git
 - TypeScript
+---
 
+## Link
+---
 
-
-
-[Read more](https://utkarshkhandelwal.substack.com/p/implementation-of-git-in-go?r=rvgvb)
+## Content
+Implemented Git interface and plumbing commands to clone a repository from the remote.
+---

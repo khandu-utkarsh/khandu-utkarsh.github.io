@@ -1,15 +1,28 @@
-# Implementation of Redis
+## Heading
+Implementation of Redis
+---
 
-**Date:** Nov 2024
+## Date
+November 2024
+---
 
+## Type
+implementation
+---
+
+## Intro
 Implemented an event loop-based Redis server that can parse and read RDB files, read, write, and replicate in-memory storage, and support Redis streams and transactions.
+---
 
 ## Keywords
 - Redis
 - Go
 - distributed systems
+---
 
+## Link
+---
 
-
-
-[Read more](https://utkarshkhandelwal.substack.com/p/implementation-of-redis?r=rvgvb)
+## Content
+Implemented an event loop-based Redis server that can parse and read RDB files, read, write, and replicate in-memory storage, and support Redis streams and transactions.
+---

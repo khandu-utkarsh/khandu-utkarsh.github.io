@@ -1,8 +1,18 @@
-# Exploring Different Programming Languages
+## Heading
+Exploring Different Programming Languages
+---
 
-**Date:** Jan 2025
+## Date
+January 2025
+---
 
+## Type
+article
+---
+
+## Intro
 This article contains my understanding of programming languages and a comparison of different features found in each of them. This is an ongoing study, and I continue to update it with any new findings.
+---
 
 ## Keywords
 - C++
@@ -11,8 +21,11 @@ This article contains my understanding of programming languages and a comparison
 - JavaScript
 - Python
 - Elixir
+---
 
+## Link
+---
 
-
-
-[Read more](https://utkarshkhandelwal.substack.com/p/my-understanding-of-different-programming?r=rvgvb)
+## Content
+This article contains my understanding of programming languages and a comparison of different features found in each of them. This is an ongoing study, and I continue to update it with any new findings.
+---

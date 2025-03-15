@@ -13,45 +13,70 @@ export interface ProjectInterface {
 }
 
 
+/*
+Follow this format for the markdown files:
+
+
+## Heading
+Your Article Title Here
+---
+
+## Date
+January 2024
+---
+
+## Type
+article
+---
+
+## Intro
+This is the introduction paragraph that will appear in the card...
+---
+
+## Keywords
+- React
+- TypeScript
+- Next.js
+---
+
+## Link
+https://your-link-here.com
+---
+
+## Content
+Your main content goes here...
+This can be multiple paragraphs.
+
+You can include code blocks, lists, etc.
+---
+
+*/
 // Mark this file as server-only
 export const dynamic = 'force-static';
 
-function parseMarkdownContent(content: string): ProjectInterface {
-    const lines = content.split('\n');
-    
-    // Get heading from first line (# Title)
-    const heading = lines[0].replace('# ', '').trim();
-    
-    // Get date and convert to Date object with only month and year
-    const dateMatch = content.match(/\*\*Date:\*\* (.*)/);
-    const dateStr = dateMatch ? dateMatch[1].trim() : '';
-    
-    // Get intro (text between date and keywords)
-    const introMatch = content.split('## Keywords')[0]
-        .split('\n\n')
-        .slice(2, 3)
-        .join('')
-        .trim();
 
-    // Get keywords
-    const keywordsSection = content.split('## Keywords')[1]
-        .split('## Content')[0];
-    const keywords = keywordsSection
+
+function parseMarkdownContent(content: string): ProjectInterface {
+    // Helper function to get content between markers
+    const getContentBetweenMarkers = (startMarker: string, endMarker: string = '---'): string => {
+        const parts = content.split(startMarker)[1]?.split(endMarker);
+        return parts?.[0]?.trim() || '';
+    };
+
+    // Get each section using the marker approach
+    const heading = getContentBetweenMarkers('## Heading');
+    const dateStr = getContentBetweenMarkers('## Date');
+    const introContent = getContentBetweenMarkers('## Intro');
+    const type = getContentBetweenMarkers('## Type');
+    const link = getContentBetweenMarkers('## Link');
+    const mainContent = getContentBetweenMarkers('## Content');
+
+    // Get keywords (keeping the list format)
+    const keywordsContent = getContentBetweenMarkers('## Keywords');
+    const keywords = keywordsContent
         .split('\n')
         .filter(line => line.startsWith('- '))
         .map(line => line.replace('- ', '').trim());
-
-    // Get content
-    const contentMatch = content.split('## Content')[1]?.trim() || '';
-
-    // Get link from [Read more](link) pattern
-    const linkMatch = content.match(/\[Read more\]\((.*?)\)/);
-    const linkReadMore = linkMatch ? linkMatch[1].trim() : '';
-    console.log(linkReadMore);
-    const link = "";
-
-    // Determine type based on heading
-    const type = heading.toLowerCase().startsWith('implementation') ? 'implementation' : 'article';
 
     try {
         // Parse the date string and set day to 1st of the month
@@ -66,11 +91,11 @@ function parseMarkdownContent(content: string): ProjectInterface {
         return {
             heading,
             date,
-            introContent: introMatch,
+            introContent,
             keywords,
-            type,
+            type: type.toLowerCase(),
             link,
-            content: contentMatch,
+            content: mainContent,
             toBeDisplayed: true
         };
     } catch (error) {
@@ -78,16 +103,15 @@ function parseMarkdownContent(content: string): ProjectInterface {
         const fallbackDate = new Date();
         fallbackDate.setDate(1);
         console.warn(`Invalid date format in ${heading}, using fallback date`);
-        console.log(`Error date: ${error}`);
-        
+        console.error(`Error: ${error}`);
         return {
             heading,
             date: fallbackDate,
-            introContent: introMatch,
+            introContent,
             keywords,
-            type,
+            type: type.toLowerCase(),
             link,
-            content: contentMatch,
+            content: mainContent,
             toBeDisplayed: true
         };
     }
