@@ -1,26 +1,37 @@
 "use client"
-import { Box, Fade, Container } from '@mui/material';
+import { Box, Fade, Typography } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import Image from 'next/image';
 import { themeConstants } from '@/theme/constants';
 import {
-    StyledPaper,
-    GradientHeading,
-    SubHeading,
-    BodyText,
-    CarouselPaper,
-    CarouselContainer,
-    ImageOverlay
-} from '@/components/styles/Home.styles';
-import {
     PageContainer,
     ContentContainer,
-    FadeInBox,
-    Section
+    Section,
+    GradientHeading,
+    StyledPaper,
+    SubHeading
 } from '@/components/styles/Common.styles';
-import { Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-// Create a component for the carousel
+// Carousel specific styled components can be moved to Common.styles.tsx if needed elsewhere
+const CarouselBox = styled(Box)(({ theme }) => ({
+    width: '100%',
+    height: '500px',
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius * 2,
+}));
+
+const ImageOverlay = styled(Box)(({ theme }) => ({
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: themeConstants.gradients.overlay,
+    color: theme.palette.common.white,
+    padding: theme.spacing(2.5),
+    zIndex: 1,
+}));
+
 function ImageCarousel() {
     const items = [
         {
@@ -34,12 +45,7 @@ function ImageCarousel() {
     ];
 
     return (
-        <Box sx={{ 
-            width: '100%',
-            height: '500px',
-            position: 'relative',
-            borderRadius: 2,
-        }}>
+        <CarouselBox>
             <Carousel
                 animation="fade"
                 autoPlay={true}
@@ -82,26 +88,15 @@ function ImageCarousel() {
                                 height: '100%',
                             }}
                         />
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                bottom: 0,
-                                left: 0,
-                                right: 0,
-                                background: themeConstants.gradients.overlay,
-                                color: 'white',
-                                padding: '20px',
-                                zIndex: 1,
-                            }}
-                        >
+                        <ImageOverlay>
                             <GradientHeading variant="h6">
                                 {item.caption}
                             </GradientHeading>
-                        </Box>
+                        </ImageOverlay>
                     </Box>
                 ))}
             </Carousel>
-        </Box>
+        </CarouselBox>
     );
 }
 
