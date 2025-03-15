@@ -70,6 +70,28 @@ const themeColors = {
   }
 };
 
+const commonComponents = {
+    MuiTextField: {
+        styleOverrides: {
+            root: {
+                '& .MuiOutlinedInput-root': {
+                    transition: themeConstants.transitions.quick,
+                    '& fieldset': {
+                        borderColor: 'transparent',
+                    },
+                    '&:hover fieldset': {
+                        borderColor: themeConstants.colors.primary,
+                    },
+                    '&.Mui-focused fieldset': {
+                        borderColor: themeConstants.colors.primary,
+                        borderWidth: '2px',
+                    },
+                },
+            },
+        },
+    },
+};
+
 export const lightTheme = createTheme({
     ...baseTheme,
     palette: {
@@ -91,6 +113,7 @@ export const lightTheme = createTheme({
     },
     components: {
         ...baseTheme.components,
+        ...commonComponents,
         MuiAppBar: {
             styleOverrides: {
                 root: {
@@ -154,6 +177,7 @@ export const darkTheme = createTheme({
     },
     components: {
         ...baseTheme.components,
+        ...commonComponents,
         MuiAppBar: {
             styleOverrides: {
                 root: {

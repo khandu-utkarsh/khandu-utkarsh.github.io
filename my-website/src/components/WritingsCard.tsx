@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import { Typography, Box, SxProps} from '@mui/material';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-
 
 import * as React from 'react';
 import Card from '@mui/material/Card';
@@ -15,6 +15,8 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { createSlug } from '@/utils/slugify';
+import { themeConstants } from '@/theme/constants';
 
 export interface WCardProps {
     cardHeading: string;
@@ -27,40 +29,113 @@ export interface WCardProps {
 }
 
 
-export default function BasicCard({cardHeading, date, introContent, linkToArticle, keywords, sx} : WCardProps) {
-
-
-    const KeywordChips = (
-        <Stack direction="row" useFlexGap flexWrap="wrap" spacing={1} sx={{mb: 2, backgroundColor: ""}}>
-          {keywords?.map((keyword, index) => (
-            <Chip key={index} label={keyword} />
-          ))}
-        </Stack>
-      );
-
-
-    return (
-        <Box sx={sx}>
-            <Card sx={{paddingLeft: {sm: 2}, paddingRight: {sm: 2}, backgroundColor: ""}}>
-            <CardContent sx={{backgroundColor: ""}}>
-                <Typography variant="h6" component="div" sx={{backgroundColor: ""}}>
-                    {cardHeading}
+export default function WCard({ 
+    cardHeading, 
+    date, 
+    introContent, 
+    keywords, 
+    linkToArticle,
+    sx 
+}: WCardProps) {
+    const cardContent = (
+        <Card 
+            sx={{
+                ...sx,
+                cursor: 'pointer',
+                background: themeConstants.gradients.primary,
+                transition: themeConstants.transitions.default,
+                '&:hover': {
+                    background: themeConstants.gradients.primaryHover,
+                    transform: 'translateY(-4px)',
+                    boxShadow: themeConstants.elevations.high,
+                }
+            }}
+        >
+            <CardContent>
+                <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start',
+                    justifyContent: 'space-between',
+                    gap: 1
+                }}>
+                    <Typography 
+                        variant="h5" 
+                        component="h2"
+                        sx={{
+                            mb: 1,
+                            background: themeConstants.gradients.text,
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                        }}
+                    >
+                        {cardHeading}
+                    </Typography>
+                    {linkToArticle && (
+                        <OpenInNewIcon 
+                            sx={{ 
+                                color: 'primary.main',
+                                fontSize: '1rem',
+                                opacity: 0.7,
+                                transition: themeConstants.transitions.quick,
+                                '.MuiCard-root:hover &': {
+                                    opacity: 1,
+                                }
+                            }} 
+                        />
+                    )}
+                </Box>
+                <Typography 
+                    variant="subtitle2" 
+                    color="text.secondary"
+                    sx={{ mb: 2 }}
+                >
+                    {date}
                 </Typography>
-                <Typography sx={{ paddingBottom: 1, color: 'text.secondary', mt: 0.5, mb: 0.5, backgroundColor: ""}}> {date}</Typography>
-
-                {KeywordChips}
-
-                <Typography variant="body2" sx={{backgroundColor: ""}}>
+                <Typography 
+                    variant="body1" 
+                    color="text.secondary"
+                    sx={{ mb: 2 }}
+                >
                     {introContent}
                 </Typography>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                    {keywords?.map((keyword) => (
+                        <Chip
+                            key={keyword}
+                            label={keyword}
+                            size="small"
+                            sx={{
+                                background: themeConstants.colors.chipBackground,
+                                color: themeConstants.colors.primary,
+                            }}
+                        />
+                    ))}
+                </Box>
             </CardContent>
-        <Divider />
+        </Card>
+    );
 
-      <CardActions>
-        <Button size="small" href={linkToArticle || "/"} target="_blank" color='inherit'>Read More <OpenInNewIcon fontSize='inherit'/></Button>
-      </CardActions>
+    // If external link is provided, use anchor tag with target="_blank"
+    if (linkToArticle) {
+        return (
+            <a 
+                href={linkToArticle}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}
+            >
+                {cardContent}
+            </a>
+        );
+    }
 
-    </Card>
-    </Box>
-  );
+    // Otherwise, use Next.js Link for internal routing
+    return (
+        <Link 
+            href={`/writings/${createSlug(cardHeading)}`}
+            style={{ textDecoration: 'none' }}
+        >
+            {cardContent}
+        </Link>
+    );
 }

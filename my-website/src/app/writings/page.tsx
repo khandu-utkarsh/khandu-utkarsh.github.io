@@ -7,6 +7,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { themeConstants } from '@/theme/constants';
 
 import WCard from "@/components/WritingsCard"
 
@@ -68,7 +69,7 @@ export default function WritingsPage() {
                     sx={{ 
                         mb: 2,
                         fontWeight: 700,
-                        background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+                        background: themeConstants.gradients.text,
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                     }}
@@ -91,10 +92,10 @@ export default function WritingsPage() {
                     mb: { xs: 4, sm: 6 },
                     p: 2,
                     borderRadius: 2,
-                    background: 'rgba(33, 150, 243, 0.04)',
-                    transition: 'all 0.3s ease',
+                    background: themeConstants.gradients.primary,
+                    transition: themeConstants.transitions.default,
                     '&:hover': {
-                        background: 'rgba(33, 150, 243, 0.08)',
+                        background: themeConstants.gradients.primaryHover,
                     }
                 }}
             >
@@ -107,9 +108,31 @@ export default function WritingsPage() {
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <SearchIcon color="primary" />
+                                <SearchIcon sx={{ color: 'primary.main' }} />
                             </InputAdornment>
                         ),
+                    }}
+                    sx={{
+                        '& .MuiOutlinedInput-root': {
+                            backgroundColor: 'background.paper',
+                            transition: themeConstants.transitions.quick,
+                            '& fieldset': {
+                                borderColor: 'transparent',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: 'primary.main',
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: 'primary.main',
+                                borderWidth: '2px',
+                            },
+                        },
+                        '& .MuiInputBase-input': {
+                            '&::placeholder': {
+                                color: 'text.secondary',
+                                opacity: 0.8,
+                            },
+                        },
                     }}
                 />
             </Paper>
@@ -157,10 +180,10 @@ export default function WritingsPage() {
                                     linkToArticle={project.link}
                                     keywords={project.keywords}
                                     sx={{
-                                        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                                        transition: themeConstants.transitions.default,
                                         '&:hover': {
                                             transform: 'translateY(-4px)',
-                                            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                                            boxShadow: themeConstants.elevations.high,
                                         }
                                     }}
                                 />

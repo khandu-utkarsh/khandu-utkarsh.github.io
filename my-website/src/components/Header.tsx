@@ -22,16 +22,22 @@ interface LinkTabProps {
 }
 
 function LinkTab(props: LinkTabProps) {
-    const { label, href, ...rest } = props;
+    const { label, href, value, ...rest } = props;
+    const pathname = usePathname();
+    const isActive = pathname === href || (href !== '/' && pathname.startsWith(href || ''));
+    
     return (
         <Tab 
             label={label} 
-            component={Link} 
+            component={Link}
             href={href || "#"} 
+            value={value}
             {...rest}
             sx={{
                 transition: 'all 0.2s ease',
-                '&:hover': {
+                color: isActive ? 'primary.main' : 'inherit',
+                fontWeight: isActive ? 600 : 400,
+                '&.Mui-selected': {
                     color: 'primary.main',
                 }
             }}
@@ -133,10 +139,23 @@ function NameAndSocials() {
 }
 
 const routeToIndex: Record<string, number> = {
-    "/": 1,
-    "/writings": 2,
-    "/resume": 3,
+    "/": 0,
+    "/writings": 1,
+    "/resume": 2,
 };
+
+function getTabIndexFromPath(path: string): number {
+    // Remove trailing slash if present (except for root path)
+    const normalizedPath = path === '/' ? path : path.replace(/\/$/, '');
+    
+    // Handle dynamic routes
+    if (normalizedPath.startsWith('/writings/')) {
+        return routeToIndex['/writings'];
+    }
+    
+    console.log(`Original path: ${path}, Normalized path: ${normalizedPath}, Index: ${routeToIndex[normalizedPath] ?? 0}`);
+    return routeToIndex[normalizedPath] ?? 0;
+}
 
 interface NavTabsProps {
     toggleTheme: () => void;
@@ -147,7 +166,6 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
     const currPathname = usePathname()
     const isMobile = useMediaQuery('(max-width:899px)');
     const [drawerOpen, setDrawerOpen] = React.useState(false);
-    const [tabIndex, setTabIndex] = React.useState(1);
 
     const ThemeToggleButton = () => (
         <IconButton 
@@ -170,16 +188,21 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
     }
 
     const handleChange = (event: React.SyntheticEvent, newIndex: number) => {
-        setTabIndex(newIndex);
         if(isMobile && drawerOpen) {
             toggleDrawer();
         }
     }
 
-    React.useEffect(() => {
-        const tabIndexAsPerRoute = routeToIndex[currPathname] ?? 1;
-        setTabIndex(tabIndexAsPerRoute);
-    }, [currPathname]);
+    const commonTabsProps = {
+        value: getTabIndexFromPath(currPathname),
+        onChange: handleChange,
+        role: "navigation",
+        TabIndicatorProps: {
+            sx: {
+                backgroundColor: 'primary.main',
+            }
+        }
+    };
 
     return (
         <Fade in timeout={500}>
@@ -207,19 +230,16 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
                             </Grid>
                             <Grid sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                                 <Tabs 
-                                    value={tabIndex} 
-                                    onChange={handleChange} 
-                                    role="navigation"
+                                    {...commonTabsProps}
                                     sx={{
                                         '& .MuiTabs-indicator': {
-                                            backgroundColor: 'primary.main',
                                             height: 3,
                                         }
                                     }}
                                 >
-                                    <LinkTab label="Home" href="/" value={1}/>
-                                    <LinkTab label="Writings" href="/writings" value={2}/>
-                                    <LinkTab label="Resume" href="/resume" value={3}/>
+                                    <LinkTab label="Home" href="/" value={0}/>
+                                    <LinkTab label="Writings" href="/writings" value={1}/>
+                                    <LinkTab label="Resume" href="/resume" value={2}/>
                                 </Tabs>
                                 <ThemeToggleButton />
                             </Grid>
@@ -276,22 +296,19 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
                         >
                             <Box sx={{ p: 2 }}>
                                 <Tabs 
-                                    value={tabIndex} 
-                                    onChange={handleChange} 
-                                    role="navigation" 
+                                    {...commonTabsProps}
                                     orientation="vertical"
                                     sx={{
                                         '& .MuiTabs-indicator': {
-                                            backgroundColor: 'primary.main',
                                             width: 3,
                                         }
                                     }}
                                 >
                                     <NameTab label="Utkarsh Khandelwal" sx={{fontSize: 'inherit'}}/>
                                     <Socials />
-                                    <LinkTab label="Home" href="/" value={1}/>
-                                    <LinkTab label="Writings" href="/writings" value={2}/>
-                                    <LinkTab label="Resume" href="/resume" value={3}/>
+                                    <LinkTab label="Home" href="/" value={0}/>
+                                    <LinkTab label="Writings" href="/writings" value={1}/>
+                                    <LinkTab label="Resume" href="/resume" value={2}/>
                                 </Tabs>
                             </Box>
                         </Drawer>

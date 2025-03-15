@@ -9,6 +9,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {useEffect, useState } from 'react';
 import Link from 'next/link'
+import { themeConstants } from '@/theme/constants';
 
 
 //!Declaring the types:
@@ -37,11 +38,13 @@ function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDe
   return (
     <Box sx={{paddingBottom: 2}}>
       <Typography 
-        variant="h6" 
-        color="text.secondary" 
+        variant="h5" 
         sx={{
-          fontWeight: 600,
-          mb: 1
+          fontWeight: 700,
+          mb: 2,
+          background: themeConstants.gradients.text,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
         }}
       >
         {roleHeading}
@@ -78,7 +81,8 @@ function RoleDetailsComponent({roleHeading, location, startDate, endDate, roleDe
               primary={duty}
               sx={{
                 '& .MuiListItemText-primary': {
-                  lineHeight: 1.6
+                  lineHeight: 1.6,
+                  color: 'text.primary'
                 }
               }}
             />
@@ -98,26 +102,30 @@ function CompanyDetailsComponent(props : CompanyInfo) {
         p: { xs: 3, sm: 4 },
         mb: 4,
         borderRadius: 2,
-        background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.05) 30%, rgba(33, 203, 243, 0.05) 90%)',
-        transition: 'all 0.3s ease',
+        background: themeConstants.gradients.primary,
+        transition: themeConstants.transitions.default,
         '&:hover': {
-          background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.08) 30%, rgba(33, 203, 243, 0.08) 90%)',
+          background: themeConstants.gradients.primaryHover,
         }
       }}
     >
       <Typography 
-        variant="h5" 
+        variant="h4" 
         component={Link} 
         href={url} 
         target="_blank" 
         color="inherit" 
         sx={{
-          mb: 3,
+          mb: 2,
           textDecoration: "none",
-          fontWeight: 600,
+          fontWeight: 700,
           display: 'inline-block',
+          background: themeConstants.gradients.text,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
           '&:hover': {
             color: 'primary.main',
+            WebkitTextFillColor: 'initial',
           }
         }}
       >
@@ -244,16 +252,20 @@ export default function Resume() {
               p: { xs: 3, sm: 4 },
               mb: 4,
               borderRadius: 2,
-              background: 'rgba(0, 0, 0, 0.02)',
+              background: themeConstants.gradients.primary,
+              transition: themeConstants.transitions.default,
+              '&:hover': {
+                background: themeConstants.gradients.primaryHover,
+              }
             }}
           >
             <Typography 
-              variant="h4" 
-              gutterBottom
+              variant="h3" 
+              component="h1"
               sx={{ 
+                mb: 2,
                 fontWeight: 700,
-                mb: 3,
-                background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+                background: themeConstants.gradients.text,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -271,16 +283,20 @@ export default function Resume() {
             sx={{ 
               p: { xs: 3, sm: 4 },
               borderRadius: 2,
-              background: 'linear-gradient(45deg, rgba(33, 150, 243, 0.05) 30%, rgba(33, 203, 243, 0.05) 90%)',
+              background: themeConstants.gradients.primary,
+              transition: themeConstants.transitions.default,
+              '&:hover': {
+                background: themeConstants.gradients.primaryHover,
+              }
             }}
           >
             <Typography 
-              variant="h4" 
-              gutterBottom
+              variant="h3" 
+              component="h2"
               sx={{ 
+                mb: 2,
                 fontWeight: 700,
-                mb: 3,
-                background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+                background: themeConstants.gradients.text,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -289,7 +305,17 @@ export default function Resume() {
             </Typography>
             
             <Box sx={{ mb: 4 }}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              <Typography 
+                variant="h5" 
+                gutterBottom 
+                sx={{ 
+                  fontWeight: 700,
+                  mb: 2,
+                  background: themeConstants.gradients.text,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
                 New York University - Courant Institute of Mathematical Sciences
               </Typography>
               <Typography sx={{ color: 'text.secondary', mb: 1 }}>
@@ -301,7 +327,17 @@ export default function Resume() {
             </Box>
 
             <Box>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
+              <Typography 
+                variant="h5" 
+                gutterBottom 
+                sx={{ 
+                  fontWeight: 700,
+                  mb: 2,
+                  background: themeConstants.gradients.text,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
                 Indian Institute of Technology (BHU) Varanasi
               </Typography>
               <Typography sx={{ color: 'text.secondary', mb: 1 }}>
