@@ -187,7 +187,7 @@ export default function NavTabs({ toggleTheme, isDarkMode }: NavTabsProps) {
         setDrawerOpen(!drawerOpen);
     }
 
-    const handleChange = (event: React.SyntheticEvent, newIndex: number) => {
+    const handleChange = () => {
         if(isMobile && drawerOpen) {
             toggleDrawer();
         }

@@ -36,7 +36,7 @@ export default function ArticleContent({ article }: ArticleContentProps) {
                         Article Not Found
                     </Typography>
                     <Typography color="text.secondary" gutterBottom>
-                        The article you're looking for doesn't exist or has been moved.
+                        The article you&apos;re looking for doesn&apos;t exist or has been moved.
                     </Typography>
                     <Link href="/writings" style={{ textDecoration: 'none' }}>
                         <Box sx={{ 
