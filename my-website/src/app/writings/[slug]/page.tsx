@@ -1,6 +1,6 @@
 import { createSlug } from '@/utils/slugify';
-import ArticleContent from '@/app/writings/[slug]/ArticleContent';
-import { ProjectService } from '@/services/projectService';
+import ArticleContent from './ArticleContent';
+import { loadStaticProjects } from '@/services/projectLoader';
 import { Metadata } from 'next';
 
 interface Props {
@@ -8,28 +8,33 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const resolvedParams = await params;
-    const projectService = ProjectService.getInstance();
-    const article = await projectService.getProjectBySlug(resolvedParams.slug);
+    const { slug } = await params;
+    const projects = loadStaticProjects();
+    const article = projects.find(proj => createSlug(proj.heading) === slug);
 
     return {
         title: article?.heading || 'Article Not Found',
-        description: article?.introContent || 'Article not found'
+        description: article?.introContent || 'Article not found',
     };
 }
 
+
+// ✅ Generate all slugs at build time
 export async function generateStaticParams() {
-    const projectService = ProjectService.getInstance();
-    const projects = await projectService.getVisibleProjects();
+    const projects = loadStaticProjects();
     return projects.map((project) => ({
         slug: createSlug(project.heading),
     }));
 }
 
 export default async function Page({ params }: Props) {
-    const resolvedParams = await params;
-    const projectService = ProjectService.getInstance();
-    const article = await projectService.getProjectBySlug(resolvedParams.slug);
+    const { slug } = await params;
+    const projects = loadStaticProjects();
+    const article = projects.find(proj => createSlug(proj.heading) === slug);
+
+    if (!article) {
+        return <div>Article Not Found</div>;
+    }
 
     return <ArticleContent article={article} />;
 }

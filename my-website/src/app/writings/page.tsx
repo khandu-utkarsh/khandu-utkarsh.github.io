@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { Typography, CircularProgress, Fade } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import WCard from "@/components/WritingsCard";
+import { ProjectInterface } from "@/services/projectService";
 import {
     PageContainer,
     ContentContainer,
@@ -15,9 +16,8 @@ import {
     ResponsiveGrid,
     SubHeading
 } from '@/components/styles/Common.styles';
-import { ProjectService, ProjectInterface } from '@/services/projectService';
 
-// Specific styled components for Writings page
+// Styled Components (No Changes)
 const SearchField = styled('input')(({ theme }) => ({
     width: '100%',
     padding: theme.spacing(2),
@@ -54,17 +54,18 @@ const NoResultsContainer = styled(StyledPaper)(({ theme }) => ({
 }));
 
 export default function WritingsPage() {
-    const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-
+    const [projects, setProjects] = useState<ProjectInterface[]>([]);
+    // ✅ Fetch projects from API route
     useEffect(() => {
-        setIsLoading(true);
         const fetchProjects = async () => {
+            setIsLoading(true);
             try {
-                const projectService = ProjectService.getInstance();
-                const allProjects = await projectService.getVisibleProjects();
-                setProjects(allProjects);
+                const response = await fetch('/api/markdown'); // ✅ Fetch from API
+                const projects : ProjectInterface[] = await response.json();
+                 console.log(projects);
+                setProjects(projects);
             } catch (error) {
                 console.error("Error fetching projects:", error);
             } finally {
@@ -74,16 +75,13 @@ export default function WritingsPage() {
         fetchProjects();
     }, []);
 
-    useEffect(() => {
-        const performSearch = async () => {
-            if (searchQuery) {
-                const projectService = ProjectService.getInstance();
-                const searchResults = await projectService.searchProjects(searchQuery);
-                setProjects(searchResults);
-            }
-        };
-        performSearch();
-    }, [searchQuery]);
+    // ✅ Filter projects based on search
+    const filteredProjects = projects?.filter(project =>
+        searchQuery === '' ||
+        project.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.introContent.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
 
     if (isLoading) {
         return (
@@ -120,7 +118,7 @@ export default function WritingsPage() {
                     </Section>
 
                     {/* Content Section */}
-                    {!projects?.length ? (
+                    {!filteredProjects?.length ? (
                         <Fade in timeout={500}>
                             <NoResultsContainer elevation={0}>
                                 <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -133,7 +131,7 @@ export default function WritingsPage() {
                         </Fade>
                     ) : (
                         <ResponsiveGrid>
-                            {projects?.map((project) => (
+                            {filteredProjects?.map((project) => (
                                 <Fade in timeout={500} key={project.heading}>
                                     <div>
                                         <WCard
@@ -160,3 +158,6 @@ export default function WritingsPage() {
         </PageContainer>
     );
 }
+
+// Configure as static page
+export const dynamic = 'force-static';
