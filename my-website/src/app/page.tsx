@@ -117,7 +117,7 @@ export default function Home() {
                             <SubHeading variant="subtitle1">
                                 Software Engineer & Technology Enthusiast
                             </SubHeading>
-                            <Typography variant="body1" color="text.primary">
+                            <Typography variant="body1">
                                 An engineer driven by a deep curiosity for technology and a passion for mathematics.
                             </Typography>
                         </StyledPaper>
@@ -129,12 +129,12 @@ export default function Home() {
                             <GradientHeading variant="h3" component="h2">
                                 About Me
                             </GradientHeading>
-                            <Typography variant="body1" color="text.primary" paragraph>
+                            <Typography variant="body1" paragraph>
                                 I enjoy software development because it fuels my curiosity and satisfies my desire to solve complex problems. 
                                 The ability to create something purely through code is unmatched, making the process both exciting and fulfilling.
                                 I&apos;m currently diving deeper into <b>software engineering</b> and <b>machine learning applications</b>.
                             </Typography>
-                            <Typography variant="body1" color="text.primary">
+                            <Typography variant="body1">
                                 With <b>close to five years of hands-on experience</b>, I have developed software using <b>C++20, TypeScript/JavaScript, Python, Angular, React, Next.js, Qt, Golang, and Elixir</b>, 
                                 while also working within the <b>AWS ecosystem</b>.
                             </Typography>
@@ -154,16 +154,16 @@ export default function Home() {
                             <GradientHeading variant="h3" component="h2">
                                 Beyond Tech
                             </GradientHeading>
-                            <Typography variant="body1" color="text.primary" paragraph>
+                            <Typography variant="body1" paragraph>
                                 I am an <b>outdoor enthusiast</b> with a deep love for <b>biking</b>—a passion I&apos;ve carried since childhood.
                             </Typography>
-                            <Typography variant="body1" color="text.primary" paragraph>
+                            <Typography variant="body1" paragraph>
                                 One of my most memorable rides was a <b>110 km journey</b> from <b>Bellandur in Bangalore to Bangalore Airport</b> and back in 2019.  
                                 The airport staff were <b>shocked</b> to see us arrive by bike, as there was no designated parking for cyclists!  
                                 It was my first long-distance ride—I had <b>zero muscle endurance</b>, and the <b>unusually hot weather</b> made it even tougher.  
                                 But the rewarding experience (and the amazing food at the airport) made it all <b>worthwhile</b>.
                             </Typography>
-                            <Typography variant="body1" color="text.primary">
+                            <Typography variant="body1">
                                 These days, I call <b>Cambridge, Massachusetts</b>, home. I especially love the <b>summers</b> here—the <b>bright sunny days</b>,  
                                 <b>short drives to the beaches</b>, and the <b>proximity to NYC</b> make it an ideal place to live.
                             </Typography>
