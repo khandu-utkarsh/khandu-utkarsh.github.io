@@ -17,7 +17,7 @@ export interface WCardProps {
     linkToArticle?: string;
     keywords? :string[];
     sx? : SxProps;
-
+    content?: string;
 }
 
 
@@ -27,6 +27,7 @@ export default function WCard({
     introContent, 
     keywords, 
     linkToArticle,
+    content,
     sx 
 }: WCardProps) {
     const cardContent = (

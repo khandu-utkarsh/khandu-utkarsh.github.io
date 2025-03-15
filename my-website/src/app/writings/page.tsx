@@ -16,6 +16,8 @@ import {
     SubHeading
 } from '@/components/styles/Common.styles';
 
+import { createSlug } from "@/utils/slugify";
+
 // Specific styled components for Writings page
 const SearchField = styled('input')(({ theme }) => ({
     width: '100%',
@@ -60,7 +62,41 @@ interface ProjectInterface {
     type: string;
     link: string;
     toBeDisplayed: boolean;
+    content: string;
 }
+
+const fetchProjectContent = async (): Promise<ProjectInterface[]> => {
+    // Fetch project details
+    const response = await fetch("/projectDetails.json");
+    if (!response.ok) throw new Error("Failed to fetch projects");
+
+    const data = await response.json();
+    let projects: ProjectInterface[] = data.projects;
+
+    // Use `Promise.all` to wait for all markdown fetches to complete
+    projects = await Promise.all(
+        projects.map(async (project: ProjectInterface) => {
+            const slug = createSlug(project.heading);
+            try {
+                const response = await fetch(`/projectMarkdown/${slug}.md`);
+                if (response.ok) {
+                    project.content = await response.text();
+                } else {
+                    project.content = "Content not available.";
+                }
+                //!TODO: Remove this, once things are ready.
+                //!For testing purposes, setting link to undefined
+                project.link = "";
+            } catch (error) {
+                console.error(`Error fetching content for ${slug}:`, error);
+                project.content = "Error loading content.";
+            }
+            return project; // Return updated project
+        })
+    );
+    return projects;
+};
+
 
 export default function WritingsPage() {
     const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
@@ -69,13 +105,9 @@ export default function WritingsPage() {
 
     useEffect(() => {
         setIsLoading(true);
-        fetch("/projectDetails.json")
-            .then((response) => {
-                if (!response.ok) throw new Error("Failed to fetch projects");
-                return response.json();
-            })
-            .then((data) => {
-                setProjects(data.projects);
+        fetchProjectContent()
+            .then((projects) => {
+                setProjects(projects);
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -150,6 +182,7 @@ export default function WritingsPage() {
                                             introContent={project.introContent}
                                             linkToArticle={project.link}
                                             keywords={project.keywords}
+                                            content={project.content}
                                             sx={{
                                                 transition: 'all 0.3s ease',
                                                 '&:hover': {

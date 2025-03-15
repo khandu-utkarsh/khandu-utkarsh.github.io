@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/types/*"]
+    },
+    "allowJs": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*", "src/**/*.json"],
+  "exclude": ["node_modules"]
+} 
