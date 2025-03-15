@@ -12,27 +12,37 @@ import {
     SubHeading
 } from '@/components/styles/Common.styles';
 import { styled } from '@mui/material/styles';
+import React from 'react';
 
 // Carousel specific styled components can be moved to Common.styles.tsx if needed elsewhere
 const CarouselBox = styled(Box)(({ theme }) => ({
     width: '100%',
-    height: '500px',
+    height: '450px',
     position: 'relative',
     borderRadius: theme.shape.borderRadius * 2,
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: theme.spacing(-1),
+    '& .MuiIconButton-root': {
+        color: theme.palette.common.white,
+        backgroundColor: themeConstants.colors.overlayLight,
+        transition: themeConstants.transitions.quick,
+        zIndex: 2,
+        transform: 'translateY(20px)',
+        '&:hover': {
+            backgroundColor: themeConstants.colors.overlay,
+        }
+    }
 }));
 
-const ImageOverlay = styled(Box)(({ theme }) => ({
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    background: themeConstants.gradients.overlay,
-    color: theme.palette.common.white,
-    padding: theme.spacing(2.5),
-    zIndex: 1,
+const CaptionBox = styled(Box)(({ theme }) => ({
+    textAlign: 'center',
+    marginTop: 0,
+    padding: 0,
 }));
 
 function ImageCarousel() {
+    const [activeStep, setActiveStep] = React.useState(0);
     const items = [
         {
             image: "/images/meInAtlanticCity.jpg",
@@ -45,58 +55,51 @@ function ImageCarousel() {
     ];
 
     return (
-        <CarouselBox>
-            <Carousel
-                animation="fade"
-                autoPlay={true}
-                indicators={true}
-                interval={4000}
-                navButtonsAlwaysVisible={true}
-                sx={{
-                    width: '100%',
-                    height: '100%',
-                    '& .MuiIconButton-root': {
-                        color: 'white',
-                        backgroundColor: themeConstants.colors.overlayLight,
-                        transition: themeConstants.transitions.quick,
-                        '&:hover': {
-                            backgroundColor: themeConstants.colors.overlay,
-                        }
-                    }
-                }}
-            >
-                {items.map((item, index) => (
-                    <Box
-                        key={index}
-                        sx={{
-                            width: '100%',
-                            height: '400px',
-                            position: 'relative',
-                            backgroundColor: 'grey.100',
-                        }}
-                    >
-                        <Image 
-                            src={item.image} 
-                            alt={item.caption}
-                            fill
-                            priority={index === 0}
-                            sizes="100vw"
-                            style={{
-                                objectFit: 'cover',
-                                objectPosition: 'center',
+        <Box>
+            <CarouselBox>
+                <Carousel
+                    animation="fade"
+                    autoPlay={true}
+                    indicators={true}
+                    interval={4000}
+                    navButtonsAlwaysVisible={true}
+                    onChange={(now) => setActiveStep(now)}
+                >
+                    {items.map((item, index) => (
+                        <Box
+                            key={index}
+                            sx={{
                                 width: '100%',
-                                height: '100%',
+                                height: '400px',
+                                position: 'relative',
+                                backgroundColor: 'grey.100',
+                                borderRadius: 2,
+                                overflow: 'hidden',
                             }}
-                        />
-                        <ImageOverlay>
-                            <GradientHeading variant="h6">
-                                {item.caption}
-                            </GradientHeading>
-                        </ImageOverlay>
-                    </Box>
-                ))}
-            </Carousel>
-        </CarouselBox>
+                        >
+                            <Image 
+                                src={item.image} 
+                                alt={item.caption}
+                                fill
+                                priority={index === 0}
+                                sizes="100vw"
+                                style={{
+                                    objectFit: 'cover',
+                                    objectPosition: 'center',
+                                }}
+                            />
+                        </Box>
+                    ))}
+                </Carousel>
+            </CarouselBox>
+            <Fade in timeout={300}>
+                <CaptionBox>
+                    <GradientHeading variant="h6">
+                        {items[activeStep].caption}
+                    </GradientHeading>
+                </CaptionBox>
+            </Fade>
+        </Box>
     );
 }
 
