@@ -106,7 +106,7 @@
             "keywords": ["quant", "statistics", "econometrics", "Python"],
             "type": "implementation",
             "link": "https://utkarshkhandelwal.substack.com/p/equity-market-modeling-and-analysis",
-            "toBeDisplayed": false
+            "toBeDisplayed": true
         },        
         {
             "heading": "Semantic image segmentation of satellite images using U-Net CNN architectures",
@@ -115,7 +115,7 @@
             "keywords": ["computer vision", "segmentation", "PyTorch", "CNN"],
             "type":"implementation",
             "link": "https://utkarshkhandelwal.substack.com/p/semantic-image-segmentation-of-satellite",
-            "toBeDisplayed": false
+            "toBeDisplayed": true
         },
         {
             "heading": "Implementation and analysis of various Monte Carlo sampling algorithms",
@@ -124,7 +124,7 @@
             "keywords": ["statistics", "Python", "sampling techniques", "mcmc"],
             "type": "implementation",
             "link": "https://utkarshkhandelwal.substack.com/p/implementation-of-monte-carlo-sampling",
-            "toBeDisplayed": false
+            "toBeDisplayed": true
         },
         {
             "heading": "Experimentation with Incorporating Causal Inference in Recommendation Systems",
@@ -133,7 +133,7 @@
             "keywords": ["machine learning", "recommendation systems", "PyTorch", "Python"],
             "type": "implementation",
             "link": "https://utkarshkhandelwal.substack.com/p/incorporating-causal-inference-into",
-            "toBeDisplayed": false
+            "toBeDisplayed": true
         },
         {
             "heading": "2D graphics interactive editor",
@@ -142,13 +142,12 @@
             "keywords": ["computer graphics", "rasterization", "C++"],
             "type": "implementation",
             "link": "https://utkarshkhandelwal.substack.com/p/desktop-application-for-2d-graphics",
-            "toBeDisplayed": false
+            "toBeDisplayed": true
         },
         {
             "heading": "Building a Modern Portfolio with Next.js and Material-UI",
             "date": "March 15, 2024",
             "introContent": "A detailed walkthrough of creating a responsive portfolio website using Next.js 14, Material-UI, and modern React practices.",
-            "content": "# Building a Modern Portfolio\n\nIn this article, I'll share my experience building a modern portfolio website using Next.js and Material-UI.\n\n## Why Next.js and Material-UI?\n\nNext.js provides an excellent foundation for building React applications with features like:\n\n- Server-side rendering\n- Automatic route pre-fetching\n- Built-in image optimization\n- API routes\n\n## Key Features\n\nThe portfolio includes several key features that enhance the user experience and showcase modern web development practices.",
             "keywords": ["Next.js", "Material-UI", "React"],
             "type": "technical",
             "toBeDisplayed": true
