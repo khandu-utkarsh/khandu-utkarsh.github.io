@@ -11,7 +11,7 @@ implementation
 ---
 
 ## Intro
-My understanding of the frontend development process, particularly with React, and how it integrates with the Next.js framework.
+I have been delving into the world of frontend development lately, and this document serves as a record of everything I have explored. Most of my time experimenting with frontend technologies has been focused on Next.js, React, and Material UI.
 ---
 
 ## Keywords
@@ -28,5 +28,5 @@ My understanding of the frontend development process, particularly with React, a
 ---
 
 ## Content
-My understanding of the frontend development process, particularly with React, and how it integrates with the Next.js framework.
+
 ---

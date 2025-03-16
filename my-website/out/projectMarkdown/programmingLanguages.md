@@ -11,7 +11,7 @@ article
 ---
 
 ## Intro
-This article contains my understanding of programming languages and a comparison of different features found in each of them. This is an ongoing study, and I continue to update it with any new findings.
+The article is a compilation of my experiments with different programming languages, exploring their peculiarities, functionalities, and differences.
 ---
 
 ## Keywords
@@ -27,5 +27,4 @@ This article contains my understanding of programming languages and a comparison
 ---
 
 ## Content
-This article contains my understanding of programming languages and a comparison of different features found in each of them. This is an ongoing study, and I continue to update it with any new findings.
 ---

@@ -1,5 +1,5 @@
 ## Heading
-Understanding the Components of Software Systems
+A Structured Framework for Designing Scalable Distributed Systems
 ---
 
 ## Date
@@ -7,11 +7,11 @@ Jan 2025
 ---
 
 ## Type
-implementation
+article
 ---
 
 ## Intro
-My compilation of the study of typical components of distributed software systems. I will keep it updated with all my insights.
+This article presents the structured framework I have developed for addressing fundamental questions in the design of highly available and scalable systems. 
 ---
 
 ## Keywords
@@ -24,5 +24,4 @@ https://utkarshkhandelwal.substack.com/p/understanding-the-components-of-softwar
 ---
 
 ## Content
-My compilation of the study of typical components of distributed software systems. I will keep it updated with all my insights.
 ---
