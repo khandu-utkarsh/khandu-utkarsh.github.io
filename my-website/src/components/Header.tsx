@@ -16,9 +16,6 @@ interface LinkTabProps {
 
 function LinkTab(props: LinkTabProps) {
     const { label, href, value, ...rest } = props;
-    const pathname = usePathname();
-    const isActive = pathname === href || (href !== '/' && pathname.startsWith(href || ''));
-    
     return (
         <Tab 
             label={label} 

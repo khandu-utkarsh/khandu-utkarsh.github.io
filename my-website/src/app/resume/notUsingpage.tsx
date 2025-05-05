@@ -1,5 +1,6 @@
 "use client"
 
+/*
 import { Typography, Divider, ListItemIcon, Fade, CircularProgress, Box } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -128,7 +129,9 @@ function EducationDetailsComponent({
         </Box>
     );
 }
+*/
 
+/*
 export default function Resume() {
     const [content, setContent] = useState<jsonFileContent | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -176,7 +179,7 @@ export default function Resume() {
                 <ContentContainer>
                     <Section>
                         <FlexBetween>
-                            <div /> {/* Empty div for spacing */}
+                            <div /> 
                             <GradientButton
                                 variant="contained"
                                 startIcon={<DownloadIcon />}
@@ -230,3 +233,4 @@ export default function Resume() {
         </PageContainer>
     );
 }
+*/

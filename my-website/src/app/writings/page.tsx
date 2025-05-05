@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Typography, CircularProgress, Box, InputBase, Link } from '@mui/material';
+import { Typography, CircularProgress, Box, InputBase } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import { ProjectInterface } from "@/services/projectLoader";
@@ -36,7 +36,7 @@ const SearchField = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-const LoadingContainer = styled(Box)(({ theme }) => ({
+const LoadingContainer = styled(Box)(({  }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

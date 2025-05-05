@@ -1,6 +1,5 @@
 "use client"
 
-import React, { JSX } from 'react';
 import { Box, Typography, Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
