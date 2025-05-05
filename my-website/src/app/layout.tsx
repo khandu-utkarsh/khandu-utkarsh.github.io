@@ -42,21 +42,27 @@ export default function RootLayout({
       <body>
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
           <CssBaseline />
-          <Container className="globalContainer">
+          <Container 
+            sx={{  
+              display: 'flex',
+              flexDirection: 'column',  
+              minHeight: '100vh' 
+            }}
+          >
             <Header toggleTheme={toggleTheme} isDarkMode={darkMode} />
             <Box 
-              className="content" 
+              component="main"
               sx={{
                 padding: {xs: 1, sm: 5},
                 backgroundColor: "background.default",
                 color: "text.primary",
-                minHeight: '100vh',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                flexGrow: 1,
               }}
             >
               {children}
             </Box>
-            <Footer className="footer"/>
+            <Footer />
           </Container>
         </ThemeProvider>
       </body>

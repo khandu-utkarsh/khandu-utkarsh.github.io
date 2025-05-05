@@ -1,139 +1,81 @@
-import { createTheme} from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { themeConstants } from './constants';
 
-declare module '@mui/material/styles' {
-    interface Theme {
-        customGradients: {
-            primary: string;
-            primaryHover: string;
-            text: string;
-            overlay: string;
-        };
-    }
-    interface ThemeOptions {
-        customGradients?: {
-            primary: string;
-            primaryHover: string;
-            text: string;
-            overlay: string;
-        };
-    }
-}
-
-const baseTheme = {
-    customGradients: themeConstants.gradients,
-    components: {
-        MuiPaper: {
-            styleOverrides: {
-                root: {
-                    backgroundImage: themeConstants.gradients.primary,
-                    transition: themeConstants.transitions.default,
-                    '&:hover': {
-                        backgroundImage: themeConstants.gradients.primaryHover,
-                    },
-                },
-            },
-        },
-    },
-};
-
-const themeColors = {
-  // Dark theme colors
-  darkPalette: {
-    primary: '#2a2d37',      // Dark Grayish Blue
-    secondary: '#2b2e38',    // Slightly Darker Blue-Gray
-    background: '#2a2e38',   // Deep Blue-Gray
-    surface: '#2a2d38',      // Muted Blue-Gray
-    accent: '#2a2d36',       // Subtle Dark Gray
-  },
-  // Light theme colors - more neutral tones
-  lightPalette: {
-    primary: '#ffffff',      // Pure White
-    secondary: '#f5f5f5',    // Light Gray
-    background: '#ffffff',   // White
-    surface: '#fafafa',      // Very Light Gray
-    accent: '#e0e0e0',      // Medium Light Gray
-    text: '#2d3436',        // Dark Gray (for text)
-  },
-  // Common colors for both themes
-  common: {
-    blue: '#2196F3',        // Accent Blue (from your favicon)
-    lightBlue: '#64B5F6',   // Light Accent
-    darkBlue: '#1976D2',    // Dark Accent
-    gray: {
-      100: '#f5f5f5',
-      200: '#eeeeee',
-      300: '#e0e0e0',
-      400: '#bdbdbd',
-      500: '#9e9e9e',
-    }
-  }
-};
-
-const commonComponents = {
-    MuiTextField: {
-        styleOverrides: {
-            root: {
-                '& .MuiOutlinedInput-root': {
-                    transition: themeConstants.transitions.quick,
-                    '& fieldset': {
-                        borderColor: 'transparent',
-                    },
-                    '&:hover fieldset': {
-                        borderColor: themeConstants.colors.primary,
-                    },
-                    '&.Mui-focused fieldset': {
-                        borderColor: themeConstants.colors.primary,
-                        borderWidth: '2px',
-                    },
-                },
-            },
-        },
-    },
-};
 
 export const lightTheme = createTheme({
-    ...baseTheme,
     palette: {
         mode: 'light',
         primary: {
-            main: themeConstants.colors.primary,
-        },
-        secondary: {
-            main: themeConstants.colors.secondary,
+            main: themeConstants.textColors.primaryLight,
         },
         background: {
-            default: themeColors.lightPalette.background,
-            paper: themeColors.lightPalette.surface,
+            default: themeConstants.backgroundColors.primaryLight,
+            paper: themeConstants.backgroundColors.primaryLight,
         },
         text: {
-            primary: themeColors.lightPalette.text,
-            secondary: '#636e72',
+            primary: themeConstants.textColors.primaryLight,
         },
     },
     components: {
-        ...baseTheme.components,
-        ...commonComponents,
+        //!Setting the them overrides for the MUI TextField component
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    '& .MuiOutlinedInput-root': {
+                        transition: themeConstants.transitions.quick,
+                        '& fieldset': {
+                            borderColor: 'transparent',
+                        },
+                        /*
+                        '&:hover fieldset': {
+                            borderColor: themeConstants.textColors.primaryLight,
+                        },
+                        '&.Mui-focused fieldset': {
+                            borderColor: themeConstants.textColors.primaryLight,
+                            borderWidth: '2px',
+                        },
+                        */
+                    },
+                },
+            },
+        },
+        //!Setting the them overrides for the MUI Paper component
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: themeConstants.backgroundColors.primaryLight,
+                    transition: themeConstants.transitions.default,
+                    /*
+                    '&:hover': {
+                        backgroundColor: themeConstants.backgroundColors.primaryDark,
+                    },
+                    */
+                },
+            },
+        },
+        //!Setting the them overrides for the MUI AppBar component
         MuiAppBar: {
             styleOverrides: {
                 root: {
-                    backgroundColor: themeColors.lightPalette.surface,
-                    color: themeColors.lightPalette.text,
+                    backgroundColor: themeConstants.backgroundColors.primaryLight,
+                    color: themeConstants.textColors.primaryLight,
                     boxShadow: 'none',
-                    borderBottom: `1px solid ${themeColors.common.gray[300]}`,
+                    borderBottom: `1px solid #eaeaea`,
                 },
             },
         },
+        //!Setting the them overrides for the MUI Card component
         MuiCard: {
             styleOverrides: {
                 root: {
-                    backgroundColor: themeColors.lightPalette.surface,
+                    backgroundColor: themeConstants.backgroundColors.primaryLight,
                     borderRadius: '12px',
-                    border: `1px solid ${themeColors.common.gray[200]}`,
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                    border: `1px solid #eaeaea`,
+                    boxShadow: 'none',
                 },
             },
         },
+        //!Setting the them overrides for the MUI Button component
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -141,11 +83,12 @@ export const lightTheme = createTheme({
                 },
             },
         },
+        //!Setting the them overrides for the MUI Tabs component
         MuiTabs: {
             styleOverrides: {
                 root: {
                     '& .MuiTab-root': {
-                        color: themeColors.lightPalette.text,
+                        color: themeConstants.textColors.primaryLight,
                     },
                 },
             },
@@ -157,45 +100,79 @@ export const lightTheme = createTheme({
 });
 
 export const darkTheme = createTheme({
-    ...baseTheme,
     palette: {
         mode: 'dark',
         primary: {
-            main: themeConstants.colors.primary,
-        },
-        secondary: {
-            main: themeConstants.colors.secondary,
+            main: themeConstants.textColors.primaryDark,
         },
         background: {
-            default: themeColors.darkPalette.background,
-            paper: themeColors.darkPalette.surface,
+            default: themeConstants.backgroundColors.primaryDark,
+            paper: themeConstants.backgroundColors.primaryDark,
         },
         text: {
-            primary: '#ffffff',
-            secondary: '#b0b8c4',
+            primary: themeConstants.textColors.primaryDark,
         },
     },
     components: {
-        ...baseTheme.components,
-        ...commonComponents,
+        //!Setting the them overrides for the MUI TextField component
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    '& .MuiOutlinedInput-root': {
+                        transition: themeConstants.transitions.quick,
+                        '& fieldset': {
+                            borderColor: 'transparent',
+                        },
+                        /*
+                        '&:hover fieldset': {
+                            borderColor: themeConstants.textColors.primary,
+                        },
+                        '&.Mui-focused fieldset': {
+                            borderColor: themeConstants.textColors.primary,
+                            borderWidth: '2px',
+                        },
+                        */
+                    },
+                },
+            },
+        },
+        //!Setting the them overrides for the MUI Paper component
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: themeConstants.backgroundColors.primaryDark,
+                    transition: themeConstants.transitions.default,
+                    /*
+                    '&:hover': {
+                        backgroundColor: themeConstants.backgroundColors.primaryDark,
+                    },
+                    */
+                },
+            },
+        },
+        //!Setting the them overrides for the MUI AppBar component
         MuiAppBar: {
             styleOverrides: {
                 root: {
-                    backgroundColor: themeColors.darkPalette.surface,
+                    backgroundColor: themeConstants.backgroundColors.primaryDark,
+                    color: themeConstants.textColors.primaryDark,
                     boxShadow: 'none',
-                    borderBottom: `1px solid ${themeColors.darkPalette.accent}`,
+                    borderBottom: `1px solid #222`,
                 },
             },
         },
+        //!Setting the them overrides for the MUI Card component
         MuiCard: {
             styleOverrides: {
                 root: {
-                    backgroundColor: themeColors.darkPalette.surface,
+                    backgroundColor: themeConstants.backgroundColors.primaryDark,
                     borderRadius: '12px',
-                    border: `1px solid ${themeColors.darkPalette.accent}`,
+                    border: `1px solid #222`,
+                    boxShadow: 'none',
                 },
             },
         },
+        //!Setting the them overrides for the MUI Button component
         MuiButton: {
             styleOverrides: {
                 root: {
