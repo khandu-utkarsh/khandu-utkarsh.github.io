@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import { ProjectInterface } from "@/services/projectLoader";
 import { formatDate } from "@/utils/dateString";
+import { createSlug } from "@/utils/slugify";
 import NextLink from 'next/link';
 
 const PageContainer = styled(Box)(({ theme }) => ({
@@ -59,13 +60,6 @@ const DateText = styled(Typography)(({ theme }) => ({
     color: theme.palette.text.secondary,
     fontSize: '0.9rem',
 }));
-
-function createSlug(text: string): string {
-    return text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
-}
 
 export default function WritingsPage() {
     const [searchQuery, setSearchQuery] = useState('');
