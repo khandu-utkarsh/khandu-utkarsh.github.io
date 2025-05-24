@@ -157,7 +157,7 @@ export default function WritingsPage() {
                         color: 'text.secondary',
                     }}
                 >
-                    Explore my technical articles and implementations
+                    Explore my very random articles, opinions and thoughts and experiences.
                 </Typography>
             </Section>
 
