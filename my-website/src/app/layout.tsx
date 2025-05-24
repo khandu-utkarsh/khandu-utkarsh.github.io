@@ -8,10 +8,14 @@ import '@fontsource/roboto/700.css';
 import { ReactNode, useState, useEffect } from "react";
 import Header from "@/components/Header"
 import Footer from '@/components/Footer';
+import Script from 'next/script';
 
 import { Box, Container, CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from '@/theme/theme';
+
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = 'G-8FWRJLTF5J';
 
 export default function RootLayout({
   children,
@@ -37,6 +41,20 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Software Engineer" />
         <link rel="icon" href="/favicon.png?v=1" type="image/png" sizes="32x32" />
+        
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </head>
       <body>
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
