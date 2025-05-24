@@ -6,7 +6,6 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import { ReactNode, useState, useEffect } from "react";
-import "./globals.css";
 import Header from "@/components/Header"
 import Footer from '@/components/Footer';
 

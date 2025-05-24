@@ -42,6 +42,16 @@ const Content = styled(Box)(({ theme }) => ({
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(2),
     },
+    '& ul, & ol': {
+        color: theme.palette.text.secondary,
+        fontSize: '1.1rem',
+        lineHeight: 1.7,
+        marginBottom: theme.spacing(3),
+        paddingLeft: theme.spacing(3),
+    },
+    '& li': {
+        marginBottom: theme.spacing(1),
+    },
     '& code': {
         backgroundColor: theme.palette.background.paper,
         padding: '0.2em 0.4em',
@@ -68,6 +78,19 @@ interface ArticleContentProps {
     article: ProjectInterface;
 }
 
+// Utility function to count words in markdown content
+const countWords = (text: string): number => {
+    if (!text) return 0;
+    // Remove markdown syntax and count words
+    const cleanText = text
+        .replace(/[#*`\[\]()]/g, '') // Remove common markdown characters
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim();
+    
+    if (!cleanText) return 0;
+    return cleanText.split(' ').filter(word => word.length > 0).length;
+};
+
 export default function ArticleContent({ article }: ArticleContentProps) {
     return (
         <PageContainer>
@@ -91,15 +114,20 @@ export default function ArticleContent({ article }: ArticleContentProps) {
                     {article.heading}
                 </Typography>
 
-                {/* Date */}
+                {/* Date and Word Count */}
                 <Typography 
                     variant="body2" 
                     sx={{ 
                         color: 'text.secondary',
                         mb: 4,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
                     }}
                 >
-                    {formatDate(article.date)}
+                    <span>{formatDate(article.date)}</span>
+                    <span>•</span>
+                    <span>{countWords(article.content || article.introContent)} words</span>
                 </Typography>
 
                 {/* Article Content */}

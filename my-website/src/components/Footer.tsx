@@ -2,13 +2,14 @@
 
 import * as React from 'react';
 import { PropsWithChildren } from "react";
-import { Grid, Typography, IconButton } from '@mui/material';
+import { Typography, IconButton, Box } from '@mui/material';
 
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 interface FooterProps {
     className?: string;
@@ -35,49 +36,54 @@ function IconTab({href, children} : PropsWithChildren<{ href: string }>) {
 
 function Socials() {
     return (    
-        <Grid container direction="row" spacing={1} justifyContent="center">
-            <Grid item>
+        <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+            <Box>
                 <IconTab href="mailto:utkarshkhandelwal2011@gmail.com">
                     <ForwardToInboxIcon fontSize="small"/>
                 </IconTab>
-            </Grid>
-            <Grid item>
+            </Box>
+            <Box>
                 <IconTab href="https://github.com/khandu-utkarsh">
                     <GitHubIcon fontSize="small"/>
                 </IconTab>
-            </Grid>
-            <Grid item>
+            </Box>
+            <Box>
                 <IconTab href="https://www.linkedin.com/in/utkarshkhandelwal52">
                     <LinkedInIcon fontSize="small"/>
                 </IconTab>
-            </Grid>
-            <Grid item>
+            </Box>
+            <Box>
                 <IconTab href="https://x.com/utkarsh52">
                     <XIcon fontSize="small"/>
                 </IconTab>
-            </Grid>
-        </Grid>
+            </Box>
+            <Box>
+                <IconTab href="https://www.instagram.com/twodotsonedash.me/">
+                    <InstagramIcon fontSize="small"/>
+                </IconTab>
+            </Box>
+        </Box>
     )
 }
 
 export default function Footer({className} : PropsWithChildren<FooterProps>) {
     return (
-        <Grid 
-            container 
-            direction="column" 
-            spacing={2}
+        <Box 
             className={className} 
             sx={{
                 py: 4,
                 px: 2,
                 maxWidth: '100%',
                 margin: '0 auto',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
             }}
         >
-            <Grid item>
+            <Box>
                 <Socials />
-            </Grid>
-            <Grid item>
+            </Box>
+            <Box>
                 <Typography 
                     variant="body2" 
                     color="text.secondary" 
@@ -94,7 +100,7 @@ export default function Footer({className} : PropsWithChildren<FooterProps>) {
                     /> 
                     in Cambridge
                 </Typography>
-            </Grid>
-        </Grid>
+            </Box>
+        </Box>
     );
 }
